@@ -1,12 +1,52 @@
-<!DOCTYPE html>
+<?php
+/**
+ * Cette bilbliotheque a été crée pour confiner les informations de connexion 
+ * a la base de donnée en dehors de la visibilité de l'alais du serveur Apache
+ * Comme cela si suite a un deny de service qui aurait laisser seulement le serveur apache opérationnel
+ * la page brut de php que verrait l'utilisateur n'aura pas les identifiants en base de donnée
+ */
+require_once '../lib/bib_connect.php';
+
+/**
+ * Cette bibliotheque est prevu pour avoir les fonctions de base pour les interrog et mise en mise a jour
+ * en base de donnée
+ * A savoir interrogation Muti Record et Mone Record
+ * Creation / modification / suppression de record 
+ * Gestion des transactions au sens du Begin transaction et du commit transaction
+ *
+ */
+require_once '../lib/bib_sql.php';
+
+require_once '../bibappli/lib_metier.php';
+
+$reqPrestation = getPrestation($pdo,"RP");
+
+$sql = "SELECT * FROM marque  ";
+$reqMarque = getRequeteSql($pdo,$sql);
+
+
+?><!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Garage Vincent Parrot</title>
-    <link
+<!--    <link
       rel="stylesheet"
       href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+-->
+    <link
+      rel="stylesheet"
+      href="css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="js/bootstrap.bundle.min.js"
+    />
+<link
+      rel="stylesheet"
+      href="js/jquery.min.js"
     />
 
     <style>
@@ -103,21 +143,15 @@
     <select name="from_home_modele[]" class="form-control custom-select"> 
     <!-- Pr avoir le v check, mettre fieldset > legend ou label > select > option -->
     <option value="Selection">Sélectionnez votre marque</option>
-        <option value="ABARTH">ABARTH</option>
-        <option value="AUDI">AUDI</option>
-        <option value="BMW">BMW</option>
-        <option value="FIAT">FIAT</option>
-        <option value="FORD">FORD</option>
-        <option value="MERCEDES">MERCEDES</option>
-        <option value="MINI">MINI</option>
-        <option value="PEUGEOT">PEUGEOT</option>
-        <option value="RENAULT">RENAULT</option>
+        <?php foreach($reqMarque as $raw){ ?>
+        <option value="<?=$raw["code"]?>"><?=$raw["libelle"]?></option>  
+        <?php } ?>
       </select>
       <select name="from_home_modele[]" class="form-control custom-select">
         <option value="">Réparations</option>
-        <option value="carrosserie">Carrosserie</option>
-        <option value="mecanique">Mécanique</option>
-        <option value="entretien">Entretien</option>
+        <?php foreach($reqPrestation as $raw){ ?>
+          <option value="<?=$raw["code"]?>"><?=$raw["libelle"]?></option>  
+        <?php } ?>
       </select> 
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -173,7 +207,9 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="app.js"></script>
+    -->
   </body>
 </html>
