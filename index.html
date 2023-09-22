@@ -36,9 +36,9 @@
         outline: none;
         cursor: pointer;
         margin-right: 20px;
-        appearance: none; /* Supprime la flèche de la liste déroulante sur certains navigateurs */
-        -webkit-appearance: none; /* Safari and Chrome */
-        -moz-appearance: none; /* Firefox */
+        /*appearance: none; /* Supprime la flèche de la liste déroulante sur certains navigateurs */
+        /*-webkit-appearance: none; /* Safari and Chrome */
+        /*-moz-appearance: none; /* Firefox */
         /*background-image: url('path_to_your_custom_arrow.png'); /* flèche personnalisée */
         background-repeat: no-repeat;
         background-position: right center;
@@ -59,7 +59,7 @@
         min-height: 200px;
       }
       .garage-text {
-        font-size: 140%;
+        font-size: 240%;
       }
     </style>
   </head>
@@ -68,7 +68,7 @@
       <div class="container-fluid d-flex nav-container">
         <a class="navbar-brand large-margin" href="index.html">
           <img
-            src="./assets/image-voiture garage removebg-preview.png"
+            src="./web/assets/image-voiture garage removebg-preview.png"
             alt="Logo du garage"
             width="230"
             class="d-inline-block align-text-top"
@@ -98,14 +98,14 @@
     >
       TROUVEZ <span style="color: #430d25">VOTRE PROCHAIN VÉHICULE</span>
     </div>
-    <div class="dropdown">
-  
-    <select name="from_home_modele[]" class="form-control custom-select"> 
-    <!-- Pr avoir le v check, mettre fieldset > legend ou label > select > option -->
-    <option value="Selection">Sélectionnez votre marque</option>
-        <option value="ABARTH">ABARTH</option>
-        <option value="AUDI">AUDI</option>
-        <option value="BMW">BMW</option>
+    <div class="container text-center">
+  <div class="row">
+  <div class="col-md-6 mb-3">
+    <select name="from_home_modele[]" id="marque" class="form-control custom-select">
+      <option value="Selection">Sélectionnez votre marque</option>
+      <option value="ABARTH">ABARTH</option>
+      <option value="AUDI">AUDI</option>
+      <option value="BMW">BMW</option>
         <option value="FIAT">FIAT</option>
         <option value="FORD">FORD</option>
         <option value="MERCEDES">MERCEDES</option>
@@ -113,12 +113,20 @@
         <option value="PEUGEOT">PEUGEOT</option>
         <option value="RENAULT">RENAULT</option>
       </select>
-      <select name="from_home_modele[]" class="form-control custom-select">
-        <option value="">Réparations</option>
-        <option value="carrosserie">Carrosserie</option>
-        <option value="mecanique">Mécanique</option>
-        <option value="entretien">Entretien</option>
-      </select> 
+  </div>
+
+  <div class="col-md-6 mb-6">
+    <select name="from_home_modele[]" id="reparations" class="form-control custom-select">
+      <option value="">Réparations</option>
+      <option value="carrosserie">Carrosserie</option>
+      <option value="mecanique">Mécanique</option>
+      <option value="entretien">Entretien</option>
+    </select>
+  </div>
+</div>
+  <div class="bg-body height-custom text-center"style="font-size: 2em">
+      DÉCOUVREZ NOS <span style="color: #430d25">SÉLECTIONS DE VÉHICULES</span>
+    </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
       <li class="ms-3">
@@ -158,15 +166,15 @@
         >
       </div>
       <div class="d-flex justify-content-end">
-        <img class="ms-3" src="assets/linkedin-112.png" alt="logo linkedin" />
+        <img class="ms-3" src="./web/assets/linkedin-112.png" alt="logo linkedin" />
         <img
           class="ms-3"
-          src="assets/black-instagram-transparent-logo-10671.png"
+          src="./web/assets/black-instagram-transparent-logo-10671.png"
           alt="Logo instagram"
         />
         <img
           class="ms-3"
-          src="assets/facebook-logo-108.png"
+          src="./web/assets/facebook-logo-108.png"
           alt="Logo facebook"
         />
       </div>
