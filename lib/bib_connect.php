@@ -1,11 +1,12 @@
 <?php
+//https://phpdelusions.net/pdo_examples/connect_to_mysql
 $host = '127.0.0.1';
 $db   = 'garage';
 $user = 'root';
 $pass = 'Azerty1&';
 $port = "3306";
 $charset = 'utf8mb4';
-
+//Pour se connecter à une base de donnée MySql
 $options = [
     \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
     \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,

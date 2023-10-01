@@ -19,197 +19,148 @@ require_once '../lib/bib_sql.php';
 
 require_once '../bibappli/lib_metier.php';
 
-$reqPrestation = getPrestation($pdo,"RP");
-
-$sql = "SELECT * FROM marque  ";
-$reqMarque = getRequeteSql($pdo,$sql);
-
-
-?><!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Garage Vincent Parrot</title>
-<!--    <link
-      rel="stylesheet"
-      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
--->
-    <link
-      rel="stylesheet"
-      href="css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="js/bootstrap.bundle.min.js"
-    />
-<link
-      rel="stylesheet"
-      href="js/jquery.min.js"
-    />
-
-    <style>
-      .large-margin {
-        margin-left: 100px;
-      }
-      .centered-nav-items {
-        text-align: center;
-      }
-      .centered-nav-items .nav-item {
-        display: inline-block;
-      }
-      .garage-text {
-        color: #531429;
-      }
-      .nav-item-text {
-        color: #aa4672;
-      }
-      .nav-container {
-        margin-bottom: 50px;
-      }
-
-      .custom-select {
-        border: none;
-        background-color: transparent;
-        color: #aa4672;
-        outline: none;
-        cursor: pointer;
-        margin-right: 20px;
-        appearance: none; /* Supprime la flèche de la liste déroulante sur certains navigateurs */
-        -webkit-appearance: none; /* Safari and Chrome */
-        -moz-appearance: none; /* Firefox */
-        /*background-image: url('path_to_your_custom_arrow.png'); /* flèche personnalisée */
-        background-repeat: no-repeat;
-        background-position: right center;
-        padding-right: 20px; /* Pour que le texte ne chevauche pas la flèche */
-      }
-
-      .custom-select:focus {
-        box-shadow: none; /* Supprime l'ombre lorsqu'il est en focus */
-      }
-
-      .navbar-custom {
-        background-color: white;
-      }
-      .bg-custom {
-        background-color: #6d6d6d !important;
-      }
-      .height-custom {
-        min-height: 200px;
-      }
-      .garage-text {
-        font-size: 140%;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-custom">
-      <div class="container-fluid d-flex nav-container">
-        <a class="navbar-brand large-margin" href="index.html">
-          <img
-            src="./assets/image-voiture garage removebg-preview.png"
-            alt="Logo du garage"
-            width="230"
-            class="d-inline-block align-text-top"
-          />
-          <br /><span class="garage-text" style="color: #531424"
-            >Garage V.Parrot</span
-          >
-        </a>
-        <div class="d-flex justify-content-center" style="flex-grow: 1">
-          <ul class="navbar-nav flex-row centered-nav-items">
-            <li class="nav-item me-5">
-              <a class="nav-link nav-item-text" href="#">Nos occasions</a>
-            </li>
-            <li class="nav-item me-5">
-              <a class="nav-link nav-item-text" href="#">Réparations</a>
-            </li>
-            <li class="nav-item me-5">
-              <a class="nav-link nav-item-text" href="#">Qui sommes-nous ?</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div
-      class="shadow-sm mb-5 bg-body bg-custom height-custom text-center"
-      style="font-size: 2em"
-    >
-      TROUVEZ <span style="color: #430d25">VOTRE PROCHAIN VÉHICULE</span>
+require_once '../lib_page/header.php';
+?>
+<body>
+  <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/Mercedes Blanche slider.jpg" class="d-block w-100" alt="photo slide one">
     </div>
-    <div class="dropdown">
+    <div class="carousel-item">
+      <img src="assets/honda blanche slider.jpg" class="d-block w-100" alt="photo slide two">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/Audi bleu slider.jpg" class="d-block w-100" alt="photo slide three">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  <nav class="navbar navbar-custom">
+    <div class="container-fluid d-flex nav-container">
+      <a class="navbar-brand large-margin" href="index.html">
+        <img
+        src="assets/image-voiture garage removebg-preview.png"
+        alt="Logo du garage"
+        width="530"
+        class="d-inline-block align-text-top"
+        />
+        <br /><span class="garage-text" style="color: #531424"
+        >Garage V.Parrot</span
+        >
+      </a>
+      <div class="d-flex justify-content-center" style="flex-grow: 1">
+        <ul class="navbar-nav flex-row centered-nav-items">
+          <li class="nav-item me-5">
+            <a class="nav-link nav-item-text" href="#">Nos occasions</a>
+          </li>
+          <li class="nav-item me-5">
+            <a class="nav-link nav-item-text ml-6" href="#">Qui sommes-nous ?</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   
-    <select name="from_home_modele[]" class="form-control custom-select"> 
-    <!-- Pr avoir le v check, mettre fieldset > legend ou label > select > option -->
-    <option value="Selection">Sélectionnez votre marque</option>
-        <?php foreach($reqMarque as $raw){ ?>
+
+<div
+  class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
+  style="font-size: 2em; position: relative;"
+  >
+  TROUVEZ <span style="color: #430d25">VOTRE PROCHAIN VÉHICULE</span>
+  
+  <!-- Conteneur principal -->
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
+    <!-- Conteneur flex pour les selects -->
+    <div style="display: flex; justify-content: center; align-items: center; gap: 160px;">
+      
+
+        <!-- Premier select -->
+        <form action="voitures-occasions.php" method="POST"><select name="from_home_modele" id="marque" class="form-control custom-select" onchange="this.form.submit()">
+            <option value="Selection">Sélectionnez votre marque</option>
+            <?php $sql = "SELECT * FROM marque  ";
+                  $reqMarque = getRequeteSql($pdo,$sql);
+                  foreach($reqMarque as $raw){ 
+            ?>
         <option value="<?=$raw["code"]?>"><?=$raw["libelle"]?></option>  
         <?php } ?>
-      </select>
-      <select name="from_home_modele[]" class="form-control custom-select">
-        <option value="">Réparations</option>
-        <?php foreach($reqPrestation as $raw){ ?>
-          <option value="<?=$raw["code"]?>"><?=$raw["libelle"]?></option>  
-        <?php } ?>
-      </select> 
+        <!-- <option value="ABARTH">ABARTH</option>
+            <option value="AUDI">AUDI</option>
+            <option value="BMW">BMW</option>
+            <option value="FIAT">FIAT</option>
+            <option value="FORD">FORD</option>
+            <option value="MERCEDES">MERCEDES</option>
+            <option value="MINI">MINI</option>
+            <option value="PEUGEOT">PEUGEOT</option>
+            <option value="RENAULT">RENAULT</option> -->
+        </select>
+        </form>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      <li class="ms-3">
-        <a class="text-body-secondary" href="#"
-          ><svg class="bi" width="24" height="24"></svg>
-            <use xlink:href="#twitter"></use>
-        </a>
-      </li>
-      <li class="ms-3">
-        <a class="text-body-secondary" href="#"
-          ><svg class="bi" width="24" height="24">
-            <use xlink:href="#instagram"></use></svg>
-          </a>
-      </li>
-      <li class="ms-3">
-        <a class="text-body-secondary" href="#">
-          <svg class="bi" width="24" height="24">
-            <use xlink:href="#facebook"></use></svg>
-        </a>
-      </li>
-    </ul>
+        <!-- Deuxième select -->
+        <select name="from_home_modele" id="reparations" class="form-control custom-select">
+            <option value="">Réparations</option>
+            <?php $reqPrestation = getPrestation($pdo,"RP");
+                  foreach($reqPrestation as $raw){ ?>
+        <option value="<?=$raw["code"]?>"><?=$raw["libelle"]?></option>  
+        <?php } ?> 
+            <!-- <option value="carrosserie">Carrosserie</option>
+            <option value="mecanique">Mécanique</option>
+            <option value="entretien">Entretien</option> -->
+        </select>
+    </div>
+</div>
+  </div>
 
-    <footer
-      class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
-    >
-      <div class="col-md-4 d-flex align-items-center">
-        <a
-          href="/"
-          class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
-        >
-          <svg class="bi" width="30" height="24">
-            <use xlink:href="#bootstrap"></use>
-          </svg>
-        </a>
-        <span class="mb-3 mb-md-0 text-body-secondary"
-          >© 2023 Company, Inc</span
-        >
-      </div>
-      <div class="d-flex justify-content-end">
-        <img class="ms-3" src="assets/linkedin-112.png" alt="logo linkedin" />
-        <img
-          class="ms-3"
-          src="assets/black-instagram-transparent-logo-10671.png"
-          alt="Logo instagram"
-        />
-        <img
-          class="ms-3"
-          src="assets/facebook-logo-108.png"
-          alt="Logo facebook"
-        />
-      </div>
-    </footer>
+<div class="container text-center">
+  <div class="row">
+  <class="bg-body height-custom text-center style="font-size: 2em"></class>
+    DÉCOUVREZ NOTRE <span style="color: #430d25">SÉLECTION DE VÉHICULE</span>
+  </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- 
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="app.js"></script>
-    -->
-  </body>
+  <div style="display: flex; justify-content: space-between; align-items: center; gap: 160px;">
+  <a href="#" style="flex: 1; margin-top: 85px;" class="custom-link"> <!-- Utilisez flex: 1; pour que chaque élément occupe l'espace disponible -->
+    Nos occasions à moins de 20 000€
+  </a>
+  
+  <a href="#" style="flex: 1; margin-top: 85px;" class="custom-link"> <!-- Utilisez flex: 1; pour que chaque élément occupe l'espace disponible -->
+    Nos occasions récentes à faible KM
+  </a>
+</div>
+
+  
+  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <li class="ms-3">
+      <a class="text-body-secondary" href="#"
+      ><svg class="bi" width="24" height="24"></svg>
+      <use xlink:href="#twitter"></use>
+    </a>
+  </li>
+  <li class="ms-3">
+    <a class="text-body-secondary" href="#"
+    ><svg class="bi" width="24" height="24">
+      <use xlink:href="#instagram"></use></svg>
+    </a>
+  </li>
+  <li class="ms-3">
+    <a class="text-body-secondary" href="#">
+      <svg class="bi" width="24" height="24">
+        <use xlink:href="#facebook"></use></svg>
+      </a>
+    </li>
+  </ul>
+  
+<?php
+require_once '../lib_page/footer.php';
+?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/plugins/bootstrap.bundle.min.js"></script>
+</body>
 </html>
