@@ -1,16 +1,17 @@
+
 <?php
 /**
  * Cette bilbliotheque a été crée pour confiner les informations de connexion 
- * a la base de donnée en dehors de la visibilité de l'alais du serveur Apache
+ * a la base de donnée en dehors de la visibilité de l'alias du serveur Apache
  * Comme cela si suite a un deny de service qui aurait laisser seulement le serveur apache opérationnel
  * la page brut de php que verrait l'utilisateur n'aura pas les identifiants en base de donnée
  */
 require_once '../lib/bib_connect.php';
 
 /**
- * Cette bibliotheque est prevu pour avoir les fonctions de base pour les interrog et mise en mise a jour
+ * Cette bibliotheque est prevu pour avoir les fonctions de base pour les interrog et mise a jour
  * en base de donnée
- * A savoir interrogation Muti Record et Mone Record
+ * A savoir interrogation Multi Record et Mone Record
  * Creation / modification / suppression de record 
  * Gestion des transactions au sens du Begin transaction et du commit transaction
  *
@@ -31,8 +32,13 @@ require_once '../lib_page/header.php';
       <img src="assets/honda blanche slider.jpg" class="d-block w-100" alt="photo slide two">
     </div>
     <div class="carousel-item">
-      <img src="assets/Audi bleu slider.jpg" class="d-block w-100" alt="photo slide three">
+      <img src="assets/mini cabriolet slider.jpg" class="d-block w-100" alt="photo slide three">
     </div>
+    <div class="carousel-item">
+      <img src="assets/Pneumatique slider.jpg" class="d-block w-100" alt="photo slide four">
+  </div>
+  <div class="carousel-item">
+      <img src="assets/réparationn slider.jpg" class="d-block w-100" alt="photo slide five">
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -52,9 +58,8 @@ require_once '../lib_page/header.php';
         width="530"
         class="d-inline-block align-text-top"
         />
-        <br /><span class="garage-text" style="color: #531424"
-        >Garage V.Parrot</span
-        >
+        <br /><h1 class="garage-text" style="color: #531424"
+        >Garage V.Parrot</h1>
       </a>
       <div class="d-flex justify-content-center" style="flex-grow: 1">
         <ul class="navbar-nav flex-row centered-nav-items">
@@ -85,12 +90,15 @@ require_once '../lib_page/header.php';
 
         <!-- Premier select -->
         <form action="voitures-occasions.php" method="POST"><select name="from_home_modele" id="marque" class="form-control custom-select" onchange="this.form.submit()">
+
             <option value="Selection">Sélectionnez votre marque</option>
-            <?php $sql = "SELECT * FROM marque  ";
+            <?php $sql = "select * from marque ".
+                          "where exists(select * from vehicule ".
+                                  "where vehicule.code_marque = marque.code)";
                   $reqMarque = getRequeteSql($pdo,$sql);
                   foreach($reqMarque as $raw){ 
             ?>
-        <option value="<?=$raw["code"]?>"><?=$raw["libelle"]?></option>  
+        <option value="<?=$raw["code"]?>" class="custom-option"><?=$raw["libelle"]?></option>  
         <?php } ?>
         <!-- <option value="ABARTH">ABARTH</option>
             <option value="AUDI">AUDI</option>
@@ -122,41 +130,56 @@ require_once '../lib_page/header.php';
 <div class="container text-center">
   <div class="row">
   <class="bg-body height-custom text-center style="font-size: 2em"></class>
-    DÉCOUVREZ NOTRE <span style="color: #430d25">SÉLECTION DE VÉHICULE</span>
+    DÉCOUVREZ NOTRE <span style="color: #430d25">SÉLECTION DE VÉHICULE</span> <!-- Ne prend pas la couleur -->
   </div>
 
+  
+
   <div style="display: flex; justify-content: space-between; align-items: center; gap: 160px;">
-  <a href="#" style="flex: 1; margin-top: 85px;" class="custom-link"> <!-- Utilisez flex: 1; pour que chaque élément occupe l'espace disponible -->
+  <a href="#" style="flex: 1; margin-top: 85px;" class="custom-link"> <!-- flex: 1; pr que chaque élément occupe l'espace dispo -->
     Nos occasions à moins de 20 000€
   </a>
-  
   <a href="#" style="flex: 1; margin-top: 85px;" class="custom-link"> <!-- Utilisez flex: 1; pour que chaque élément occupe l'espace disponible -->
     Nos occasions récentes à faible KM
   </a>
 </div>
+  <div>
+  
+  <div class="container-page">
+<?php 
+   $sql = "select * from vehicule ";
+    $reqVehicule = getRequeteSql($pdo,$sql);
+    foreach ($reqVehicule as $raw){
+      require '../lib_page/vignette_auto.php'; 
+}
+?>
+  </div>
+			
+			
+  <div
+  style="font-size: 2em; position: relative;"
+  >NOS <span style="color: #430d25">ENGAGEMENTS</span></div>
 
-  
-  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-    <li class="ms-3">
-      <a class="text-body-secondary" href="#"
-      ><svg class="bi" width="24" height="24"></svg>
-      <use xlink:href="#twitter"></use>
-    </a>
-  </li>
-  <li class="ms-3">
-    <a class="text-body-secondary" href="#"
-    ><svg class="bi" width="24" height="24">
-      <use xlink:href="#instagram"></use></svg>
-    </a>
-  </li>
-  <li class="ms-3">
-    <a class="text-body-secondary" href="#">
-      <svg class="bi" width="24" height="24">
-        <use xlink:href="#facebook"></use></svg>
-      </a>
-    </li>
-  </ul>
-  
+  <div
+  class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
+  style="font-size: 2em; position: relative;">
+  <div class="container">
+    <div class="card container">
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-front">
+            <p><strong>Reprise<br></strong>de votre véhicule</p>
+            <div class="card-back">
+              <a href="#" class="btn">Proposition de reprise de votre ancien véhicule<br>Nous prenons en charges les démarches administratives</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
 <?php
 require_once '../lib_page/footer.php';
 ?>

@@ -4,8 +4,7 @@
     box-sizing: border-box;
 }
 
-.carrousel.slide {
-    height: 50vh;
+.carousel.slide {
     position: relative;
 }
 
@@ -15,17 +14,6 @@
     object-fit: cover;
     object-position: center;
 }
-
-/* .carousel-item active { /*carrousel-item img*/
-    width: 100%;      /* prend toute la largeur */
-    height: 300px;    /* fixe la hauteur */
-    object-fit: cover;/* maintient les proportions de l'image */
-    position: absolute;
-    object-position: center;
-    /* object-fit: contain;
-    position: absolute;
-    background-position: center; */    
-} */
 
 .large-margin {
     margin-left: 100px;
@@ -61,7 +49,8 @@
     margin-right: 50px;
     background-repeat: no-repeat;
     background-position: right center;
-    min-width: 275px;    
+    min-width: 275px;  
+    font-size: 20px;  
 }
 
 .custom-select:focus {
@@ -94,8 +83,203 @@
     z-index: 3;
 }
 
-.custom-link {
-    text-decoration: none; /* pr sup le soulignement, mais pas d'effet*/
-    color: #aa4672; /* pas d'effet */
+.row {
+    padding-top: 80px !important; /* Mettre de l'espace entre le titre fonctionne dans l'inspecteur sur le style BS mais pas dans un style CSS personnalisé */
 }
 
+
+.custom-link {
+    text-decoration: none; 
+    color: #aa4672; 
+    font-size: 20px; /*bizarre aucun effet comme les deux autres propriétés de la même classe, puis d'un coup ça marche ! */
+}
+
+.image-container {
+  display: inline-block; /* Pour afficher les divs en ligne */
+  margin-right: 10px;  Espace entre les images 
+}
+
+/* Partie des card qui se retournent */
+
+.container {
+    width: 100%;
+    margin: auto;
+    max-width: 100%;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat auto-fill, minmax(350, 1fr);
+    grid-row: 30px;
+    margin: 80px auto;
+}
+
+.card-wrapper {
+    position: relative;
+    min-height: 200px;
+    perspective: 1000px; /*perception de profondeur d'u élément par rapport au 1er plan et arrière plan 3D*/
+    perspective-origin: top; /* Définie le point à partir duquel je regarde la scène en 3D, créée par la perspective*/
+}
+
+.card-wrapper:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.86,0,0.07,1);/* la transition je la veux sur mon transform decard wrapper:hover*/
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    border-radius: 8px;
+    backface-visibility: hidden; /*généralement utilisée avec les transformations 3D pour gérer l'affichage du dos d'un élément.ATTENTION hidden rends invisible l'arrièrede la face pr front et vis versa pour back*/
+    -webkit-backface-visibility: hidden; /*Pour Chrome, Safari, sinon fonctionne pas*/
+}
+
+.card-front {
+    background-color: #008497;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-back {
+    background-color: #06c2db;
+    transform: rotateY('180deg');/*card front et back plus haut en position absolute, donc les uns au dessus des autres, notamment avec le dernier élément qui a été déclaré, card back qui se met tjrs au dessus de card front et donc je le voit tt le tps rotate card back pr ne plus voir sa partie arrière grâce à backface-visibility: hidden;*/
+}
+
+
+.col-sm-4 {
+    width:33%;
+    display:inline-flex;
+}
+.col-lg-3{width:25%}
+.vignette-v2 .annonce .prix{
+	font-size: 3.1rem;
+}
+
+.vignette-v2 .annonce .prix_loyer_m{
+	display: block;
+}
+
+.vignette-v2 .a_version{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+}
+
+.vignette-v2 .annonce .prix_loyer{
+	font-size: 1.8rem;
+}
+
+.vignette-v2 .annonce .prix_loyer strong{
+	font-size: 2.1rem;
+}
+
+.vignette-v2 .annonce .annonce_badges div{
+	display: inline-block;
+	margin: 0 .3rem;
+}
+
+.vignette-v2 .annonce .badge_vo{
+	box-shadow: none;
+	font-size: .9rem;
+	margin: 0;
+	padding: .5rem .5rem;
+}
+
+.vignette-v2 .annonce{
+	padding-bottom: 0;
+}
+
+.vignette-v2 .annonce-icons{
+	border-bottom: 1px solid #dedede;
+	padding: .7rem 0;
+	text-align: center;
+}
+
+.vignette-v2 .annonce .annonce_contenu{
+	padding-top: .7rem;
+}
+
+.vignette-v2 .annonce-ico {
+    margin: 0 1rem;
+    font-size: 1.7rem;
+    white-space: nowrap;
+}
+
+.vignette-v2 .annonce .btn-voir,
+.vignette-v2 .annonce .visuel_conteneur{
+	margin: 0 0 0 -1.5rem;
+	width: calc(100% + 3.02rem);
+}
+
+.vignette-v2 .annonce .visuel_conteneur{
+	margin-top: 25%;
+}
+
+.vignette-v2 .annonce .annonce_badges{
+	border-bottom: 1px solid #dedede;
+	padding: .7rem 0;
+	left: auto;
+	right: auto;
+	top: auto;
+	position: relative;
+}
+
+.vignette-v2 .annonce{
+	margin-bottom: 4rem;
+}
+
+.vignette-v2 .annonce_contenu p{
+	margin-bottom: 0;
+	padding-bottom: .75rem;
+}
+
+.vignette-v2 .annonce_contenu p:after{
+	clear: both;
+	content:  ' ';
+	display: block;
+}
+
+.vignette-v2 .annonce h2 a.alerte-annonce{
+	right: 0;
+}
+
+.vignette-v2 .container-page .annonce h2 span.h2-marque{
+	white-space: nowrap;
+}
+
+.vignette-v2 .annonce_badges_c_empty{
+	height: 4rem;
+}
+
+.vignette-v2 .badge_ce{
+	border-radius: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+	.vignette-v2 .annonce-ico{
+		margin: 0 .4rem;
+		font-size: 1.4rem;
+	}
+		
+	.vignette-v2 .annonce .prix_loyer{
+		font-size: 1.5rem;
+	}
+
+	.vignette-v2 .annonce .prix_loyer strong{
+		font-size: 1.8rem;
+	}
+
+	.container-page .vignette-v2 .annonce h2 .h2-marque{
+		font-size: 1.9rem;
+	}
+
+	.container-page .vignette-v2 .annonce h2{
+		font-size: 1.4rem;
+	}
