@@ -64,11 +64,9 @@ require_once '../lib_page/header.php';
       <div class="d-flex justify-content-center" style="flex-grow: 1">
         <ul class="navbar-nav flex-row centered-nav-items">
           <li class="nav-item me-5">
-            <a class="nav-link nav-item-text" href="#">Nos occasions</a>
+            <a class="nav-link nav-item-text" href="#">Qui sommes nous ?</a>
           </li>
-          <li class="nav-item me-5">
-            <a class="nav-link nav-item-text ml-6" href="#">Qui sommes-nous ?</a>
-          </li>
+          
         </ul>
       </div>
     </div>
@@ -89,13 +87,14 @@ require_once '../lib_page/header.php';
       
 
         <!-- Premier select -->
-        <form action="voitures-occasions.php" method="POST"><select name="from_home_modele" id="marque" class="form-control custom-select" onchange="this.form.submit()">
+        <form action="voitures-occasions.php" method="POST">
+            <select name="from_home_modele" id="marque" class="form-control custom-select" onchange="this.form.submit()">
 
             <option value="Selection">Sélectionnez votre marque</option>
             <?php $sql = "select * from marque ".
                           "where exists(select * from vehicule ".
                                   "where vehicule.code_marque = marque.code)";
-                  $reqMarque = getRequeteSql($pdo,$sql);
+                  $reqMarque = DbAccess::getRequeteSql($pdo,$sql);
                   foreach($reqMarque as $raw){ 
             ?>
         <option value="<?=$raw["code"]?>" class="custom-option"><?=$raw["libelle"]?></option>  
@@ -123,6 +122,7 @@ require_once '../lib_page/header.php';
             <option value="mecanique">Mécanique</option>
             <option value="entretien">Entretien</option> -->
         </select>
+      
     </div>
 </div>
   </div>
@@ -148,7 +148,7 @@ require_once '../lib_page/header.php';
   <div class="container-page">
 <?php 
    $sql = "select * from vehicule ";
-    $reqVehicule = getRequeteSql($pdo,$sql);
+    $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
     foreach ($reqVehicule as $raw){
       require '../lib_page/vignette_auto.php'; 
 }
@@ -159,8 +159,84 @@ require_once '../lib_page/header.php';
   <div
   style="font-size: 2em; position: relative;"
   >NOS <span style="color: #430d25">ENGAGEMENTS</span></div>
+<!--  OUVERTURE 1ERE CARD -->
+		<div id="nos-engagements-v2">
+	<div class="container text-center">
+		<p class="h3">Nos <span class="text-primary">engagements</span></p>
 
-  <div
+		<div class="row">
+			<div class="col-sm-3 col-xs-6">
+				<div class="card">
+					<a href="https://www.saintmerri.fr/reprise-de-votre-vehicule/" class="card-inner">
+						<span class="front">
+							<span class="icon-buyback2"></span>
+
+							<strong>Reprise</strong><br>de votre véhicule
+						</span>
+						<span class="back">
+							<p>Proposition de reprise à sans obligation d'achat.</p>
+
+							<p>Nous prenons en charge les formalités administratives.</p>
+						</span>
+					</a>
+				</div>
+			</div>
+			<div class="col-sm-3 col-xs-6">
+				<div class="card">
+					<a href="https://www.saintmerri.fr/nos-partenaires/#roole" class="card-inner">
+						<span class="front">
+							<span class="icon-roole"></span>
+
+							<strong>Protégez votre véhicule</strong><br>et votre budget
+						</span>
+
+						<span class="back">
+							<p>Rejoindre le club Roole, c’est rejoindre une communauté d’automobilistes visant à rendre la voiture plus simple et plus économique.</p>
+						</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-xs-12 clear visible-xs mt2"></div>
+
+			<div class="col-sm-3 col-xs-6">
+				<div class="card">
+					<a title="Véhicules contrôlés et garantis" href="_commun/ajax/garantie.php" class="card-inner my_fancybox">
+						<span class="front">
+							<span class="icon-warranty-term-svgrepo-com"></span>
+
+							Véhicules<br><strong>contrôlés et garantis</strong>
+						</span>
+
+						<span class="back">
+							<p>103 points de contrôles</p>
+
+							<p>Le certificat d’état et d’origine de cette occasion, vous sera remis lors de la livraison.</p>
+						</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-sm-3 col-xs-6">
+				<div class="card">
+					<a href="https://www.saintmerri.fr/nos-partenaires/#waxoyl" class="card-inner">
+						<span class="front">
+							<span class="icon-waxoyl"></span>
+
+							<strong>Soignez</strong><br>votre carrosserie
+						</span>
+
+						<span class="back">
+							<p>Découvrez nos solutions de protection de votre carrosserie et de peinture haute brillance pour que votre nouvelle voiture garde l’aspect du neuf plus longtemps.</p>
+						</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+  <!-- <div
   class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
   style="font-size: 2em; position: relative;">
   <div class="container">
@@ -177,7 +253,7 @@ require_once '../lib_page/header.php';
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 </div>
 <?php

@@ -17,9 +17,9 @@ else
     $sql = "select * from marque where code = '$codeMarque'";
 
     //print $sql;
-    $reqMarque = getRequeteSql($pdo,$sql);
+    $reqMarque = DbAccess::getRequeteSql($pdo,$sql);
 require_once '../lib_page/header.php';
-?><body>
+?><body> 
   <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -61,11 +61,9 @@ require_once '../lib_page/header.php';
       <div class="d-flex justify-content-center" style="flex-grow: 1">
         <ul class="navbar-nav flex-row centered-nav-items">
           <li class="nav-item me-5">
-            <a class="nav-link nav-item-text" href="#">Nos occasions</a>
+            <a class="nav-link nav-item-text" href="#">Qui sommes nous ?</a>
           </li>
-          <li class="nav-item me-5">
-            <a class="nav-link nav-item-text ml-6" href="#">Qui sommes-nous ?</a>
-          </li>
+          
         </ul>
       </div>
     </div>
@@ -81,7 +79,7 @@ require_once '../lib_page/header.php';
   <div class="container-page">
 <?php 
     $sql = "select * from vehicule where code_marque = '$codeMarque'";
-    $reqVehicule = getRequeteSql($pdo,$sql);
+    $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
 
    foreach ($reqVehicule as $raw){
       require '../lib_page/vignette_auto.php'; 

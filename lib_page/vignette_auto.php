@@ -72,7 +72,7 @@
 
 <div class="clear_1"></div></div>
 
-<a href="https://www.saintmerri.fr/voitures-occasions/bmw-118da-150ch-m-sport-8cv-2659/" class="btn btn-primary btn-sm btn-block btn-voir">Voir le véhicule</a>
+<a href="fiche_voiture.php?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-primary btn-sm btn-block btn-voir">Voir le véhicule</a>
 </div>
 </div>
 

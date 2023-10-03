@@ -17,10 +17,10 @@ else
     $sql = "select * from marque where code = '$codeMarque'";
 
     print $sql;
-    $reqMarque = getRequeteSql($pdo,$sql);
+    $reqMarque = DbAccess::getRequeteSql($pdo,$sql);
 
     $sql = "select * from vehicule where code_marque = '$codeMarque'";
-    $reqVehicule = getRequeteSql($pdo,$sql);
+    $reqVehicule =DbAccess::getRequeteSql($pdo,$sql);
 
     ?><table><?php
 

@@ -1,8 +1,8 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 .carousel.slide {
     position: relative;
@@ -101,7 +101,7 @@
 
 /* Partie des card qui se retournent */
 
-.container {
+/* .container {
     width: 100%;
     margin: auto;
     max-width: 100%;
@@ -118,8 +118,7 @@
     position: relative;
     min-height: 200px;
     perspective: 1000px; /*perception de profondeur d'u élément par rapport au 1er plan et arrière plan 3D*/
-    perspective-origin: top; /* Définie le point à partir duquel je regarde la scène en 3D, créée par la perspective*/
-}
+    /*perspective-origin: top; /* Définie le point à partir duquel je regarde la scène en 3D, créée par la perspective
 
 .card-wrapper:hover .card {
     transform: rotateY(180deg);
@@ -129,16 +128,16 @@
     position: relative;
     height: 100%;
     transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.86,0,0.07,1);/* la transition je la veux sur mon transform decard wrapper:hover*/
-}
+    transition: transform 0.8s cubic-bezier(0.86,0,0.07,1);/* la transition je la veux sur mon transform decard wrapper:hover
+
 
 .card-front,
 .card-back {
     position: absolute;
     border-radius: 8px;
     backface-visibility: hidden; /*généralement utilisée avec les transformations 3D pour gérer l'affichage du dos d'un élément.ATTENTION hidden rends invisible l'arrièrede la face pr front et vis versa pour back*/
-    -webkit-backface-visibility: hidden; /*Pour Chrome, Safari, sinon fonctionne pas*/
-}
+    -webkit-backface-visibility: hidden; /*Pour Chrome, Safari, sinon fonctionne pas
+
 
 .card-front {
     background-color: #008497;
@@ -149,7 +148,7 @@
 .card-back {
     background-color: #06c2db;
     transform: rotateY('180deg');/*card front et back plus haut en position absolute, donc les uns au dessus des autres, notamment avec le dernier élément qui a été déclaré, card back qui se met tjrs au dessus de card front et donc je le voit tt le tps rotate card back pr ne plus voir sa partie arrière grâce à backface-visibility: hidden;*/
-}
+
 
 
 .col-sm-4 {
@@ -283,3 +282,79 @@
 	.container-page .vignette-v2 .annonce h2{
 		font-size: 1.4rem;
 	}
+
+    .col-sm-6 h1{
+	font-size:4rem;
+	padding-right:10rem;
+	padding-top:0;
+}
+
+.well, .well-color{
+	border: 1px solid #e6e6e6;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgb(200 200 200 / 50%);
+}
+
+.prix {
+    color:#1c69d4;
+	font-size:4.5rem;
+	padding-bottom: 0;
+}
+
+/* Pour les cards qui se retournent au survole  ET CA CONTINUE RIEN NE FONCTIONNE !!!!! */
+
+.accueil-v2 #nos-engagements-v2{
+	background: #fff;
+	font-size:2rem;
+	padding: 6rem 0;
+	position:relative;
+}
+
+.accueil-v2 #nos-engagements-v2 .card{
+	height: 140px;
+	perspective: 1000px;
+}
+
+.accueil-v2 #nos-engagements-v2 .card-inner{
+	display:block;
+	color:#333;
+	position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.accueil-v2 #nos-engagements-v2 .card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.accueil-v2 #nos-engagements-v2 .front, .accueil-v2 #nos-engagements-v2 .back {
+	background:#fff;
+	border: 1px solid #0653b6;
+	display:block;
+  position: absolute;
+	padding: 1rem;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.accueil-v2 #nos-engagements-v2 .back{
+	background:#0653b6;
+	color:#fff;
+	transform: rotateY(180deg);
+}
+
+.accueil-v2 #nos-engagements-v2 .back p{
+	font-size:1.7rem;
+}
+
+.accueil-v2 #nos-engagements-v2 .card span span{
+	color: #0653b6;
+	display:block;
+	font-size:3rem;
+	margin-bottom: 1rem;
+}

@@ -9,6 +9,6 @@
          * Attention function non static à recupérer la classe PDO avec l'appel sous format ->
          */ 
         $sql = "SELECT * FROM prestation WHERE code_type_prestation = ".$pdo->quote($typePrestation)." ";
-        return getRequeteSql($pdo,$sql);
+        return DbAccess::getRequeteSql($pdo,$sql);
     }
 ?>

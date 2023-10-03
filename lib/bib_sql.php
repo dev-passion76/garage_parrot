@@ -1,13 +1,44 @@
 <?php
-function getRequeteSql($pdo,$sql){
-  try {
-      
-      // https://phpdelusions.net/pdo_examples/select
-      
-      return $pdo->query($sql)->fetchAll();
-      // and somewhere later:;
-  } catch (\PDOException $e) {
-      throw new \PDOException($e->getMessage(), (int)$e->getCode());
+/**
+ * Renvoi un tableau de donnée de resultat d'element dans une query
+ * $pdo : instance de connexion MYSQL
+ * $sql : la requete sql envoyée à la base de donnéee
+ */
+// fabrication d'une class pour acceder au données de la base 
+class DbAccess{ 
+  public static function getRequeteSql($pdo,$sql){ // !!!! Fonction STATIC unique
+    try {
+        
+        // https://phpdelusions.net/pdo_examples/select
+        
+        // comme le méthode n'est pas static alors on utilise la syntase <variable de l'objet instancié>-><Nom de la méthode>
+        return $pdo->query($sql)->fetchAll();
+        // and somewhere later:;
+    } catch (\PDOException $e) {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
   }
+
+  /**
+   * Renvoi de manière unitaire un et un seul element d'une ligne de tb*ableau
+   */
+  public static function canFind($pdo,$sql){ // !!!! Fonction STATIC unique
+    try {
+        
+        // https://phpdelusions.net/pdo_examples/select
+        
+        $resultat = $pdo->query($sql)->fetchAll(); // renvoi sous format tableau un resultat d'une requete
+        if ($resultat){
+          return $resultat[0]; // 0 car premier élement du tableau de donnéees
+        }
+        else
+          return null;
+        // and somewhere later:;
+    } catch (\PDOException $e) {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
+  }
+  
 }
+
 ?>
