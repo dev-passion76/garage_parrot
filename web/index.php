@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Cette bilbliotheque a été crée pour confiner les informations de connexion 
@@ -251,7 +250,6 @@ require_once '../lib_page/header.php';
 <?php
 require_once '../lib_page/footer.php';
 
-session_start();
 
 // Vérifie si les identifiants ont été soumis
 if (isset($_POST['username']) && isset($_POST['password'])) {

@@ -94,12 +94,12 @@ require_once '../lib_page/header.php';
                         <div class="container container_inside">
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <a href="https://www.saintmerri.fr/reprise-de-votre-vehicule/" class="annonce_un_service estimation">
+                                    <7a href="https://www.saintmerri.fr/reprise-de-votre-vehicule/" class="annonce_un_service estimation">
                                         <span class="icon-buyback2"></span>
                                         <strong>Reprise de votre véhicule</strong>
 
                                         Estimez votre voiture en quelques clics
-                                    </a>
+                                    </7a>
                                 </div>
                                 <div class="col-xs-6">
                                     <a href="https://www.saintmerri.fr/nos-partenaires/#roole" class="annonce_un_service">

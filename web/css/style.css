@@ -213,8 +213,7 @@
 
 .vignette-v2 .annonce .btn-voir,
 .vignette-v2 .annonce .visuel_conteneur{
-	margin: 0 0 0 -1.5rem;
-	width: calc(100% + 3.02rem);
+	margin: 0;
 }
 
 .vignette-v2 .annonce .visuel_conteneur{

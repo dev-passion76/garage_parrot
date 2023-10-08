@@ -1,5 +1,6 @@
 <?php
- // Attention cet include permet l'affichage d'un vehicule sur la base de la variable array $raw
+require_once '../lib/bib_composant_affiche.php';
+// Attention cet include permet l'affichage d'un vehicule sur la base de la variable array $raw
 ?>
 <!--Ligne de vignette -->
 
@@ -24,28 +25,47 @@
 <div class="annonce-icons">
 <?php
 ?>
+<?php 
+    // Recherche du type de motorisation
+    $chaineRetour = getLibelleProprieteVehicule($pdo,$raw['idx_vehicule'],'MO');
+    if ($chaineRetour!=null){
+?>
 <span class="annonce-ico">
 <span class="icon-3213107_drawn_fuel_hand_location_navigation_icon"></span> 
-<?=getLibelleProprieteVehicule($pdo,$raw['idx_vehicule'],'MO')?>
+<?=$chaineRetour?>
 </span>
+<?php }?>
 
 <span class="annonce-ico">
-<span class="icon-calendar"></span> 10/2022
+<?= $raw['annee_circulation']?>
 </span>
 
 
+<?php 
+    // Recherche du type de motorisation
+    $chaineRetour = getLibelleProprieteVehicule($pdo,$raw['idx_vehicule'],'BO');
+    if ($chaineRetour!=null){
+?>
 <span class="annonce-ico">
-<span class="icon-gearshift-shift-svgrepo-com"></span><?=getLibelleProprieteVehicule($pdo,$raw['idx_vehicule'],'BO')?>
+<span class="icon-gearshift-shift-svgrepo-com"></span><?=$chaineRetour?>
 </span>
+<?php }?>
 
 <br>
 
 <span class="annonce-ico">
-<span class="icon-tachometer-alt-solid-svgrepo-com"></span> 5&nbsp;482km
+<?= afficheKm($raw['km'])?> km
 </span>
+
+<?php 
+    // Recherche du type de garantie
+    $chaineRetour = getLibelleProprieteVehicule($pdo,$raw['idx_vehicule'],'GA');
+    if ($chaineRetour!=null){
+?>
 <span class="annonce-ico">
-<span class="icon-warranty-term-svgrepo-com"></span> Garantie 24 mois
+<span class="icon-warranty-term-svgrepo-com"></span> Garantie <?=$chaineRetour?>
 </span>
+<?php }?>
 </div>
 
 <div class="annonce_badges_c annonce_badges_c_empty">
@@ -55,7 +75,7 @@
 <div class="annonce_contenu">
 <div class="row text-center">
 <div class="col-xs-6">
-<span class="prix"><?= $raw['prix']?>&nbsp;€</span> </div>
+<span class="prix"><?= afficheMontant($raw['prix'])?>&nbsp;€</span> </div>
 </div>
 
 <div class="clear_1"></div></div>

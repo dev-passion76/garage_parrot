@@ -22,7 +22,7 @@
         if ($reponse = DbAccess::canFind($pdo,$sql))
             return $reponse['libelle'];
         else
-            return '';
+            return null;
 
     }
 ?>

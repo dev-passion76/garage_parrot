@@ -1,5 +1,7 @@
 <?php
 //https://phpdelusions.net/pdo_examples/connect_to_mysql
+session_start();
+
 $host = '127.0.0.1';
 $db   = 'garage';
 $user = 'root';
