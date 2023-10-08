@@ -15,7 +15,7 @@ else
     //echo $codeMarque;
 
     $sql = "select * from vehicule where idx_vehicule = $codeVehicule";
-    // comme le métode est static alors on utilise la syntase <Nom de la classe>::<Nom de la méthode>
+    // comme le méthode est static alors on utilise la syntaxe <Nom de la classe>::<Nom de la méthode>
     $reqVehicule = DbAccess::canFind($pdo,$sql);
 
 require_once '../lib_page/header.php';

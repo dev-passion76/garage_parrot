@@ -283,6 +283,11 @@
 		font-size: 1.4rem;
 	}
 
+    .container-page {
+        display: flex;
+        
+    }
+
     .col-sm-6 h1{
 	font-size:4rem;
 	padding-right:10rem;
@@ -319,27 +324,27 @@
 	display:block;
 	color:#333;
 	position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.8s;
+    text-align: center;
+    transform-style: preserve-3d;
 }
 
 .accueil-v2 #nos-engagements-v2 .card:hover .card-inner {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .accueil-v2 #nos-engagements-v2 .front, .accueil-v2 #nos-engagements-v2 .back {
 	background:#fff;
 	border: 1px solid #0653b6;
 	display:block;
-  position: absolute;
+    position: absolute;
 	padding: 1rem;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
 }
 
 .accueil-v2 #nos-engagements-v2 .back{
@@ -358,3 +363,23 @@
 	font-size:3rem;
 	margin-bottom: 1rem;
 }
+
+/* horaires footer */
+
+#horaires ul {
+    list-style: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime le remplissage par défaut de la liste */
+    margin: 0; /* Supprime la marge par défaut de la liste */
+}
+
+#horaires ul li {
+    margin-bottom: 5px; /* Ajoute de l'espace entre chaque élément de la liste */
+    display: flex; /* Utilise la flexbox pour aligner les éléments horizontalement */
+    justify-content: space-between; /* Espace également les éléments à l'intérieur de chaque <li> */
+}
+
+#horaires {
+    text-align: left !important; /* Annule l'alignement centré de Bootstrap mais le garde pr mes cards services */
+    width: 100%;
+}
+

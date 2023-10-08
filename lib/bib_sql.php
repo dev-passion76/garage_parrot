@@ -20,6 +20,8 @@ class DbAccess{
   }
 
   /**
+   * $pdo->query
+   * $sql = "SELECT
    * Renvoi de manière unitaire un et un seul element d'une ligne de tb*ableau
    */
   public static function canFind($pdo,$sql){ // !!!! Fonction STATIC unique

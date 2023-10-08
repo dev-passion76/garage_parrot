@@ -53,7 +53,7 @@ require_once '../lib_page/header.php';
     <div class="container-fluid d-flex nav-container">
       <a class="navbar-brand large-margin" href="index.html">
         <img
-        src="assets/image-voiture garage removebg-preview.png"
+        src="assets/image-voiture-garage.png"
         alt="Logo du garage"
         width="530"
         class="d-inline-block align-text-top"
@@ -145,9 +145,9 @@ require_once '../lib_page/header.php';
 </div>
   <div>
   
-  <div class="container-page">
+  <div class="container-page"> <!-- style="inline-block"> pas d'effet -->
 <?php 
-   $sql = "select * from vehicule ";
+   $sql = "select * from vehicule";
     $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
     foreach ($reqVehicule as $raw){
       require '../lib_page/vignette_auto.php'; 
@@ -235,30 +235,46 @@ require_once '../lib_page/header.php';
 		</div>
 	</div>
 </div>
-
-  <!-- <div
-  class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
-  style="font-size: 2em; position: relative;">
-  <div class="container">
-    <div class="card container">
-      <div class="card-wrapper">
-        <div class="card">
-          <div class="card-front">
-            <p><strong>Reprise<br></strong>de votre véhicule</p>
-            <div class="card-back">
-              <a href="#" class="btn">Proposition de reprise de votre ancien véhicule<br>Nous prenons en charges les démarches administratives</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 </div>
+
+<!-- Formaulaire de connexion admin -->
+
+ <h2>Connexion Administrateur</h2>
+    <form action="authentification.php" method="post">
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Se connecter">
 <?php
 require_once '../lib_page/footer.php';
+
+session_start();
+
+// Vérifie si les identifiants ont été soumis
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    // Remplacez ces informations par celles de votre base de données
+    $db_username = 'votre_nom_utilisateur';
+    $db_password = 'votre_mot_de_passe';
+
+    // Récupére les identifiants soumis par l'utilisateur
+    $input_username = $_POST['username'];
+    $input_password = $_POST['password'];
+
+    // Vérifie si les identifiants sont corrects
+    if ($input_username === $db_username && $input_password === $db_password) {
+        // Authentification réussie, créez une session
+        $_SESSION['logged_in'] = true;
+        header('Location: page_admin.php'); // Redirige vers la page d'administration
+        exit();
+    } else {
+        echo 'Identifiants incorrects. Veuillez réessayer.';
+    }
+}
 ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/plugins/bootstrap.bundle.min.js"></script>
 </body>
