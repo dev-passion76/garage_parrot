@@ -239,14 +239,6 @@ require_once '../lib_page/header.php';
 
 <!-- Formaulaire de connexion admin -->
 
-<?php
-session_start(); // Bien appeler session_start() au début du script 2 session start impossible ??
-
-// Vérifie si l'utilisateur est un administrateur connecté
-if (isset($_SESSION['userConnect']) && $_SESSION['userConnect']['type_utilisateur'] === 'A') 
-    // L'utilisateur est un administrateur, affiche le formulaire de connexion
-    ?>
-
  <h2>Connexion Administrateur</h2>
     <form action="authentification.php" method="post">
         <label for="username">Nom d'utilisateur :</label>
@@ -280,6 +272,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         echo 'Identifiants incorrects. Veuillez réessayer.';
     }
 }
+// Controle GITHUB
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
