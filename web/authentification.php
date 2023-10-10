@@ -14,13 +14,15 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
     else
         $mot_de_passe = null;
 
-    // $pdo->quote TOUJOURS UTILISE pour des zones NON NUMERIQUE (ex varchar, date ...) sauf pour les booléennes
+    // $pdo->quote TOUJOURS UTILISE pour des zones NON NUMERIQUE (ex varchar, date ...) Contre les injections SQL, sauf pour les booléennes
     $sql = "select * from utilisateur ".
             "where identifiant = ".$pdo->quote($identifiant)." and mdp = ".$pdo->quote($mot_de_passe);
     $reponse = DbAccess::canFind($pdo, $sql);
     if ($reponse){
         // utilisateur OK
         $okConnect = 1;
+        // Donc va enregister dans la session les informations de la connexion utilisateur
+        $_SESSION['userConnect'] = $reponse;
     }
     else{
         $okConnect = 0;

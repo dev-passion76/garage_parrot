@@ -60,6 +60,7 @@ require_once '../lib_page/header.php';
         <br /><h1 class="garage-text" style="color: #531424"
         >Garage V.Parrot</h1>
       </a>
+      <!-- <a href="#formulaire_identification" title="profil icônes">Accéder au formulaire d'identification</a> -->
       <div class="d-flex justify-content-center" style="flex-grow: 1">
         <ul class="navbar-nav flex-row centered-nav-items">
           <li class="nav-item me-5">
@@ -144,7 +145,7 @@ require_once '../lib_page/header.php';
 </div>
   <div>
   
-  <div class="container-page"> <!-- style="inline-block"> pas d'effet -->
+  <div class="container-page" style="100%"> 
 <?php 
    $sql = "select * from vehicule";
     $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
@@ -237,6 +238,14 @@ require_once '../lib_page/header.php';
 </div>
 
 <!-- Formaulaire de connexion admin -->
+
+<?php
+session_start(); // Bien appeler session_start() au début du script 2 session start impossible ??
+
+// Vérifie si l'utilisateur est un administrateur connecté
+if (isset($_SESSION['userConnect']) && $_SESSION['userConnect']['type_utilisateur'] === 'A') 
+    // L'utilisateur est un administrateur, affiche le formulaire de connexion
+    ?>
 
  <h2>Connexion Administrateur</h2>
     <form action="authentification.php" method="post">
