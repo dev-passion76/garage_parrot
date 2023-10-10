@@ -20,4 +20,5 @@ $options = [
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 $pdo = new \PDO($dsn, $user, $pass, $options);
 
+// test
 ?>
