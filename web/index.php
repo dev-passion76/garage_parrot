@@ -130,7 +130,8 @@ require_once '../lib_page/header.php';
 <div class="container text-center">
   <div class="row">
   <class="bg-body height-custom text-center style="font-size: 2em"></class>
-    DÉCOUVREZ NOTRE <span style="color: #430d25">SÉLECTION DE VÉHICULE</span> <!-- Ne prend pas la couleur -->
+    DÉCOUVREZ NOTRE <span class="custom-color">VOTRE PROCHAIN VÉHICULE</span>
+ <!-- Ne prend pas la couleur -->
   </div>
 
   
@@ -158,11 +159,11 @@ require_once '../lib_page/header.php';
 			
   <div
   style="font-size: 2em; position: relative;"
-  >NOS <span style="color: #430d25">ENGAGEMENTS</span></div>
+  >NOS <span style="color: #430d25" id="custom-color">ENGAGEMENTS</span></div>
 <!--  OUVERTURE 1ERE CARD -->
 		<div id="nos-engagements-v2">
 	<div class="container text-center">
-		<p class="h3">Nos <span class="text-primary">engagements</span></p>
+		<p class="h3">Nos <span class="text-primary" style="color: #430d25">engagements</span></p>
 
 		<div class="row">
 			<div class="col-sm-3 col-xs-6">

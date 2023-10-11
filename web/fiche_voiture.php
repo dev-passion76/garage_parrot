@@ -61,9 +61,6 @@ require_once '../lib_page/header.php';
       <div class="d-flex justify-content-center" style="flex-grow: 1">
         <ul class="navbar-nav flex-row centered-nav-items">
           <li class="nav-item me-5">
-            <a class="nav-link nav-item-text" href="#">Nos occasions</a>
-          </li>
-          <li class="nav-item me-5">
             <a class="nav-link nav-item-text ml-6" href="#">Qui sommes-nous ?</a>
           </li>
         </ul>
@@ -77,45 +74,25 @@ require_once '../lib_page/header.php';
         <div class="col-sm-6 col-no-rel">
             <div class="annonce_img">
                 <a class="annonce_img_c" href="https://www.saintmerri.fr/wp-content/uploads/vo/5572/ab40fdb6742898a6fbc232cab9d365e0.jpg" data-index="0">
-                    <img src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="FIAT 1.0 70ch BSG S&amp;S Cult" title="FIAT 1.0 70ch BSG S&amp;S Cult">
+                    <img src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="FIAT 1.0 70ch BSG S&amp;S Cult" title="FIAT 1.0 70ch BSG S&amp;S Cult"> <!-- Lorsque je sup BSG S&amp;S Cult ça ne produit rien -->
                 </a>
 
-                <div class="annonce_badges"><div><span class="badge_vo badge_pm">Prix malin</span></div></div>            </div>
-
-            
-
-            <div class="separateur grand"></div>
-
+                <div class="annonce_badges"><div></div></div>            </div>
             <div class="move-bottom">
                 <div class="annonce_services">
                     <div class="annonce_service bb">
-                        <h4>Services</h4>
-
                         <div class="container container_inside">
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <7a href="https://www.saintmerri.fr/reprise-de-votre-vehicule/" class="annonce_un_service estimation">
-                                        <span class="icon-buyback2"></span>
-                                        <strong>Reprise de votre véhicule</strong>
-
-                                        Estimez votre voiture en quelques clics
-                                    </7a>
+                                    
                                 </div>
                                 <div class="col-xs-6">
-                                    <a href="https://www.saintmerri.fr/nos-partenaires/#roole" class="annonce_un_service">
-                                        <span class="icon-roole"></span>
-                                        <strong>Roole</strong>
-
-                                        Protégez votre véhicule et votre budget
                                     </a>
                                 </div>
                                 <div class="clear"></div>
                                 <div class="col-xs-6">
                                     <a href="https://www.saintmerri.fr/nos-partenaires/#waxoyl" class="annonce_un_service">
                                         <span class="icon-waxoyl"></span>
-                                        <strong>Waxoyl</strong>
-
-                                        Soignez votre carrosserie
                                     </a>
                                 </div>
                             </div>
@@ -125,11 +102,9 @@ require_once '../lib_page/header.php';
                     <div class="separateur"></div>
                 </div>
 
-                
                 <div class="annonce_services">
                     <div class="annonce_service">
-                                                <h4>Points de contrôles</h4>
-                        
+                        <h4>Points de contrôles</h4>
                         <div class="container container_inside">
                             <div class="row">
                                 <div class="col-xs-4">
@@ -181,17 +156,17 @@ require_once '../lib_page/header.php';
                     </div>
                 </div>
 
-                <div class="separateur"></div>
+                
 
                 <div class="row fiche-annonce-contact">
                     <div class="col-sm-7">
                         <p>
-                            <span class="adresse_coordonnees_adresse"><strong>Amiens</strong><br>1 bis avenue de la Défense Passive<br>
-80136 RIVERY</span>
+                            <span class="adresse_coordonnees_adresse"><strong>Toulouse</strong><br>6 rue Alexi-Larrey><br>
+31000 TOULOUSE</span>
                         </p>
                     </div>
                     <div class="col-sm-5">
-                                                <a href="tel:06 79 16 99 25 " class="btn btn-default btn-sm annonce_telephone" data-nom="vo FIAT Amiens"><span class="icon-mobile"></span> 06 79 16 99 25 </a>
+                        <a href="tel:06 79 16 99 25 " class="btn btn-default btn-sm annonce_telephone" data-nom="vo FIAT Amiens"><span class="icon-mobile"></span> 09 00 00 00 00 </a>
 
                         <a href="_commun/ajax/concession.php?site_marque=groupe&amp;concession=Amiens&amp;site_marque=mini" class="btn btn-default btn-sm my_fancybox"><span class="icon-location"></span> Horaires &amp; plan d'accès</a>
                     </div>
@@ -252,17 +227,12 @@ require_once '../lib_page/header.php';
 ?>
   </div>
 			
-  <div
-  style="font-size: 2em; position: relative;"
-  >NOS <span style="color: #430d25">ENGAGEMENTS</span></div>
+  <div style="font-size: 2em; position: relative;">NOS <span style="color: #430d25">ENGAGEMENTS</span></div>
 
   <div
   class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
   style="font-size: 2em; position: relative;">
-  <div class="container">
-    <div class="card container">
-      <div class="card-wrapper">
-        <div class="card">
+ 
           <div class="card-front">
             <p><strong>Reprise<br></strong>de votre véhicule</p>
             <div class="card-back">
