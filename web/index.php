@@ -22,6 +22,7 @@ require_once '../bibappli/lib_metier.php';
 require_once '../lib_page/header.php';
 ?>
 <body>
+  <!-- <a href="modif_admin">Modifications informations</a> --> <!-- eror not found -->
   <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">

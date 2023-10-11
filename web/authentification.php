@@ -32,7 +32,7 @@ require_once '../lib_page/header.php';
 ?><body>
 <?php if (isset($okConnect)) {?>
     <div>
-        <?= ($okConnect ? "OK" : "FUCK") ?>
+        <?= ($okConnect ? "OK" : "FUCK") ?>  
     </div>
 <?php }?>
 
