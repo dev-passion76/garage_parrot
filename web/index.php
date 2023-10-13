@@ -20,6 +20,24 @@ require_once '../lib/bib_sql.php';
 require_once '../bibappli/lib_metier.php';
 
 require_once '../lib_page/header.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $username = $_POST['username'] ?? '';
+  $password = $_POST['password'] ?? '';
+
+  $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+  $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+  $stmt->execute();
+
+  $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  if ($user && password_verify($password, $user['password'])) {
+    $_SESSION['authenticated'] = true;
+  } else {
+    echo "Identifiant ou mot de passe incorrect";
+  }
+}
+
 ?>
 <body>
   <!-- <a href="modif_admin">Modifications informations</a> --> <!-- error not found -->
