@@ -150,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="row">
   <class="bg-body height-custom text-center style="font-size: 2em"></class>
     DÉCOUVREZ NOTRE <span class="custom-color">VOTRE PROCHAIN VÉHICULE</span>
- <!-- Ne prend pas la couleur -->
+<!-- Ne prend pas la couleur -->
   </div>
 
   

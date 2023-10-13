@@ -100,7 +100,6 @@ span#custom-color { /* c'était pour forcer la couleur */
     padding-top: 80px !important; /* Mettre de l'espace entre le titre fonctionne dans l'inspecteur sur le style BS mais pas dans un style CSS personnalisé */
 }
 
-
 .custom-link {
     text-decoration: none; 
     color: #aa4672; 
