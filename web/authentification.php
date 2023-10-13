@@ -28,8 +28,14 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         $okConnect = 0;
     }
 }
+
 require_once '../lib_page/header.php';
 ?><body>
+    <div id="navbar">
+        <div id="profile-icon">
+            <img src="assets/photos_vehicules/utilisateur-de-profil.png" alt="Profil">
+        </div>
+    </div>
 <?php if (isset($okConnect)) {?>
     <div>
         <?= ($okConnect ? "OK" : "FUCK") ?>  
@@ -41,5 +47,4 @@ require_once '../lib_page/footer.php';
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/plugins/bootstrap.bundle.min.js"></script>
-</body>
-</html> <!-- ICI fermants HTML mais pas le début ?? -->
+ <!-- ICI fermants HTML mais pas le début ?? -->

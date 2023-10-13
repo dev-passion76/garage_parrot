@@ -17,7 +17,6 @@ require_once '../lib/bib_composant_affiche.php';
 </div> 
 </div>
 </div>
-
 <h2>
 <a href="fiche_voiture.php?code_vehicule=<?= $raw['idx_vehicule']?>"><span class="h2-marque"><?= $raw['description']?></span></a>
 </h2>

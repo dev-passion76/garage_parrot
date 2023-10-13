@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 } */
+#profile-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 .carousel.slide {
     position: relative;

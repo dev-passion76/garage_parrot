@@ -41,7 +41,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     } else {
         echo 'Identifiants incorrects. Veuillez réessayer.';
     }
-}
 ?>
 </body>
 </html>
@@ -70,7 +69,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
     $reponse = DbAccess::canFind($pdo, $sql);
     if ($reponse){
         // utilisateur OK
-        $okConnect = 1;
+        $okConnect = 2; //ici j'ai changé le numéro 1 par 2 pour ne pas avoir conflit avec l'admin
         // Donc va enregister dans la session les informations de la connexion utilisateur
         $_SESSION['userConnect'] = $reponse;
     }
@@ -91,3 +90,5 @@ require_once '../lib_page/footer.php';
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/plugins/bootstrap.bundle.min.js"></script>
+</body>
+</html>

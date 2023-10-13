@@ -22,7 +22,7 @@ require_once '../bibappli/lib_metier.php';
 require_once '../lib_page/header.php';
 ?>
 <body>
-  <!-- <a href="modif_admin">Modifications informations</a> --> <!-- eror not found -->
+  <!-- <a href="modif_admin">Modifications informations</a> --> <!-- error not found -->
   <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -145,8 +145,6 @@ require_once '../lib_page/header.php';
     Nos occasions récentes à faible KM
   </a>
 </div>
-  <div>
-  
   <div class="container-page" style="100%"> 
 <?php 
    $sql = "select * from vehicule";
