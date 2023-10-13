@@ -2,7 +2,8 @@
 /**
  * Renvoi un tableau de donnée de resultat d'element dans une query
  * $pdo : instance de connexion MYSQL
- * $sql : la requete sql envoyée à la base de donnéee 
+ * $sql : la requete sql envoyée à la base de donnéee demo
+ * re essai1
  */
 // fabrication d'une class pour acceder au données de la base 
 class DbAccess{ 

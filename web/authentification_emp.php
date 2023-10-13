@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php 
+/**
+ *  Quelques regles genéral
+ *  en fait, on met souvent en haut de la page les tests php notamment dans le cas de création de connexion ou autre
+ *  en effet 
+ *    1 on affiche une page pour que l'utilisateur saisisse de l'information que l'on va ensuite soumettre
+ *    2 donc c'est au debut de l'appel de la nouvelle page que l'on va intercepté les données pour les traiters et ensuite affiché un écran approprié
+ */
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
