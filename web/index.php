@@ -22,6 +22,7 @@ require_once '../bibappli/lib_metier.php';
 require_once '../lib_page/header.php';
 ?>
 <body>
+  <!-- <a href="modif_admin">Modifications informations</a> --> <!-- eror not found -->
   <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -238,43 +239,7 @@ require_once '../lib_page/header.php';
 </div>
 </div>
 
-<!-- Formaulaire de connexion admin -->
 
- <h2>Connexion Administrateur</h2>
-    <form action="authentification.php" method="post">
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required><br><br>
-        
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required><br><br>
-        
-        <input type="submit" value="Se connecter">
-<?php
-require_once '../lib_page/footer.php';
-
-
-// Vérifie si les identifiants ont été soumis
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    // Remplacez ces informations par celles de votre base de données
-    $db_username = 'votre_nom_utilisateur';
-    $db_password = 'votre_mot_de_passe';
-
-    // Récupére les identifiants soumis par l'utilisateur
-    $input_username = $_POST['username'];
-    $input_password = $_POST['password'];
-
-    // Vérifie si les identifiants sont corrects
-    if ($input_username === $db_username && $input_password === $db_password) {
-        // Authentification réussie, créez une session
-        $_SESSION['logged_in'] = true;
-        header('Location: page_admin.php'); // Redirige vers la page d'administration
-        exit();
-    } else {
-        echo 'Identifiants incorrects. Veuillez réessayer.';
-    }
-}
-// Controle GITHUB
-?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/plugins/bootstrap.bundle.min.js"></script>

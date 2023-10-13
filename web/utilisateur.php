@@ -86,7 +86,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         ?>
     </table>
 <?php } ?>
-<!-- Permet de savoir si un utilisateur s'est authentifié et que ce dernier et admin, donc je lui donne l'autorisation de créer ... ANSI l'ensemble du html FORM ci-dessous n'est pas envoyé au poste client-->
+<!-- Permet de savoir si un utilisateur s'est authentifié et que ce dernier et admin, donc je lui donne l'autorisation de créer ... AINSI l'ensemble du html FORM ci-dessous n'est pas envoyé au poste client-->
 <?php
  if (isset($_SESSION['userConnect'])){
     $user = $_SESSION['userConnect'];
@@ -96,7 +96,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
     <!--
         la ligne ci-dessous test l'existance de la variable $identifiant 
             si OUI alors affiche $identiant
-            SINON '' doc rien
+            SINON '' donc rien
         syntaxe : (<test> ? reponse OUI : reponse NON     )
         <?=(isset($identifiant)?  $identifiant : '')?> 
     -->
