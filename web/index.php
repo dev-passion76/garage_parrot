@@ -163,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     Nos occasions récentes à faible KM
   </a>
 </div>
-  <div class="container-page" style="100%"> 
+  <div class="container-page" style="width: 100%;"> 
 <?php 
    $sql = "select * from vehicule";
     $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);

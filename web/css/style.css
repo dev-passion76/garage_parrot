@@ -108,7 +108,7 @@ span#custom-color { /* c'était pour forcer la couleur */
 
 .image-container {
   display: inline-block; /* Pour afficher les divs en ligne */
-  margin-right: 10px;  Espace entre les images 
+  margin-right: 10px;  /*Espace entre les images*/ 
 }
 
 /* Partie des card qui se retournent */
@@ -148,7 +148,7 @@ span#custom-color { /* c'était pour forcer la couleur */
     position: absolute;
     border-radius: 8px;
     backface-visibility: hidden; /*généralement utilisée avec les transformations 3D pour gérer l'affichage du dos d'un élément.ATTENTION hidden rends invisible l'arrièrede la face pr front et vis versa pour back*/
-    -webkit-backface-visibility: hidden; /*Pour Chrome, Safari, sinon fonctionne pas
+    /*-webkit-backface-visibility: hidden; /*Pour Chrome, Safari, sinon fonctionne pas
 
 
 .card-front {

@@ -1,6 +1,6 @@
 <?php 
 /**
- *  Quelques regles genéral
+ *  Quelques règles genérales
  *  en fait, on met souvent en haut de la page les tests php notamment dans le cas de création de connexion ou autre
  *  en effet 
  *    1 on affiche une page pour que l'utilisateur saisisse de l'information que l'on va ensuite soumettre
@@ -25,6 +25,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     } else {
         echo 'Identifiants incorrects. Veuillez réessayer.';
     }
+}
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
