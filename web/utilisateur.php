@@ -56,23 +56,11 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
                 }
                 else{
                     // Insertion en base de données
-                    $nom = $_POST['nom'];
-                    $prenom =  $_POST['prenom'];
-                    $type_utilisateur = $_POST['type_utilisateur'];
     
-                    $data = [
-                        'tidentifiant' => $identifiant,
-                        'tmdp' => $mot_de_passe,
-                        'tnom' => $nom,
-                        'tprenom' => $prenom,
-                        'ttype_utilisateur' => $type_utilisateur,
-                    ];
-                    $sql = "INSERT INTO utilisateur (identifiant,mdp,nom,prenom,type_utilisateur) VALUES (:tidentifiant, :tmdp, :tnom, :tprenom, :ttype_utilisateur)";
-                    
-                    $stmt= $pdo->prepare($sql);
-                    $stmt->execute($data);
-    
-                    $message = "Bravo, vous venez de créer un nouvel utilisateur";
+                    if ($clUser->ajouteUtilisateur($identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur))
+                        $message = "Bravo, vous venez de créer un nouvel utilisateur";
+                    else 
+                        $message = "Erreur lors de l'ajout de l'utilisateur";
                 }
              }
         }
