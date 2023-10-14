@@ -24,6 +24,15 @@
       rel="stylesheet"
       href="css/style.css"
     />
+
+<link
+      rel="stylesheet"
+      href="js/plugins/jquery.min.js"
+    />
+    <link
+      rel="stylesheet"
+      href="css/style2.css"
+    />
   
   
 </head>
