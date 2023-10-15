@@ -4,7 +4,7 @@
         private $user;
         
         /**
-         * le verbe __construct est relatif au constructuer de class
+         * le verbe __construct est relatif au constructeur de class
          * quand on 
          * @param unknown $pdo
          */
