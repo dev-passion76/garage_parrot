@@ -17,7 +17,7 @@
          * @param unknown $pdo
          * @return unknown
          */
-        public function getListeUtilisateur($pdo){
+        public function getListe($pdo){
             $sql = "select * from utilisateur ";
             return DbAccess::getRequeteSql($pdo, $sql);
         }
@@ -31,7 +31,7 @@
          * @param unknown $prenom
          * @param unknown $type_utilisateur
          */
-        public function ajouteUtilisateur($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
+        public function ajoute($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
             $data = [
                 'tidentifiant' => $identifiant,
                 'tmdp' => $mot_de_passe,
@@ -42,9 +42,30 @@
             $sql = "INSERT INTO utilisateur (identifiant,mdp,nom,prenom,type_utilisateur) VALUES (:tidentifiant, :tmdp, :tnom, :tprenom, :ttype_utilisateur)";
             
             $stmt= $pdo->prepare($sql);
-            $stmt->execute($data);
+            return $stmt->execute($data);
+        }
+
+        public function modifie($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
+            $data = [
+                'tidentifiant' => $identifiant,
+                'tmdp' => $mot_de_passe,
+                'tnom' => $nom,
+                'tprenom' => $prenom,
+                'ttype_utilisateur' => $type_utilisateur,
+            ];
+            $sql = "UPDATE utilisateur SET mdp=:tmdp, nom=:tnom, prenom=:tprenom, type_utilisateur=:ttype_utilisateur WHERE identifiant=:tidentifiant";
             
-            return true;
+            $stmt= $pdo->prepare($sql);
+            return $stmt->execute($data);
+        }
+        
+        public function supprime($pdo,$identifiant) {
+            $data = [
+                'id' => $identifiant,
+            ];
+            $sql = "DELETE FROM utilisateur WHERE identifiant = :id";
+            $stmt= $pdo->prepare($sql);
+            return $stmt->execute($data);
         }
 
         /**
