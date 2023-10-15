@@ -1,6 +1,6 @@
 <?php
 /**
- * Cette bilbliotheque a été crée pour confiner les informations de connexion 
+ * Cette bilbliotheque a été crée pour confiner les informations de connexion
  * a la base de donnée en dehors de la visibilité de l'alias du serveur Apache
  * Comme cela si suite a un deny de service qui aurait laisser seulement le serveur apache opérationnel
  * la page brut de php que verrait l'utilisateur n'aura pas les identifiants en base de donnée
@@ -11,7 +11,7 @@ require_once '../lib/bib_connect.php';
  * Cette bibliotheque est prevu pour avoir les fonctions de base pour les interrog et mise a jour
  * en base de donnée
  * A savoir interrogation Multi Record et Mone Record
- * Creation / modification / suppression de record 
+ * Creation / modification / suppression de record
  * Gestion des transactions au sens du Begin transaction et du commit transaction
  *
  */
@@ -21,26 +21,41 @@ require_once '../bibappli/lib_metier.php';
 
 require_once '../lib_page/header.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $username = $_POST['username'] ?? '';
-  $password = $_POST['password'] ?? '';
+require_once '../class/classUser.php';
 
-  $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-  $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-  $stmt->execute();
-
-  $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  if ($user && password_verify($password, $user['password'])) {
-    $_SESSION['authenticated'] = true;
-  } else {
-    echo "Identifiant ou mot de passe incorrect";
-  }
+if (isset($_GET['exit'])){
+    session_destroy();
+    header("Location:index2.php");
+    exit;
 }
-
-?>
+/**
+ * Ici on va voir si l'on peut recuperer la session de  l'utilisateur
+ */
+if (isset($_SESSION['clUser'])){
+    $clUser = unserialize($_SESSION['clUser']);
+}
+else
+    $clUser = null;
+    ?>
 <body>
-  <!-- <a href="modif_admin">Modifications informations</a> --> <!-- error not found -->
+    <!-- <a href="modif_admin">Modifications informations</a> --> <!-- eror not found -->
+   <div id="idConnect">
+    <?php if ($clUser==null) {?>
+   		<a href="signin.php">Se Connecter</a>
+    <?php } else {?>
+    	<div>
+    		<div>
+    			Bonjour <?= $clUser->getUser()['nom'].' '.$clUser->getUser()['prenom']?>
+    		</div>
+    		<?php if($clUser->isAdmin()) { ?>
+    			<div><a href="utilisateur.php">Gestion des utilisateurs</a></div>
+    		<?php } ?>		
+    	</div>
+    	<div>	
+    		<a href="?exit=1">Deconnexion</a>
+    	</div>
+    <?php } ?>
+  </div>
   <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -150,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="row">
   <class="bg-body height-custom text-center style="font-size: 2em"></class>
     DÉCOUVREZ NOTRE <span class="custom-color">VOTRE PROCHAIN VÉHICULE</span>
-<!-- Ne prend pas la couleur -->
+ <!-- Ne prend pas la couleur -->
   </div>
 
   
@@ -163,7 +178,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     Nos occasions récentes à faible KM
   </a>
 </div>
-  <div class="container-page" style="width: 100%;"> 
+  <div>
+  
+  <div class="container-page" style="100%"> 
 <?php 
    $sql = "select * from vehicule";
     $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
@@ -254,9 +271,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	</div>
 </div>
 </div>
-
-
-
+<?php
+require_once '../lib_page/footer.php';
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/plugins/bootstrap.bundle.min.js"></script>
 </body>

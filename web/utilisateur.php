@@ -80,8 +80,8 @@ if ($clUser == null || ! $clUser->isAdmin() )
 
 <?php
 // Affichage de la liste des utilisateurs, pour l'administrateur
-$sql = "select * from utilisateur ";
-$allUser = DbAccess::getRequeteSql($pdo, $sql);
+
+$allUser = $clUser->getListeUtilisateur($pdo);
 // test si existance d'au moins un utilisateur via le retour de la demande qui peut renvoyer null
 if ($allUser) {
     ?>
@@ -93,6 +93,7 @@ if ($allUser) {
 					<td>Nom</td>
 					<td>Prenom</td>
 					<td>Type Utilisateur</td>
+					<td>Action</td>
 				</tr>
             <?php
     foreach ($allUser as $user) {
@@ -102,6 +103,9 @@ if ($allUser) {
 					<td><?=$user['nom']?></td>
 					<td><?=$user['prenom']?></td>
 					<td><?=$user['type_utilisateur']?></td>
+					<td>
+						
+					</td>
 				</tr>
             <?php
     }
