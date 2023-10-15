@@ -49,7 +49,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
                 } else {
                     // Insertion en base de données
 
-                    if ($clUser->ajouteUtilisateur($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur))
+                    if ($clUser->ajoute($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur))
                         $message = "Bravo, vous venez de créer un nouvel utilisateur";
                     else
                         $message = "Erreur lors de l'ajout de l'utilisateur";
@@ -66,7 +66,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 // Si l'objet de session n'existe pas ou que l'utilisateur connecté n'est pas admin alors retour sur la page d'index
 if ($clUser == null || ! $clUser->isAdmin() )
 {
-    header("Location:index2.php");
+    header("Location:index.php");
     exit;
 }
 ?>
@@ -81,7 +81,7 @@ if ($clUser == null || ! $clUser->isAdmin() )
 <?php
 // Affichage de la liste des utilisateurs, pour l'administrateur
 
-$allUser = $clUser->getListeUtilisateur($pdo);
+$allUser = $clUser->getListe($pdo);
 // test si existance d'au moins un utilisateur via le retour de la demande qui peut renvoyer null
 if ($allUser) {
     ?>
@@ -159,7 +159,7 @@ if ($clUser) {
 ?>
 </div>
 <div>
-	<a href="index2.php">Retour</a>
+	<a href="index.php">Retour</a>
 </div>
     <?php
     require_once '../lib_page/footer.php';

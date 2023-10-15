@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $user = new User();
         if ($user->verifieConnection($pdo,$identifiant,$mdp)){
             $_SESSION['clUser'] = serialize($user);
-            header("Location:index2.php");
+            header("Location:index.php");
             exit;
         }
         else 

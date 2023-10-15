@@ -17,7 +17,7 @@
          * @param unknown $pdo
          * @return unknown
          */
-        public function getListeUtilisateur($pdo){
+        public function getListe($pdo){
             $sql = "select * from utilisateur ";
             return DbAccess::getRequeteSql($pdo, $sql);
         }
@@ -31,7 +31,7 @@
          * @param unknown $prenom
          * @param unknown $type_utilisateur
          */
-        public function ajouteUtilisateur($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
+        public function ajoute($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
             $data = [
                 'tidentifiant' => $identifiant,
                 'tmdp' => $mot_de_passe,

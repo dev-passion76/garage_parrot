@@ -25,7 +25,7 @@ require_once '../class/classUser.php';
 
 if (isset($_GET['exit'])){
     session_destroy();
-    header("Location:index2.php");
+    header("Location:index.php");
     exit;
 }
 /**
@@ -49,7 +49,8 @@ else
     		</div>
     		<?php if($clUser->isAdmin()) { ?>
     			<div><a href="utilisateur.php">Gestion des utilisateurs</a></div>
-    		<?php } ?>		
+    		<?php } ?>
+    		<div><a href="vehicule.php">Gestion des vehicules</a></div>		
     	</div>
     	<div>	
     		<a href="?exit=1">Deconnexion</a>
