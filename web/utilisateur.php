@@ -104,7 +104,8 @@ if ($allUser) {
 					<td><?=$user['prenom']?></td>
 					<td><?=$user['type_utilisateur']?></td>
 					<td>
-						
+						<a href="?action=M&index=<?= urlencode($user['identifiant'])?>">Modif</a>
+						<a href="?action=S&index=<?= urlencode($user['identifiant'])?>">Supp.</a>
 					</td>
 				</tr>
             <?php
