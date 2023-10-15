@@ -11,6 +11,50 @@
         public function __construct() {
         }
         
+        /**
+         * Liste des utilisateurs
+         *
+         * @param unknown $pdo
+         * @return unknown
+         */
+        public function getListeUtilisateur($pdo){
+            $sql = "select * from utilisateur ";
+            return DbAccess::getRequeteSql($pdo, $sql);
+        }
+        
+        
+        /**
+         * Fonction pour l'ajout d'utilisateur
+         * @param unknown $identifiant
+         * @param unknown $mot_de_passe
+         * @param unknown $nom
+         * @param unknown $prenom
+         * @param unknown $type_utilisateur
+         */
+        public function ajouteUtilisateur($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
+            $data = [
+                'tidentifiant' => $identifiant,
+                'tmdp' => $mot_de_passe,
+                'tnom' => $nom,
+                'tprenom' => $prenom,
+                'ttype_utilisateur' => $type_utilisateur,
+            ];
+            $sql = "INSERT INTO utilisateur (identifiant,mdp,nom,prenom,type_utilisateur) VALUES (:tidentifiant, :tmdp, :tnom, :tprenom, :ttype_utilisateur)";
+            
+            $stmt= $pdo->prepare($sql);
+            $stmt->execute($data);
+            
+            return true;
+        }
+
+        /**
+         * Procesus de connex
+         *
+         * @param unknown $pdo
+         * @param unknown $identifiant
+         * @param unknown $motDePasse
+         * @return boolean
+         */
         public function verifieConnection($pdo,$identifiant,$motDePasse) {
             $sql = 'select * from utilisateur '.
                 'where utilisateur.identifiant = '.$pdo->quote($identifiant).' '.
@@ -46,30 +90,6 @@
          */
         public function isAdmin(){
             return  $this->user['type_utilisateur'] == 'A';
-        }
-        
-        /**
-         * Fonction pour l'ajout d'utilisateur
-         * @param unknown $identifiant
-         * @param unknown $mot_de_passe
-         * @param unknown $nom
-         * @param unknown $prenom
-         * @param unknown $type_utilisateur
-         */
-        public function ajouteUtilisateur($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
-            $data = [
-                'tidentifiant' => $identifiant,
-                'tmdp' => $mot_de_passe,
-                'tnom' => $nom,
-                'tprenom' => $prenom,
-                'ttype_utilisateur' => $type_utilisateur,
-            ];
-            $sql = "INSERT INTO utilisateur (identifiant,mdp,nom,prenom,type_utilisateur) VALUES (:tidentifiant, :tmdp, :tnom, :tprenom, :ttype_utilisateur)";
-            
-            $stmt= $pdo->prepare($sql);
-            $stmt->execute($data);
-            
-            return true;
-        }
+        }        
     }
 ?>

@@ -9,6 +9,9 @@ require_once '../class/classUser.php';
 
 $identifiant = "";
 $mdp = "";
+/**
+ * Processus normalement lié à la validation suite à l'action de cliquer sur le bouton se connecter
+ */
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (!isset($_POST['username']) || $_POST['username'] == ''){
         $mes = "La saisie de l'identifiant est obligatoire";
@@ -22,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $mdp = $_POST['password'];
         $user = new User();
         if ($user->verifieConnection($pdo,$identifiant,$mdp)){
-            $mes = "Bienvenue";
             $_SESSION['clUser'] = serialize($user);
             header("Location:index2.php");
             exit;
@@ -35,8 +37,7 @@ else{
     $mes = 'Connectez-vous pour accéder à votre compte.';
 }
 ?><body>
-	<div id="app" data-app-id="ILD4S-2S1MH-UGZ3J-1SEEH"
-		data-client-id="9943826741852138">
+	<div id="app">
 		<form method="POST" class="signin h-screen overflow-y-auto px-4 py-4 md:flex md:items-center md:justify-center md:pb-32">
 			<div
 				class="signin-inner h-full flex flex-col justify-between md:block md:h-auto">
