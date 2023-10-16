@@ -3,26 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 } */
-#profile-icon {
+/*#profile-icon {
   position: absolute;
   top: 0;
   right: 0;
-}
+}*/
 
-.carousel.slide {
+@media screen and (max-width: 909px){
+    .carousel.slide {
     position: relative;
-}
+    }
 
 .carousel-inner .carousel-item img {
     width: 100%;
     height: 500px;
     object-fit: cover;
     object-position: center;
+    }
 }
 
-.large-margin {
+
+/* .large-margin {
     margin-left: 100px;
-}
+} */
 
 .centered-nav-items {
     text-align: center;
