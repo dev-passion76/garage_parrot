@@ -48,7 +48,6 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'GET') {
                 $identifiant = GET::get('index');
                 $sql = "select * from utilisateur where identifiant = ".$pdo->quote($identifiant);
                 $user = DbAccess::canFind($pdo,$sql);
-                 
                 $mot_de_passe = $user['mdp']; 
                 $nom  = $user['nom'];
                 $prenom  = $user['prenom'];
@@ -106,7 +105,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
                         else
                             $message = "Erreur lors de l'ajout de l'utilisateur";
                     }                    
-                 }
+                }
             }
         }
         else
