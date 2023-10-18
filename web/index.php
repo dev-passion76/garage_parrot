@@ -38,7 +38,11 @@ else
     $clUser = null;
     ?>
 <body>
-    <!-- <a href="modif_admin">Modifications informations</a> --> <!-- eror not found -->
+    <!-- Nouvelle div pour l'icône de profil -->
+    <div class="profile-icon-container"> 
+			<img src="assets/photos_vehicules/user (2).png" alt="Icône de profil" class="profile-icon">
+		</div>
+
    <div id="idConnect">
     <?php if ($clUser==null) {?>
    		<a href="signin.php">Se Connecter</a>

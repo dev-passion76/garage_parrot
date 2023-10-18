@@ -39,9 +39,6 @@ else{
 ?><body>
 	<div id="app">
 		<form method="POST" class="signin h-screen overflow-y-auto px-4 py-4 md:flex md:items-center md:justify-center md:pb-32">
-			<div class="profile-icon-container"> <!-- Nouvelle div pour l'icône de profil -->
-			<img src="assets/photos_vehicules/user (2).png" alt="Icône de profil" class="profile-icon">
-		</div>
 			<div
 				class="signin-inner h-full flex flex-col justify-between md:block md:h-auto">
 				<div class="signin-header">
