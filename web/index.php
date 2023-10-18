@@ -165,7 +165,7 @@ else
 <div class="container text-center">
   <div class="row">
   <class="bg-body height-custom text-center style="font-size: 2em"></class>
-    DÉCOUVREZ NOTRE <span class="custom-color">VOTRE PROCHAIN VÉHICULE</span>
+    DÉCOUVREZ NOTRE <span class="custom-color" style="color: #430d25">VOTRE PROCHAIN VÉHICULE</span>
  <!-- Ne prend pas la couleur -->
   </div>
 
@@ -175,13 +175,13 @@ else
   <a href="#" style="flex: 1; margin-top: 85px;" class="custom-link"> <!-- flex: 1; pr que chaque élément occupe l'espace dispo -->
     Nos occasions à moins de 20 000€
   </a>
-  <a href="#" style="flex: 1; margin-top: 85px;" class="custom-link"> <!-- Utilisez flex: 1; pour que chaque élément occupe l'espace disponible -->
+  <a href="#" style="flex: 1; margin-top: 85px;" class="custom-link"> <!-- flex: 1; pour que chaque élément occupe l'espace disponible -->
     Nos occasions récentes à faible KM
   </a>
 </div>
   <div>
   
-  <div class="container-page" style="100%"> 
+  <div class="container-page" style="width:100%;"> 
 <?php 
    $sql = "select * from vehicule";
     $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
@@ -195,7 +195,7 @@ else
   <div
   style="font-size: 2em; position: relative;"
   >NOS <span style="color: #430d25" id="custom-color">ENGAGEMENTS</span></div>
-<!--  OUVERTURE 1ERE CARD -->
+
 		<div id="nos-engagements-v2">
 	<div class="container text-center">
 		<p class="h3">Nos <span class="text-primary" style="color: #430d25">engagements</span></p>
@@ -203,7 +203,7 @@ else
 		<div class="row">
 			<div class="col-sm-3 col-xs-6">
 				<div class="card">
-					<a href="https://www.saintmerri.fr/reprise-de-votre-vehicule/" class="card-inner">
+					<a href="" class="card-inner">
 						<span class="front">
 							<span class="icon-buyback2"></span>
 
@@ -219,7 +219,7 @@ else
 			</div>
 			<div class="col-sm-3 col-xs-6">
 				<div class="card">
-					<a href="https://www.saintmerri.fr/nos-partenaires/#roole" class="card-inner">
+					<a href="" class="card-inner">
 						<span class="front">
 							<span class="icon-roole"></span>
 
@@ -255,7 +255,7 @@ else
 
 			<div class="col-sm-3 col-xs-6">
 				<div class="card">
-					<a href="https://www.saintmerri.fr/nos-partenaires/#waxoyl" class="card-inner">
+					<a href="" class="card-inner">
 						<span class="front">
 							<span class="icon-waxoyl"></span>
 
