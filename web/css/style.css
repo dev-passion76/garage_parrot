@@ -105,14 +105,16 @@
 }
 
 .profile-icon-container {
-	position: relative; 
+    width: 60px; 
+    height: auto;  /* ne s'applique pas ds le css mais ds html, mm avec !important */
+    /* background-image: url('assets/photos_vehicules/user (2).png');
+    background-size: cover; Ou 100px 100px si je veux une taille spécifique */
+    /* background-position: center; */
 }
 
-/* .profile-icon {
-	width: 50px; 
-	height: 50px; 
-	border-radius: 50%;  
-} */
+.profile-icon-right {
+    margin-left: auto; /* En CSS personnalisé non plus */
+}
 
 
 .navbar-brand {
@@ -121,7 +123,7 @@
 }
 
 .custom-select:focus {
-    box-shadow: none; /* Supprime l'ombre lorsqu'il est en focus */
+    box-shadow: none; /* Supprime l'ombre */
 }
 
 .navbar-custom {

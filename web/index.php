@@ -38,11 +38,6 @@ else
     $clUser = null;
     ?>
 <body>
-    <!-- Nouvelle div pour l'icône de profil -->
-    <div class="profile-icon-container"> 
-			<img src="assets/photos_vehicules/user (2).png" alt="Icône de profil" class="profile-icon">
-		</div>
-
    <div id="idConnect">
     <?php if ($clUser==null) {?>
    		<a href="signin.php">Se Connecter</a>
@@ -110,7 +105,13 @@ else
       </div>
     </div>
   </nav>
-  
+
+  <!-- Nouvelle div pour l'icône de profil -->
+    <!-- <div class="ms-auto">   en BS ne fonctionne pas -->
+    <div class="profile-icon-right"> <!-- Personnalisé non plus -->  
+    <div class="profile-icon-container"> 
+			<img src="assets/photos_vehicules/user (2).png" alt="Icône de profil" class="profile-icon" style="width: 60px; height: auto;">
+		</div>
 
 <div
   class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
@@ -276,6 +277,8 @@ else
 	</div>
 </div>
 </div>
+
+
 <?php
 require_once '../lib_page/footer.php';
 ?>
