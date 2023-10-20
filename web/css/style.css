@@ -455,3 +455,6 @@ span#custom-color { /* c'était pour forcer la couleur */
     width: 100%;
 }
 
+.hidden {
+    display: none;
+}

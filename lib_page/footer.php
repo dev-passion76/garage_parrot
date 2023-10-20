@@ -1,7 +1,5 @@
-  <footer
-  class="d-flex flex-wrap justify-content-left align-items-center py-3 my-4 border-top"
-  >
-  <div id="horaires">
+  <footer>
+  <div class="row col-6 m-2" id="horaires">
     <h3>Horaires d'ouverture </h3><br/><br/>
     <ul>
         <li><strong>Lundi :</strong> 8h45 - 12h00, 14h00 - 18h00</li>
@@ -14,8 +12,13 @@
     </ul>
 </div>
   
-  <form class="row col-6 m-5">
-  <p><b>Formulaire de contact</b></p>
+  
+    <div class="paper_plane">
+      <a href="#">Nous contacter</a>
+      <img src="../web/assets/message (2).png" alt="icone de contact client">
+    </div>
+    <form class="row col-6 m-5 hidden">
+  <h3>Formulaire de contact</h3>
     <div class="col-md-6">
     <input type="email" class="form-control" id="FirstName" placeholder="Nom">
   </div>
@@ -33,11 +36,7 @@
   </div>
 
   <div class="col-12">
-    <input type="text" class="form-control" id="inputAddress" placeholder="Votre adresse postale">
-  </div>
-
-  <div class="col-md-6">
-    <input type="text" class="form-control" id="inputCity" placeholder="ville">
+    <input type="text" class="form-control" id="inputAddress" placeholder="Votre adresse postale complète">
   </div>
 
   <div class="col-12 my-2">
@@ -75,4 +74,7 @@
   </div>
 
 </div>
+
+<script src="../web/app.js"></script>
+
 </footer>
