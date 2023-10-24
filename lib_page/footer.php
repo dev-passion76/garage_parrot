@@ -75,6 +75,6 @@
 
 </div>
 
-<script src="../web/app.js"></script>
+<script src="web/app.js"></script>
 
 </footer>
