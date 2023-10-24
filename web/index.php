@@ -41,13 +41,7 @@ else
    <div id="idConnect">
     <?php if ($clUser==null) {?>
    		
-    <div class="profile-icon-right"> <!-- Personnalisé non plus -->  
-      <div class="profile-icon-container"> 
-        <a href="signin.php">
-          <img src="image/icone_user.png" alt="Icône de profil" class="profile-icon" style="width: 60px; height: auto;"/>
-        </a>
-      </div>
-    </div>
+    
     
     <?php } else {?>
     	<div>
@@ -109,20 +103,26 @@ else
       </a>
       <!-- <a href="#formulaire_identification" title="profil icônes">Accéder au formulaire d'identification</a> -->
       <div class="d-flex justify-content-center" style="flex-grow: 1">
+      <!-- Icône de connexion pour admin et employé -->
+      <div class="profile-icon-right">   
+      <div class="profile-icon-container"> 
+        <a href="signin.php">
+          <img src="image/icone_user.png" alt="Icône de profil" class="profile-icon" style="width: 60px; height: auto;"/>
+        </a>
+      </div>
+    </div>
         <ul class="navbar-nav flex-row centered-nav-items">
           <li class="nav-item me-5">
-            <a class="nav-link nav-item-text" href="#">Qui sommes nous ?</a>
-          </li>
-          
+            <div class= ></div>
+            <a href="qui_sommes_nous.php" class="nav-link nav-item-text" >Qui sommes-nous ?</a>
+          </li> 
         </ul>
       </div>
     </div>
   </nav>
-
 <div
   class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
-  style="font-size: 2em; position: relative;"
-  >
+  style="font-size: 2em; position: relative;">
   TROUVEZ <span style="color: #430d25">VOTRE PROCHAIN VÉHICULE</span>
   
   <!-- Conteneur principal -->
@@ -176,8 +176,8 @@ else
 <div class="container text-center">
   <div class="row">
   <class="bg-body height-custom text-center style="font-size: 2em"></class>
-    DÉCOUVREZ NOTRE <span class="custom-color" style="color: #430d25">VOTRE PROCHAIN VÉHICULE</span>
- <!-- Ne prend pas la couleur -->
+    DÉCOUVREZ <span class="custom-color" style="color: #430d25">VOTRE PROCHAIN VÉHICULE</span>
+ <!-- Ne prend pas la couleur et me met un espace -->
   </div>
 
   

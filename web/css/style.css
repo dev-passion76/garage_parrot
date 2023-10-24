@@ -72,14 +72,15 @@
     display: inline-block;
 }
 
-.garage-text {
+h1.garage-text {
     color: #531429;
-    padding-left: 10%;
+    padding-left: 20%;
+    font-size: 350%;
+    transform: translateY(18%);
 }
-
+/*La couleur sur "votre prochain véhicule" ne s'applique pas */
 .custom-color {
     color: #430d25;
-    padding-left: 10%;
 }
 
 .nav-item-text {
@@ -87,10 +88,6 @@
     font-size: 2rem; 
     margin-right: 140px;   
 }
-
-/* .nav-container {
-    margin-bottom: 50px;
-}   avant s'appliquait plus maintenant même en vidant le cache ctrl+5 ou maintient souris sur flèche refresh et vider */ 
 
 .custom-select {
     border: none;
@@ -104,27 +101,74 @@
     font-size: 20px;  
 }
 
-.profile-icon-container {
-    width: 60px; 
-    height: auto;  /* ne s'applique pas ds le css mais ds html, mm avec !important */
-    /* background-image: url('assets/photos_vehicules/user (2).png');
-    background-size: cover; Ou 100px 100px si je veux une taille spécifique */
-    /* background-position: center; */
+.class p { /* J'ai augmenté la spécificité de mon p par .class et #id p afin que le navigateur n'écrase pas mon css mais c non */
+    font-family: 'Arial', sans-serif; /* Utilisez une police élégante */
+    font-size: 18px; /* Ajustez la taille du texte */
+    line-height: 1.6; /* Espacement entre les lignes */
+    color: #555; /* Couleur du texte */
+    margin: 20px 0; /* Espacement autour du paragraphe */
+    padding: 20px; /* Espacement à l'intérieur du paragraphe */
+    background-color: #fff; /* Couleur d'arrière-plan du paragraphe */
+    border: 1px solid #ddd; /* Bordure autour du paragraphe */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Ombre subtile */
 }
+
+
+/* Conteneur parent pr le logo du garage*/
+.navbar-brand.large-margin {
+    position: relative;
+}
+
+/* Conteneur parent en position relative pr que l'eft bouge sans affecter le texte */
+.d-flex {
+    position: relative; /* Ajout de la position relative */
+}
+
+
+.profile-icon-container {
+    position: absolute; /* Pour positionner l'icône indépendamment */
+    right: 0; /* Ajustez cette valeur si nécessaire */
+    top: 50%; /* Pour centrer verticalement */
+    transform: translateY(-50%); /* Pour centrer verticalement */
+}
+
 
 .profile-icon-right {
-    margin-left: auto; /* En CSS personnalisé non plus */
+    margin-left: 10%; /* En CSS personnalisé non plus */
+    padding-right: 20%;
 }
 
-
+/* Pour le logo du garage*/
 .navbar-brand {
     padding-left: 5%;
     padding-bottom: 5%;
 }
 
+/*Pour la bande grise : Trouvez votre prochain véhicule */
 .custom-select:focus {
     box-shadow: none; /* Supprime l'ombre */
 }
+
+/* Conteneur avec bande grise */
+.shadow-sm {
+    z-index: 1; 
+}
+
+/* Logo du garage */
+img[src*="image-voiture-garage.png"] {
+    position: absolute;
+    top: 100%; 
+    left:220%;
+    width: 50%;
+}
+
+
+/* Logo du garage */
+img[src*="image-voiture-garage.png"] {
+    z-index: 10; 
+}
+
 
 .navbar-custom {
     background-color: white;
@@ -136,10 +180,6 @@
 
 .height-custom {
     min-height: 200px;
-}
-
-.garage-text {
-    font-size: 350%;
 }
 
 span#custom-color { /* c'était pour forcer la couleur */
@@ -170,58 +210,6 @@ span#custom-color { /* c'était pour forcer la couleur */
   display: inline-block; /* Pour afficher les divs en ligne */
   margin-right: 10px;  /*Espace entre les images*/ 
 }
-
-/* Partie des card qui se retournent */
-
-/* .container {
-    width: 100%;
-    margin: auto;
-    max-width: 100%;
-}
-
-.card-container {
-    display: grid;
-    grid-template-columns: repeat auto-fill, minmax(350, 1fr);
-    grid-row: 30px;
-    margin: 80px auto;
-}
-
-.card-wrapper {
-    position: relative;
-    min-height: 200px;
-    perspective: 1000px; /*perception de profondeur d'u élément par rapport au 1er plan et arrière plan 3D*/
-    /*perspective-origin: top; /* Définie le point à partir duquel je regarde la scène en 3D, créée par la perspective
-
-.card-wrapper:hover .card {
-    transform: rotateY(180deg);
-}
-
-.card {
-    position: relative;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.86,0,0.07,1);/* la transition je la veux sur mon transform decard wrapper:hover
-
-
-.card-front,
-.card-back {
-    position: absolute;
-    border-radius: 8px;
-    backface-visibility: hidden; /*généralement utilisée avec les transformations 3D pour gérer l'affichage du dos d'un élément.ATTENTION hidden rends invisible l'arrièrede la face pr front et vis versa pour back*/
-    /*-webkit-backface-visibility: hidden; /*Pour Chrome, Safari, sinon fonctionne pas
-
-
-.card-front {
-    background-color: #008497;
-    display: flex;
-    justify-content: space-between;
-}
-
-.card-back {
-    background-color: #06c2db;
-    transform: rotateY('180deg');/*card front et back plus haut en position absolute, donc les uns au dessus des autres, notamment avec le dernier élément qui a été déclaré, card back qui se met tjrs au dessus de card front et donc je le voit tt le tps rotate card back pr ne plus voir sa partie arrière grâce à backface-visibility: hidden;*/
-
-
 
 .col-sm-4 {
     width:33%;

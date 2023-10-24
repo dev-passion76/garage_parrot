@@ -11,15 +11,14 @@
         <li><strong>Dimanche :</strong> Fermé</li>
     </ul>
 </div>
-  
-  
+
     <div class="paper_plane">
       <a href="contact.php">Nous contacter</a>
       <img src="image/icone_contact.png" alt="icone de contact client">
     </div>
     
-<p>Retrouvez nous</p>
-<br/><br/>
+<p>Retrouvez nous<br></p>
+
   <img
   class="ms-5"
   src="assets/facebook-logo-108.png"
