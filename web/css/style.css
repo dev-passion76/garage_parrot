@@ -454,7 +454,3 @@ span#custom-color { /* c'était pour forcer la couleur */
     text-align: left !important; /* Annule l'alignement centré de Bootstrap mais le garde pr mes cards services */
     width: 100%;
 }
-
-.hidden {
-    display: none;
-}

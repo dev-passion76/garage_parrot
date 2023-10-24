@@ -72,14 +72,17 @@ require_once '../lib/bib_composant_affiche.php';
 </div>
 
 <div class="annonce_contenu">
-<div class="row text-center">
-<div class="col-xs-6">
-<span class="prix"><?= afficheMontant($raw['prix'])?>&nbsp;€</span> </div>
+  <div class="row text-center">
+   <div class="col-xs-6">
+    <span class="prix"><?= afficheMontant($raw['prix'])?>&nbsp;€</span> 
+  </div>
+  </div>
+
+  <div class="clear_1"></div>
 </div>
 
-<div class="clear_1"></div></div>
-
 <a href="fiche_voiture.php?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-primary btn-sm btn-block btn-voir">Voir le véhicule</a>
+<a href="contact?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-primary btn-sm btn-block btn-voir">Nous contacter</a>
 </div>
 </div>
 <!--Fin de vignette 1ère vignette-->

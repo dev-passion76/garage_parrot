@@ -3,8 +3,6 @@ require_once '../lib/bib_connect.php';
 
 require_once '../lib/bib_sql.php';
 
-require_once '../lib/bib_general.php';
-
 require_once '../bibappli/lib_metier.php';
 
 require_once '../lib_page/header.php';
@@ -19,7 +17,7 @@ else
 // permet de tester que la page a bien été validé par POST de formulaire via la balise action du form
 
 /**
- * Cette variable va devoir 4 possibilité de statut
+ * Cette variable va avoir 4 possibilité de statut
  * A ajouter
  * M modifier
  * S supprimer
@@ -38,13 +36,16 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'GET') {
                 if ($identifiant != null){
                     // Attention, la suppression uniquement pour un user différent de celui connecté
                     if ($clUser->getUser()['identifiant'] != $identifiant){
-                        $clUser->supprime($pdo,$identifiant);
+                        User::supprime($pdo,$identifiant);
                     }
                 }
                 $action = 'C';
             }
             else 
             if ($action == 'M'){
+                /**
+                 * Preparation des variables pour afficher dans le body car appel GET
+                 */
                 $identifiant = GET::get('index');
                 $sql = "select * from utilisateur where identifiant = ".$pdo->quote($identifiant);
                 $user = DbAccess::canFind($pdo,$sql);
@@ -87,7 +88,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 if ($utilisateur) {
                     if ($action=='M'){
-                        if ($clUser->modifie($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur)){
+                        if (User::modifie($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur)){
                             $action = 'C';
                         }
                         else
@@ -98,7 +99,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
                 } else {
                     // Insertion en base de données
                     if ($action=='A'){
-                        if ($clUser->ajoute($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur)){
+                        if (User::ajoute($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur)){
                             $message = "Bravo, vous venez de créer un nouvel utilisateur";
                             $action = 'C';
                         }
@@ -189,7 +190,7 @@ if ($clUser) {
 					<?php } ?>
 					<?php if ($action == 'M'){ ?>
 						<input type="hidden" name="identifiant" value="<?=htmlentities($identifiant)?>"/>
-						<?=htmlentities($identifiant)?>"
+						<?=htmlentities($identifiant)?>
 					<?php } ?>
 				</div>
 				<div>

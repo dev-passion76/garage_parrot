@@ -40,7 +40,15 @@ else
 <body>
    <div id="idConnect">
     <?php if ($clUser==null) {?>
-   		<a href="signin.php">Se Connecter</a>
+   		
+    <div class="profile-icon-right"> <!-- Personnalisé non plus -->  
+      <div class="profile-icon-container"> 
+        <a href="signin.php">
+          <img src="image/icone_user.png" alt="Icône de profil" class="profile-icon" style="width: 60px; height: auto;"/>
+        </a>
+      </div>
+    </div>
+    
     <?php } else {?>
     	<div>
     		<div>
@@ -49,7 +57,12 @@ else
     		<?php if($clUser->isAdmin()) { ?>
     			<div><a href="utilisateur.php">Gestion des utilisateurs</a></div>
     		<?php } ?>
-    		<div><a href="vehicule.php">Gestion des vehicules</a></div>		
+    		<div>
+          <a href="vehicule.php">Gestion des vehicules</a>
+        </div>		
+    		<div>
+          <a href="gestionDemandeClient.php">Gestion des demandes d'information</a>
+        </div>		
     	</div>
     	<div>	
     		<a href="?exit=1">Deconnexion</a>
@@ -105,13 +118,6 @@ else
       </div>
     </div>
   </nav>
-
-  <!-- Nouvelle div pour l'icône de profil -->
-    <!-- <div class="ms-auto">   en BS ne fonctionne pas -->
-    <div class="profile-icon-right"> <!-- Personnalisé non plus -->  
-    <div class="profile-icon-container"> 
-			<img src="assets/photos_vehicules/user (2).png" alt="Icône de profil" class="profile-icon" style="width: 60px; height: auto;">
-		</div>
 
 <div
   class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"

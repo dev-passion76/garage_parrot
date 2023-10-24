@@ -17,7 +17,7 @@
          * @param unknown $pdo
          * @return unknown
          */
-        public function getListe($pdo){
+        public static function getListe($pdo){
             $sql = "select * from utilisateur ";
             return DbAccess::getRequeteSql($pdo, $sql);
         }
@@ -31,7 +31,7 @@
          * @param unknown $prenom
          * @param unknown $type_utilisateur
          */
-        public function ajoute($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
+        public static function ajoute($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
             $data = [
                 'tidentifiant' => $identifiant,
                 'tmdp' => $mot_de_passe,
@@ -45,7 +45,7 @@
             return $stmt->execute($data);
         }
 
-        public function modifie($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
+        public static function modifie($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
             $data = [
                 'tidentifiant' => $identifiant,
                 'tmdp' => $mot_de_passe,
@@ -59,7 +59,7 @@
             return $stmt->execute($data);
         }
         
-        public function supprime($pdo,$identifiant) {
+        public static function supprime($pdo,$identifiant) {
             $data = [
                 'id' => $identifiant,
             ];
