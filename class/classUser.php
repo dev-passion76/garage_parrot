@@ -1,4 +1,19 @@
-<?php 
+<?php
+    /**
+     * Class pour la gestion de la donnée Utilisateur
+     * permet les fonctions de création / modification / suppression en base
+     * 
+     * renvoi la liste des utilisateurs
+     * renvoi l'existe ou non d'un utilisateurs par son identifiant
+     * 
+     * Enregistre dans la session le fait qu'un utilisateur se connecte
+     * 
+     * Permet le controle de la demande de connexion
+     * 
+     * L'utilisation de l'algorithme SHA1 permet de sécuriser le mot de passe
+     * @author
+     *
+     */
     class User {
         // On enregistre les information de connexion du driver pdo
         private $user;
@@ -34,7 +49,7 @@
         public static function ajoute($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
             $data = [
                 'tidentifiant' => $identifiant,
-                'tmdp' => $mot_de_passe,
+                'tmdp' => User::pw_encode($mot_de_passe),
                 'tnom' => $nom,
                 'tprenom' => $prenom,
                 'ttype_utilisateur' => $type_utilisateur,
@@ -43,6 +58,19 @@
             
             $stmt= $pdo->prepare($sql);
             return $stmt->execute($data);
+        }
+
+        /**
+         * Méthode de recherche de l'existence d'un utilisateur 
+         * 
+         * @param unknown $pdo              Connecteur 
+         * @param unknown $identifiant      Identifiant de saisie
+         * @return boolean true / false
+         */
+        public static function isExiste($pdo, $identifiant){
+            $sql = "select * from utilisateur where identifiant = " . $pdo->quote($identifiant);
+            
+            return is_array(DbAccess::canFind($pdo, $sql));
         }
 
         public static function modifie($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
@@ -78,20 +106,26 @@
          */
         public function verifieConnection($pdo,$identifiant,$motDePasse) {
             $sql = 'select * from utilisateur '.
-                'where utilisateur.identifiant = '.$pdo->quote($identifiant).' '.
-                'and   utilisateur.mdp = '.$pdo->quote($motDePasse).' ';
-            if ($reqUser = DbAccess::canFind($pdo,$sql)){
-                $this->user = $reqUser;
-                return true;
+                'where utilisateur.identifiant = '.$pdo->quote($identifiant).' ';
+            
+            if ($reqUser = DbAccess::canFind($pdo,$sql) ) {
+                if (
+                    User::pw_check($motDePasse, $reqUser['mdp'])
+                    || $reqUser['mdp'] == $motDePasse // pour le momet on laisse car on a mis des mots de passe non chiffré
+                ){
+                    $this->user = $reqUser;
+                    return true;
+                }
+                else
+                    return false;
             }
-            else{
+            else
                 return false;
-            }
         }
         
         /**
          * Renvoi tout les colonnes de la requetes de connexion utilisateur
-         * @return unknown
+         * @return array retourne un array de toutes les colonnes relatif à l'utilisateur connecté
          */
         public function getUser() {
             return $this->user;
@@ -112,5 +146,24 @@
         public function isAdmin(){
             return  $this->user['type_utilisateur'] == 'A';
         }        
+        
+        
+        /**
+         * sécurisation du mot de passe SHA1 
+         */
+        
+        private static function pw_encode($password){
+            $seed = "";
+            for ($i = 1; $i <= 10; $i++)
+                $seed .= substr('0123456789abcdef', rand(0,15), 1);
+            return sha1($seed.$password.$seed).$seed;
+        }
+
+        private static function pw_check($password, $stored_value){
+            if (strlen($stored_value) != 50)
+                return FALSE;
+            $stored_seed = substr($stored_value,40,10);
+            return (sha1($stored_seed.$password.$stored_seed).$stored_seed == $stored_value);
+        }
     }
 ?>

@@ -76,6 +76,11 @@ else{
 								<span>Se connecter</span>
 							</button>
 						</div>
+						<div class="flex-none w-full order-first md:w-auto md:order-none">
+							<a href="index.php" class="junipero button disabled flex w-full justify-center items-center primary md:w-auto">
+								<span>Retour sur le site</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
