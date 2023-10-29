@@ -9,55 +9,53 @@
   right: 0;
 }*/
 
-
 @media screen and (min-width: 767px) and (max-width: 810px) {
-    .carousel-inner .carousel-item img {
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
-
 
 /* Règles pour les écrans plus petits ou égaux à 815px */
 @media screen and (max-width: 815px) {
-    .carousel-inner .carousel-item img {
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 /* Règles pour les écrans plus petits ou égaux à 910px */
 /* Règles pour les écrans plus petits ou égaux à 820px */
 @media screen and (max-width: 820px) {
-    .carousel-inner .carousel-item img {
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 /* Règles pour les écrans plus grands que 820px et plus petits ou égaux à 910px */
 @media screen and (min-width: 821px) and (max-width: 910px) {
-    .carousel.slide {
-        position: relative;
-    }
-    .carousel-inner .carousel-item img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        object-position: center;
-    }
+  .carousel.slide {
+    position: relative;
+  }
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 /* Règles pour les écrans plus grands que 910px */
 @media screen and (min-width: 911px) {
-    .carousel-inner .carousel-item img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-        object-position: center;
-    }
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 /* .large-margin {
@@ -65,380 +63,386 @@
 } */
 
 .centered-nav-items {
-    text-align: center;
+  text-align: center;
 }
 
 .centered-nav-items .nav-item {
-    display: inline-block;
+  display: inline-block;
 }
 
 h1.garage-text {
-    color: #531429;
-    padding-left: 20%;
-    font-size: 350%;
-    transform: translateY(18%);
+  color: #531429;
+  padding-left: 20%;
+  font-size: 350%;
+  transform: translateY(18%);
 }
 /*La couleur sur "votre prochain véhicule" ne s'applique pas */
 .custom-color {
-    color: #430d25;
+  color: #430d25;
 }
 
 .nav-item-text {
-    color: #aa4672;
-    font-size: 2rem; 
-    margin-right: 140px;   
+  color: #aa4672;
+  font-size: 2rem;
+  margin-right: 140px;
 }
 
 .custom-select {
-    border: none;
-    color: #aa4672;
-    outline: none;
-    cursor: pointer;
-    margin-right: 50px;
-    background-repeat: no-repeat;
-    background-position: right center;
-    min-width: 275px;  
-    font-size: 20px;  
+  border: none;
+  color: #aa4672;
+  outline: none;
+  cursor: pointer;
+  margin-right: 50px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  min-width: 275px;
+  font-size: 20px;
 }
 
-.class p { /* J'ai augmenté la spécificité de mon p par .class et #id p afin que le navigateur n'écrase pas mon css mais c non */
-    font-family: 'Arial', sans-serif; /* Utilisez une police élégante */
-    font-size: 18px; /* Ajustez la taille du texte */
-    line-height: 1.6; /* Espacement entre les lignes */
-    color: #555; /* Couleur du texte */
-    margin: 20px 0; /* Espacement autour du paragraphe */
-    padding: 20px; /* Espacement à l'intérieur du paragraphe */
-    background-color: #fff; /* Couleur d'arrière-plan du paragraphe */
-    border: 1px solid #ddd; /* Bordure autour du paragraphe */
-    border-radius: 5px; /* Coins arrondis */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Ombre subtile */
+.class p {
+  /* J'ai augmenté la spécificité de mon p par .class et #id p afin que le navigateur n'écrase pas mon css mais c non */
+  font-family: "Arial", sans-serif; /* Utilisez une police élégante */
+  font-size: 18px; /* Ajustez la taille du texte */
+  line-height: 1.6; /* Espacement entre les lignes */
+  color: #555; /* Couleur du texte */
+  margin: 20px 0; /* Espacement autour du paragraphe */
+  padding: 20px; /* Espacement à l'intérieur du paragraphe */
+  background-color: #fff; /* Couleur d'arrière-plan du paragraphe */
+  border: 1px solid #ddd; /* Bordure autour du paragraphe */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
 }
-
 
 /* Conteneur parent pr le logo du garage*/
 .navbar-brand.large-margin {
-    position: relative;
+  position: relative;
 }
 
 /* Conteneur parent en position relative pr que l'eft bouge sans affecter le texte */
 .d-flex {
-    position: relative; /* Ajout de la position relative */
+  position: relative; /* Ajout de la position relative */
 }
-
 
 .profile-icon-container {
-    position: absolute; /* Pour positionner l'icône indépendamment */
-    right: 0; /* Ajustez cette valeur si nécessaire */
-    top: 50%; /* Pour centrer verticalement */
-    transform: translateY(-50%); /* Pour centrer verticalement */
+  position: absolute; /* Pour positionner l'icône indépendamment */
+  right: 0; /* Ajustez cette valeur si nécessaire */
+  top: 50%; /* Pour centrer verticalement */
+  transform: translateY(-50%); /* Pour centrer verticalement */
 }
 
-
 .profile-icon-right {
-    margin-left: 10%; /* En CSS personnalisé non plus */
-    padding-right: 20%;
+  margin-left: 10%; /* En CSS personnalisé non plus */
+  padding-right: 20%;
 }
 
 /* Pour le logo du garage*/
 .navbar-brand {
-    padding-left: 5%;
-    padding-bottom: 5%;
+  padding-left: 5%;
+  padding-bottom: 5%;
 }
 
 /*Pour la bande grise : Trouvez votre prochain véhicule */
 .custom-select:focus {
-    box-shadow: none; /* Supprime l'ombre */
+  box-shadow: none; /* Supprime l'ombre */
 }
 
 /* Conteneur avec bande grise */
 .shadow-sm {
-    z-index: 1; 
+  z-index: 1;
 }
 
 /* Logo du garage */
 img[src*="image-voiture-garage.png"] {
-    position: absolute;
-    top: 100%; 
-    left:220%;
-    width: 50%;
+  position: absolute;
+  top: 100%;
+  left: 220%;
+  width: 50%;
 }
-
 
 /* Logo du garage */
 img[src*="image-voiture-garage.png"] {
-    z-index: 10; 
+  z-index: 10;
 }
-
 
 .navbar-custom {
-    background-color: white;
+  background-color: white;
 }
 
 .bg-custom {
-    background-color: #6d6d6d !important;
+  background-color: #6d6d6d !important;
 }
 
 .height-custom {
-    min-height: 200px;
+  min-height: 200px;
 }
 
-span#custom-color { /* c'était pour forcer la couleur */
-    color: #430d25;
+span#custom-color {
+  /* c'était pour forcer la couleur */
+  color: #430d25;
 }
 
 #marque {
-    position: relative;
-    z-index: 3;
+  position: relative;
+  z-index: 3;
 }
 
 #reparations {
-    position: relative;
-    z-index: 3;
+  position: relative;
+  z-index: 3;
 }
 
 .row {
-    padding-top: 80px !important; /* Mettre de l'espace entre le titre fonctionne dans l'inspecteur sur le style BS mais pas dans un style CSS personnalisé */
+  padding-top: 80px !important; /* Mettre de l'espace entre le titre fonctionne dans l'inspecteur sur le style BS mais pas dans un style CSS personnalisé */
 }
 
 .custom-link {
-    text-decoration: none; 
-    color: #aa4672; 
-    font-size: 20px; /*bizarre aucun effet comme les deux autres propriétés de la même classe, puis d'un coup ça marche ! */
+  text-decoration: none;
+  color: #aa4672;
+  font-size: 20px; /*bizarre aucun effet comme les deux autres propriétés de la même classe, puis d'un coup ça marche ! */
 }
 
 .image-container {
   display: inline-block; /* Pour afficher les divs en ligne */
-  margin-right: 10px;  /*Espace entre les images*/ 
+  margin-right: 10px; /*Espace entre les images*/
 }
 
 .col-sm-4 {
-    width:33%;
-    display:inline-flex;
+  width: 33%;
+  display: inline-flex;
 }
-.col-lg-3{width:25%}
-.vignette-v2 .annonce .prix{
-	font-size: 3.1rem;
+.col-lg-3 {
+  width: 25%;
 }
-
-.vignette-v2 .annonce .prix_loyer_m{
-	display: block;
+.vignette-v2 .annonce .prix {
+  font-size: 3.1rem;
 }
 
-.vignette-v2 .a_version{
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: block;
-    overflow: hidden;
+.vignette-v2 .annonce .prix_loyer_m {
+  display: block;
 }
 
-.vignette-v2 .annonce .prix_loyer{
-	font-size: 1.8rem;
+.vignette-v2 .a_version {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
 }
 
-.vignette-v2 .annonce .prix_loyer strong{
-	font-size: 2.1rem;
+.vignette-v2 .annonce .prix_loyer {
+  font-size: 1.8rem;
 }
 
-.vignette-v2 .annonce .annonce_badges div{
-	display: inline-block;
-	margin: 0 .3rem;
+.vignette-v2 .annonce .prix_loyer strong {
+  font-size: 2.1rem;
 }
 
-.vignette-v2 .annonce .badge_vo{
-	box-shadow: none;
-	font-size: .9rem;
-	margin: 0;
-	padding: .5rem .5rem;
+.vignette-v2 .annonce .annonce_badges div {
+  display: inline-block;
+  margin: 0 0.3rem;
 }
 
-.vignette-v2 .annonce{
-	padding-bottom: 0;
+.vignette-v2 .annonce .badge_vo {
+  box-shadow: none;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
 }
 
-.vignette-v2 .annonce-icons{
-	border-bottom: 1px solid #dedede;
-	padding: .7rem 0;
-	text-align: center;
+.vignette-v2 .annonce {
+  padding-bottom: 0;
 }
 
-.vignette-v2 .annonce .annonce_contenu{
-	padding-top: .7rem;
+.vignette-v2 .annonce-icons {
+  border-bottom: 1px solid #dedede;
+  padding: 0.7rem 0;
+  text-align: center;
+}
+
+.vignette-v2 .annonce .annonce_contenu {
+  padding-top: 0.7rem;
 }
 
 .vignette-v2 .annonce-ico {
-    margin: 0 1rem;
-    font-size: 1.7rem;
-    white-space: nowrap;
+  margin: 0 1rem;
+  font-size: 1.7rem;
+  white-space: nowrap;
 }
 
 .vignette-v2 .annonce .btn-voir,
-.vignette-v2 .annonce .visuel_conteneur{
-	margin: 0;
+.vignette-v2 .annonce .visuel_conteneur {
+  margin: 0;
 }
 
-.vignette-v2 .annonce .visuel_conteneur{
-	margin-top: 25%;
+.vignette-v2 .annonce .visuel_conteneur {
+  margin-top: 25%;
 }
 
-.vignette-v2 .annonce .annonce_badges{
-	border-bottom: 1px solid #dedede;
-	padding: .7rem 0;
-	left: auto;
-	right: auto;
-	top: auto;
-	position: relative;
+.vignette-v2 .annonce .annonce_badges {
+  border-bottom: 1px solid #dedede;
+  padding: 0.7rem 0;
+  left: auto;
+  right: auto;
+  top: auto;
+  position: relative;
 }
 
-.vignette-v2 .annonce{
-	margin-bottom: 4rem;
+.vignette-v2 .annonce {
+  margin-bottom: 4rem;
 }
 
-.vignette-v2 .annonce_contenu p{
-	margin-bottom: 0;
-	padding-bottom: .75rem;
+.vignette-v2 .annonce_contenu p {
+  margin-bottom: 0;
+  padding-bottom: 0.75rem;
 }
 
-.vignette-v2 .annonce_contenu p:after{
-	clear: both;
-	content:  ' ';
-	display: block;
+.vignette-v2 .annonce_contenu p:after {
+  clear: both;
+  content: " ";
+  display: block;
 }
 
-.vignette-v2 .annonce h2 a.alerte-annonce{
-	right: 0;
+.vignette-v2 .annonce h2 a.alerte-annonce {
+  right: 0;
 }
 
-.vignette-v2 .container-page .annonce h2 span.h2-marque{
-	white-space: nowrap;
+.vignette-v2 .container-page .annonce h2 span.h2-marque {
+  white-space: nowrap;
 }
 
-.vignette-v2 .annonce_badges_c_empty{
-	height: 4rem;
+.vignette-v2 .annonce_badges_c_empty {
+  height: 4rem;
 }
 
-.vignette-v2 .badge_ce{
-	border-radius: 1rem;
-	font-weight: bold;
-	text-transform: uppercase;
+.vignette-v2 .badge_ce {
+  border-radius: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-	.vignette-v2 .annonce-ico{
-		margin: 0 .4rem;
-		font-size: 1.4rem;
-	}
-		
-	.vignette-v2 .annonce .prix_loyer{
-		font-size: 1.5rem;
-	}
-
-	.vignette-v2 .annonce .prix_loyer strong{
-		font-size: 1.8rem;
-	}
-
-	.container-page .vignette-v2 .annonce h2 .h2-marque{
-		font-size: 1.9rem;
-	}
-
-	.container-page .vignette-v2 .annonce h2{
-		font-size: 1.4rem;
-	}
-
-    .container-page {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .col-sm-6 h1{
-	font-size:4rem;
-	padding-right:10rem;
-	padding-top:0;
+.vignette-v2 .annonce-ico {
+  margin: 0 0.4rem;
+  font-size: 1.4rem;
 }
 
-.well, .well-color{
-	border: 1px solid #e6e6e6;
-    padding: 2rem;
-    box-shadow: 0 0 15px rgb(200 200 200 / 50%);
+.vignette-v2 .annonce .prix_loyer {
+  font-size: 1.5rem;
+}
+
+.vignette-v2 .annonce .prix_loyer strong {
+  font-size: 1.8rem;
+}
+
+.container-page .vignette-v2 .annonce h2 .h2-marque {
+  font-size: 1.9rem;
+}
+
+.container-page .vignette-v2 .annonce h2 {
+  font-size: 1.4rem;
+}
+
+.container-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.col-sm-6 h1 {
+  font-size: 4rem;
+  padding-right: 10rem;
+  padding-top: 0;
+}
+
+.well,
+.well-color {
+  border: 1px solid #e6e6e6;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgb(200 200 200 / 50%);
 }
 
 .prix {
-    color:#008497;
-	font-size:2.5rem;
-	padding-bottom: 0;
+  color: #008497;
+  font-size: 2.5rem;
+  padding-bottom: 0;
 }
 
 /* Pour les cards qui se retournent au survole  ET CA CONTINUE RIEN NE FONCTIONNE !!!!! */
 
-.accueil-v2 #nos-engagements-v2{
-	background: #fff;
-	font-size:2rem;
-	padding: 6rem 0;
-	position:relative;
+.accueil-v2 #nos-engagements-v2 {
+  background: #fff;
+  font-size: 2rem;
+  padding: 6rem 0;
+  position: relative;
 }
 
-.accueil-v2 #nos-engagements-v2 .card{
-	height: 140px;
-	perspective: 1000px;
+.accueil-v2 #nos-engagements-v2 .card {
+  height: 140px;
+  perspective: 1000px;
 }
 
-.accueil-v2 #nos-engagements-v2 .card-inner{
-	display:block;
-	color:#333;
-	position: relative;
-    height: 100%;
-    width: 100%;
-    transition: transform 0.8s;
-    text-align: center;
-    transform-style: preserve-3d;
+.accueil-v2 #nos-engagements-v2 .card-inner {
+  display: block;
+  color: #333;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.8s;
+  text-align: center;
+  transform-style: preserve-3d;
 }
 
 .accueil-v2 #nos-engagements-v2 .card:hover .card-inner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.accueil-v2 #nos-engagements-v2 .front, .accueil-v2 #nos-engagements-v2 .back {
-	background:#fff;
-	border: 1px solid #0653b6;
-	display:block;
-    position: absolute;
-	padding: 1rem;
-    height: 100%;
-    width: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; /* Safari */
+.accueil-v2 #nos-engagements-v2 .front,
+.accueil-v2 #nos-engagements-v2 .back {
+  background: #fff;
+  border: 1px solid #0653b6;
+  display: block;
+  position: absolute;
+  padding: 1rem;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari */
 }
 
-.accueil-v2 #nos-engagements-v2 .back{
-	background:#0653b6;
-	color:#fff;
-	transform: rotateY(180deg);
+.accueil-v2 #nos-engagements-v2 .back {
+  background: #0653b6;
+  color: #fff;
+  transform: rotateY(180deg);
 }
 
-.accueil-v2 #nos-engagements-v2 .back p{
-	font-size:1.7rem;
+.accueil-v2 #nos-engagements-v2 .back p {
+  font-size: 1.7rem;
 }
 
-.accueil-v2 #nos-engagements-v2 .card span span{
-	color: #0653b6;
-	display:block;
-	font-size:3rem;
-	margin-bottom: 1rem;
+.accueil-v2 #nos-engagements-v2 .card span span {
+  color: #0653b6;
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 /* horaires footer */
 
 #horaires ul {
-    list-style: none; /* Supprime les puces de la liste */
-    padding: 0; /* Supprime le remplissage par défaut de la liste */
-    margin: 0; /* Supprime la marge par défaut de la liste */
+  list-style: none; /* Supprime les puces de la liste */
+  padding: 0; /* Supprime le remplissage par défaut de la liste */
+  margin: 0; /* Supprime la marge par défaut de la liste */
 }
 
 #horaires ul li {
-    margin-bottom: 5px; /* Ajoute de l'espace entre chaque élément de la liste */
-    display: flex; /* Utilise la flexbox pour aligner les éléments horizontalement */
-    justify-content: space-between; /* Espace également les éléments à l'intérieur de chaque <li> */
+  margin-bottom: 5px; /* Ajoute de l'espace entre chaque élément de la liste */
+  display: flex; /* Utilise la flexbox pour aligner les éléments horizontalement */
+  justify-content: space-between; /* Espace également les éléments à l'intérieur de chaque <li> */
 }
 
 #horaires {
-    text-align: left !important; /* Annule l'alignement centré de Bootstrap mais le garde pr mes cards services */
-    width: 100%;
+  text-align: left !important; /* Annule l'alignement centré de Bootstrap mais le garde pr mes cards services */
+  width: 100%;
+}
+
+/* Limite la hauteur des images dans le caroussel ATTENTION A l'heritage se trouvant dans boostrap*/
+.carousel-inner .carousel-item img {
+  height: 300px;
 }

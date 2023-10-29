@@ -21,7 +21,7 @@ require_once '../bibappli/lib_metier.php';
 
 require_once '../lib_page/header.php';
 
-require_once '../class/classUser.php';
+require_once '../class/classUtilisateur.php';
 
 if (isset($_GET['exit'])){
     session_destroy();
@@ -66,7 +66,7 @@ else
   <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/Mercedes Blanche slider.jpg" class="d-block w-100" alt="photo slide one">
+      <img src="image/site/mercedes_blanche.png" class="d-block w-100" alt="photo slide one">
     </div>
     <div class="carousel-item">
       <img src="assets/honda blanche slider.jpg" class="d-block w-100" alt="photo slide two">

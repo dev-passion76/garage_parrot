@@ -7,7 +7,7 @@ require_once '../bibappli/lib_metier.php';
 
 require_once '../lib_page/header.php';
 
-require_once '../class/classUser.php';
+require_once '../class/classUtilisateur.php';
 
 if (isset($_SESSION['clUser']))
     $clUser = unserialize($_SESSION['clUser']);
@@ -36,7 +36,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'GET') {
                 if ($identifiant != null){
                     // Attention, la suppression uniquement pour un user différent de celui connecté
                     if ($clUser->getUser()['identifiant'] != $identifiant){
-                        User::supprime($pdo,$identifiant);
+                        Utilisateur::supprime($pdo,$identifiant);
                     }
                 }
                 $action = 'C';
@@ -88,7 +88,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 if ($utilisateur) {
                     if ($action=='M'){
-                        if (User::modifie($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur)){
+                        if (Utilisateur::modifie($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur)){
                             $action = 'C';
                         }
                         else
@@ -99,7 +99,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
                 } else {
                     // Insertion en base de données
                     if ($action=='A'){
-                        if (User::ajoute($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur)){
+                        if (Utilisateur::ajoute($pdo, $identifiant, $mot_de_passe, $nom, $prenom, $type_utilisateur)){
                             $message = "Bravo, vous venez de créer un nouvel utilisateur";
                             $action = 'C';
                         }

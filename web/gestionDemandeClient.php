@@ -7,7 +7,7 @@ require_once '../bibappli/lib_metier.php';
 
 require_once '../lib_page/header.php';
 
-require_once '../class/classUser.php';
+require_once '../class/classUtilisateur.php';
 
 require_once '../class/classClientDemande.php';
 
@@ -25,7 +25,8 @@ else
  * S supprimer
  * C consulter
  * 
- * @var string $actionGlobal
+ * @var string 
+ Global
  */
 $actionGlobal = '';
 
@@ -95,7 +96,7 @@ if ($allDemande) {
 <?php
 if ($clUser) {
     if ($clUser->isAdmin()) {
-        if ($action == 'C'){
+        if ($actionGlobal == 'C'){
             
         }
         else{

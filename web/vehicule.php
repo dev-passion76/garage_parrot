@@ -9,7 +9,7 @@ require_once '../bibappli/lib_metier.php';
 
 require_once '../lib_page/header.php';
 
-require_once '../class/classUser.php';
+require_once '../class/classUtilisateur.php';
 
 require_once '../class/classVehicule.php';
 

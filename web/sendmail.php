@@ -13,6 +13,10 @@ require_once 'PHPMailer/PHPMailer.php';
 require_once 'PHPMailer/SMTP.php';
 require_once 'PHPMailer/Exception.php';
 
+/** 
+ * A voir dans le futur ce qu'on appelle SPF et DKIM
+ * 
+ */
 $mail = new PHPMailer;
 $mail->isSMTP();
 
@@ -39,10 +43,11 @@ $mail->Password = 'Adsi2269';
 */
 
 $from = $mail->Username;
-$to   = 'emmanuel.de.peretti@gmail.com';
+//$to   = 'archi.sandrineblandamour@gmail.com';
+$to   = 'archi.sandrineblandamour@gmail.com';
 
 $mail->setFrom($from, $from);
-$mail->addAddress($to, 'Emmanuel de Peretti');
+$mail->addAddress($to, $to);
 
 $mail->isHTML(false);                                  // Set email format to HTML
 $mail->Subject = 'Here is the subject';

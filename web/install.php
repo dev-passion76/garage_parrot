@@ -10,7 +10,7 @@ require_once '../lib/bib_sql.php';
 
 require_once '../lib_page/header.php';
 
-require_once '../class/classUser.php';
+require_once '../class/classUtilisateur.php';
 
 $identifiant = "";
 $mdp = "";
@@ -37,12 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($mdp == null ||$mdp == '')
         $mes = "La saisie du mot de passe est obligatoire";
     else
-    if (User::isExiste($pdo, $identifiant))
+    if (Utilisateur::isExiste($pdo, $identifiant))
         $mes = "Utilisateur déjà existant";
     else {
         $type_utilisateur = 'A';
         
-        if (User::ajoute($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur)){
+        if (Utilisateur::ajoute($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur)){
             header("Location:index.php");
             exit;
         }

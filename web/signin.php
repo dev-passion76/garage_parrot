@@ -5,7 +5,7 @@ require_once '../lib/bib_sql.php';
 
 require_once '../lib_page/header.php';
 
-require_once '../class/classUser.php';
+require_once '../class/classUtilisateur.php';
 
 $identifiant = "";
 $mdp = "";
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     else {
         $identifiant = $_POST['username'];
         $mdp = $_POST['password'];
-        $user = new User();
+        $user = new Utilisateur();
         if ($user->verifieConnection($pdo,$identifiant,$mdp)){
             $_SESSION['clUser'] = serialize($user);
             header("Location:index.php");
