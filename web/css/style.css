@@ -1,13 +1,95 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-/*#profile-icon {
-  position: absolute;
-  top: 0;
-  right: 0;
-}*/
+:root {
+  --vp-quisommesnous: #aa4672;
+  --vp-votre-vehicule: rgb(108 30 65);
+}
+
+body {
+  min-width: 600px;
+}
+
+DIV.clChoixSelonVeh {
+}
+
+DIV.clChoixSelonVeh .titre,
+DIV.clEngagements .titre {
+  color: var(--vp-quisommesnous);
+}
+
+DIV.clChoixSelonVeh > div > .titre:not(:has(+ DIV > div)) {
+  display: none;
+}
+
+DIV.clChoixSelonVeh .container-page {
+}
+
+DIV.clSelectVehicule,
+DIV.clEngagements {
+  font-size: 2em;
+}
+
+DIV.clEngagements + DIV > .row {
+  flex-wrap: inherit;
+}
+
+DIV.clEngagements + DIV {
+  font-size: 2em;
+}
+DIV.clEngagements + DIV .card {
+  margin: 0px 5px 0px 5px;
+}
+
+/* Fabrication d'un système de flip / flop sur hover */
+DIV.clEngagements + DIV .card .front {
+  display: block;
+}
+
+DIV.clEngagements + DIV .card .back {
+  display: none;
+}
+
+DIV.clEngagements + DIV .card:hover .front {
+  display: none;
+}
+
+DIV.clEngagements + DIV .card:hover .back {
+  display: block;
+}
+
+/* class du DIV avec le SPAN fils directement associé et l'adjacent*/
+DIV.clDecouvreVehicule > DIV.titre > SPAN + SPAN {
+  color: var(--vp-votre-vehicule);
+}
+
+DIV.clSelectVehicule > DIV.titre > SPAN + SPAN {
+  color: var(--vp-votre-vehicule);
+}
+
+DIV.clSelectVehicule > DIV.corps {
+  padding-top: 10px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+}
+
+DIV.clSelectVehicule > DIV.corps form {
+  width: 100%;
+  padding-bottom: 30px;
+}
+DIV.clSelectVehicule > DIV.corps select {
+  max-width: 200px;
+  display: inline-flex;
+  margin-bottom: 20px;
+  font-size: inherit;
+  margin: 10px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 810px) {
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
 
 @media screen and (min-width: 767px) and (max-width: 810px) {
   .carousel-inner .carousel-item img {
@@ -70,15 +152,16 @@
   display: inline-block;
 }
 
+span.garage-text {
+  color: var(--vp-quisommesnous);
+}
+
 h1.garage-text {
   color: #531429;
-  padding-left: 20%;
-  font-size: 350%;
-  transform: translateY(18%);
 }
 /*La couleur sur "votre prochain véhicule" ne s'applique pas */
 .custom-color {
-  color: #430d25;
+  color: var(--vp-votre-vehicule);
 }
 
 .nav-item-text {
@@ -125,9 +208,38 @@ h1.garage-text {
 
 .profile-icon-container {
   position: absolute; /* Pour positionner l'icône indépendamment */
-  right: 0; /* Ajustez cette valeur si nécessaire */
-  top: 50%; /* Pour centrer verticalement */
-  transform: translateY(-50%); /* Pour centrer verticalement */
+  right: 0px; /* Ajustez cette valeur si nécessaire */
+  top: 0px; /* Pour centrer verticalement */
+  z-index: 2;
+}
+
+.divCenter {
+  margin: 0px auto 0px auto;
+}
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  .profile-icon-container {
+    display: none;
+  }
+  .carousel-inner .carousel-item img {
+    height: 100px !important;
+  }
+  h1.garage-text {
+    font-size: 150%;
+  }
+  span.garage-text {
+    font-size: 100%;
+  }
+  .nav-item-text {
+    font-size: 1rem;
+    margin-right: 140px;
+  }
+  DIV.clSelectVehicule {
+    font-size: 1em;
+  }
+
+  DIV.clChoixSelonVeh .container-page {
+    display: block;
+  }
 }
 
 .profile-icon-right {
@@ -178,21 +290,7 @@ img[src*="image-voiture-garage.png"] {
 
 span#custom-color {
   /* c'était pour forcer la couleur */
-  color: #430d25;
-}
-
-#marque {
-  position: relative;
-  z-index: 3;
-}
-
-#reparations {
-  position: relative;
-  z-index: 3;
-}
-
-.row {
-  padding-top: 80px !important; /* Mettre de l'espace entre le titre fonctionne dans l'inspecteur sur le style BS mais pas dans un style CSS personnalisé */
+  color: var(--vp-votre-vehicule);
 }
 
 .custom-link {
@@ -343,6 +441,8 @@ span#custom-color {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .col-sm-6 h1 {
@@ -445,4 +545,10 @@ span#custom-color {
 /* Limite la hauteur des images dans le caroussel ATTENTION A l'heritage se trouvant dans boostrap*/
 .carousel-inner .carousel-item img {
   height: 300px;
+}
+
+@media screen and (max-width: 999px) {
+  .container-page {
+    display: block;
+  }
 }

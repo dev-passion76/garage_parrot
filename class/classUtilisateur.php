@@ -149,9 +149,8 @@
         
         
         /**
-         * sécurisation du mot de passe SHA1 
+         * sécurisation du mot de passe SHA1 avec clé dynamique rajouté pour eviter le Brut force
          */
-        
         private static function pw_encode($password){
             $seed = "";
             for ($i = 1; $i <= 10; $i++)
