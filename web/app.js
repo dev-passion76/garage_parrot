@@ -1,6 +1,8 @@
-window.addEventListener("DOMContentLoaded", function () {
-  document.querySelector(".paper_plane").addEventListener("click", function () {
-    var formulaire = document.querySelector("form");
-    formulaire.classList.remove("hidden");
+
+$(document).ready(function () {
+  $(".carousel").carousel({
+    interval: 2000, // changes the speed
   });
+
+  // Ici j'ajoute des fonctions pour gérer les effets de glissement et de zoom si nécessaire
 });

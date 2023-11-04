@@ -114,12 +114,12 @@ else
             <div class="titre">
             <span>TROUVEZ</span> <span>VOTRE PROCHAIN VÉHICULE</span>  
             </div>
+            <a href="index.html" class="logo">
+  <img src="./image/site/image-voiture-garage.png" alt="Nom de l'entreprise">
+</a>
 
     <!-- Conteneur flex pour les selects -->
-
-    <!-- <div class="corps"> -->
-      <div class="row">
-        <div class="col-md-6">
+    <div class="corps">
         <!-- Premier select -->
         <form action="voitures-occasions.php" method="POST">
             <select name="from_home_modele" id="marque" class="form-control custom-select" onchange="this.form.submit()">
@@ -143,8 +143,8 @@ else
               <option value="PEUGEOT">PEUGEOT</option>
               <option value="RENAULT">RENAULT</option> -->
           </select>
+
           <!-- Deuxième select -->
-            <div class="col-md-6">
           <select name="from_home_modele" id="reparations" class="form-control custom-select">
               <option value="">Réparations</option>
               <?php $reqPrestation = getPrestation($pdo,"RP");
@@ -157,6 +157,7 @@ else
           </select>
         </form>
       </div>
+  
     </div>
           </div>
 
@@ -164,17 +165,15 @@ else
   <div class="clSelectVehicule">
     <div class="titre">
       <div class="clDecouvreVehicule">
-        <div class="titre">
+        <div class="titre"><br>
           <span>DÉCOUVREZ</span> <span>VOTRE PROCHAIN VÉHICULE</span>
         </div>
-      <!-- Ne prend pas la couleur et me met un espace -->
-
         <div class="clChoixSelonVeh">
           <div>
               <div class="titre">
               Nos occasions à moins de 20 000€
               </div>
-              <div class="container-page" > 
+              <div class="container-page" >
               <?php 
               $sql = "select * from vehicule where prix < 20000";
                 $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
@@ -209,6 +208,7 @@ else
   <div class="clEngagements">
     <div class="titre">
       <span>NOS</span> <span>ENGAGEMENTS</span>
+      
     </div>
   </div>
   <div>    

@@ -79,9 +79,9 @@ DIV.clSelectVehicule > DIV.corps select {
   max-width: 200px;
   display: inline-flex;
   margin-bottom: 20px;
-  font-size: inherit;
   margin: 10px;
 }
+
 
 @media screen and (min-width: 767px) and (max-width: 810px) {
   .carousel-inner .carousel-item img {
@@ -140,10 +140,6 @@ DIV.clSelectVehicule > DIV.corps select {
   }
 }
 
-/* .large-margin {
-    margin-left: 100px;
-} */
-
 .centered-nav-items {
   text-align: center;
 }
@@ -159,7 +155,6 @@ span.garage-text {
 h1.garage-text {
   color: #531429;
 }
-/*La couleur sur "votre prochain véhicule" ne s'applique pas */
 .custom-color {
   color: var(--vp-votre-vehicule);
 }
@@ -175,11 +170,9 @@ h1.garage-text {
   color: #aa4672;
   outline: none;
   cursor: pointer;
-  margin-right: 50px;
   background-repeat: no-repeat;
   background-position: right center;
   min-width: 275px;
-  font-size: 20px;
 }
 
 .class p {
@@ -463,64 +456,16 @@ span#custom-color {
   font-size: 2.5rem;
   padding-bottom: 0;
 }
-
-/* Pour les cards qui se retournent au survole  ET CA CONTINUE RIEN NE FONCTIONNE !!!!! */
-
-.accueil-v2 #nos-engagements-v2 {
-  background: #fff;
-  font-size: 2rem;
-  padding: 6rem 0;
-  position: relative;
+/*  Cards */
+.card {
+  /* Vos styles initiaux pour la card */
+  background-color: #ffffff; /* Couleur de fond initiale */
+  transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
+  /* Autres propriétés... */
 }
 
-.accueil-v2 #nos-engagements-v2 .card {
-  height: 140px;
-  perspective: 1000px;
-}
-
-.accueil-v2 #nos-engagements-v2 .card-inner {
-  display: block;
-  color: #333;
-  position: relative;
-  height: 100%;
-  width: 100%;
-  transition: transform 0.8s;
-  text-align: center;
-  transform-style: preserve-3d;
-}
-
-.accueil-v2 #nos-engagements-v2 .card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.accueil-v2 #nos-engagements-v2 .front,
-.accueil-v2 #nos-engagements-v2 .back {
-  background: #fff;
-  border: 1px solid #0653b6;
-  display: block;
-  position: absolute;
-  padding: 1rem;
-  height: 100%;
-  width: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden; /* Safari */
-}
-
-.accueil-v2 #nos-engagements-v2 .back {
-  background: #0653b6;
-  color: #fff;
-  transform: rotateY(180deg);
-}
-
-.accueil-v2 #nos-engagements-v2 .back p {
-  font-size: 1.7rem;
-}
-
-.accueil-v2 #nos-engagements-v2 .card span span {
-  color: #0653b6;
-  display: block;
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.card:hover {
+  background-color: #aa4672; /* Nouvelle couleur de fond lors du survol */
 }
 
 /* horaires footer */
@@ -551,4 +496,52 @@ span#custom-color {
   .container-page {
     display: block;
   }
+}
+body {
+    font-family: 'Calibri', sans-serif;
+    font-size: 12px;
+}
+
+h1, h2 {
+    color: #531429;
+}
+
+#qui-sommes-nous {
+    background-color: #aa4672;
+    color: white;
+    padding-left: 10%;
+}
+
+#temoignages {
+    background-color: #6d6d6d;
+    color: white;
+}
+
+.link-occasions {
+    display: block;
+    background-color: #008497;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.qui-sommes-nous-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Ajoutez ici du padding ou du margin si nécessaire */
+}
+
+.qui-sommes-nous-header h1 {
+  /* Votre style pour le titre */
+  font-size: 24px; /* Exemple de taille de police */
+  color: #531429; /* Exemple de couleur */
+}
+
+.qui-sommes-nous-logo {
+  height: 100px; /* Hauteur du logo, à ajuster selon vos besoins */
+  width: auto; /* Garder les proportions du logo */
+  /* Ajoutez ici du margin si nécessaire */
 }
