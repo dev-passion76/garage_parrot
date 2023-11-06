@@ -192,12 +192,7 @@ $reqMarque = getRequeteSql($pdo,$sql);
         >
       </div>
       <div class="d-flex justify-content-end">
-        <img class="ms-3" src="assets/linkedin-112.png" alt="logo linkedin" />
-        <img
-          class="ms-3"
-          src="assets/black-instagram-transparent-logo-10671.png"
-          alt="Logo instagram"
-        />
+        
         <img
           class="ms-3"
           src="assets/facebook-logo-108.png"

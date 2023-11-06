@@ -106,6 +106,9 @@ else
           <a href="qui_sommes_nous.php" >
             <span class="garage-text">Qui sommes-nous ?</span>
           </a>
+          <div class="logo-garage">
+            <img src="" alt="">
+          </div>
       </div>
     </div>
   </nav>
@@ -115,7 +118,7 @@ else
             <span>TROUVEZ</span> <span>VOTRE PROCHAIN VÉHICULE</span>  
             </div>
             <a href="index.html" class="logo">
-  <img src="./image/site/image-voiture-garage.png" alt="Nom de l'entreprise">
+  <img src="./assets/image-voiture-garage.png" alt="Nom de l'entreprise">
 </a>
 
     <!-- Conteneur flex pour les selects -->

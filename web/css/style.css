@@ -148,13 +148,20 @@ DIV.clSelectVehicule > DIV.corps select {
   display: inline-block;
 }
 
+a {
+  text-decoration: none;
+}
+
 span.garage-text {
   color: var(--vp-quisommesnous);
 }
 
 h1.garage-text {
   color: #531429;
+  font-size: 4rem;
+  padding-bottom: 10%;
 }
+
 .custom-color {
   color: var(--vp-votre-vehicule);
 }
@@ -176,7 +183,6 @@ h1.garage-text {
 }
 
 .class p {
-  /* J'ai augmenté la spécificité de mon p par .class et #id p afin que le navigateur n'écrase pas mon css mais c non */
   font-family: "Arial", sans-serif; /* Utilisez une police élégante */
   font-size: 18px; /* Ajustez la taille du texte */
   line-height: 1.6; /* Espacement entre les lignes */
@@ -290,6 +296,19 @@ span#custom-color {
   text-decoration: none;
   color: #aa4672;
   font-size: 20px; /*bizarre aucun effet comme les deux autres propriétés de la même classe, puis d'un coup ça marche ! */
+}
+
+#qui-sommes-nous .img_logo {
+  width: 500px;
+  height: auto;
+  position: relative;
+  left: 120px;
+  top: -70px;
+}
+
+p {
+    margin-top: 80px;
+    padding-left: 15%;
 }
 
 .image-container {
@@ -497,25 +516,110 @@ span#custom-color {
     display: block;
   }
 }
-body {
-    font-family: 'Calibri', sans-serif;
-    font-size: 12px;
+
+h1 {
+    color: #531429;
+    padding-top: 75px;
+    padding-left: 8%;
 }
 
-h1, h2 {
+h2 {
     color: #531429;
+    padding-top: 75px;
+    padding-left: 40%;
+    font-size: 2.5rem;
 }
+
 
 #qui-sommes-nous {
-    background-color: #aa4672;
-    color: white;
+    background-color: #ead9e0;
+    color: black;
     padding-left: 10%;
 }
 
-#temoignages {
-    background-color: #6d6d6d;
-    color: white;
+.section-wrapper {
+  width: 100%; /* Prend toute la largeur */
 }
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%; /* Prend toute la largeur */
+}
+
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+
+#temoignages {
+  background-color: #6d6d6d;
+  height: 600px;
+  width: 100%;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  /* Ajoutez une largeur maximale si nécessaire */
+  max-width: 1200px; /* Exemple de largeur maximale */
+  margin: auto; /* Pour centrer */
+  padding: 0 15px; /* Padding pour ne pas coller au bord de l'écran */
+}
+
+.photo_client {
+    width: 100%; 
+    height: auto; /* Maintient le ratio */
+    max-width: 20%; /* Une largeur maximale pour que la photo ne devienne pas trop grande */
+    object-fit: cover; /* Coupe l'image pour remplir le conteneur sans la déformer */
+    border-radius: 10px; /* Optionnel pour arrondir les bords */
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    /* Sur les petits écrans, les éléments seront empilés plutôt qu'en ligne */
+    flex-direction: column;
+    align-items: stretch; /* Pour que les enfants prennent toute la largeur */
+  }
+
+  .photo_client {
+    max-width: 100%;
+  }
+}
+
+.photo_client, .texte-lorem {
+  flex: 1; /* Les deux éléments grandiront et rétréciront de manière égale */
+}
+
+.texte-lorem {
+  flex: 1 1 10%;
+  padding: 20px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #008497;
+  max-width: 20%;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .photo_client,
+  .texte-lorem {
+    flex-basis: auto;
+  }
+}
+
 
 .link-occasions {
     display: block;
