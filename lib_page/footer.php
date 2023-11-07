@@ -1,5 +1,5 @@
   <footer>
-  <div class="row col-6 m-2" id="horaires">
+  <div id="horaires">
     <h3>Horaires d'ouverture </h3><br/><br/>
     <ul>
         <li><strong>Lundi :</strong> 8h45 - 12h00, 14h00 - 18h00</li>

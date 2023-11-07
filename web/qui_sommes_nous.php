@@ -13,7 +13,7 @@
     <?php include '../lib_page/header.php'; ?>
 
     <section id="qui-sommes-nous">
-        <h1>À propos de Garage V.Parrot</h1>      
+        <h1 class="titreApropos">À propos de Garage V.Parrot</h1>      
 <div class="row">
     <div class="col-6">
         <p>Vincent Parrot, fort de ses 15 années d'expérience dans la réparation automobile, <br>a ouvert son propre garage à Toulouse en 2021.<br> Depuis 2 ans, nous vous proposons une large gamme de services:<br> réparation de la carrosserie et de la mécanique des voitures <br>ainsi que leur entretien régulier pour garantir leur performance et leur sécurité.<br>De plus le <b>Garage V.Parrot</b> met en vente des véhicules d'occasion.</b><br>Toute notre équipe est à votre écoute pour un service de qualité et personnalisé.</p>
@@ -37,7 +37,7 @@
     </div>
     </section>
 
-    <a href="fiche_voiture.php" class="link-occasions">Voir nos véhicules d'occasion</a>
+    <a href="index.php" class="link-occasions">Voir nos véhicules d'occasion</a>
 
     <?php include '../lib_page/footer.php'; ?>
     <script src="/monsite/js/app.js"></script>

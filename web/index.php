@@ -107,7 +107,7 @@ else
             <span class="garage-text">Qui sommes-nous ?</span>
           </a>
           <div class="logo-garage">
-            <img src="" alt="">
+            <img src="web/assets/image-voiture-garage.png" alt="Logo du garage">
           </div>
       </div>
     </div>

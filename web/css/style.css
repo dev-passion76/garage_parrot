@@ -81,7 +81,11 @@ DIV.clSelectVehicule > DIV.corps select {
   margin-bottom: 20px;
   margin: 10px;
 }
-
+h1.titreApropos {
+  text-align: left;
+  padding-top: 0px;
+  padding-left: 0px;
+}
 
 @media screen and (min-width: 767px) and (max-width: 810px) {
   .carousel-inner .carousel-item img {
@@ -262,21 +266,12 @@ h1.garage-text {
   z-index: 1;
 }
 
-/* Logo du garage */
-img[src*="image-voiture-garage.png"] {
-  position: absolute;
-  top: 100%;
-  left: 220%;
-  width: 50%;
-}
-
-/* Logo du garage */
-img[src*="image-voiture-garage.png"] {
-  z-index: 10;
-}
-
 .navbar-custom {
   background-color: white;
+}
+
+#qui-sommes-nous .img_logo {
+  width: 100%;
 }
 
 .bg-custom {
@@ -298,17 +293,8 @@ span#custom-color {
   font-size: 20px; /*bizarre aucun effet comme les deux autres propriétés de la même classe, puis d'un coup ça marche ! */
 }
 
-#qui-sommes-nous .img_logo {
-  width: 500px;
-  height: auto;
-  position: relative;
-  left: 120px;
-  top: -70px;
-}
-
 p {
-    margin-top: 80px;
-    padding-left: 15%;
+  padding-left: 15%;
 }
 
 .image-container {
@@ -518,23 +504,23 @@ p {
 }
 
 h1 {
-    color: #531429;
-    padding-top: 75px;
-    padding-left: 8%;
+  color: #531429;
+  padding-top: 75px;
+  padding-left: 8%;
 }
 
 h2 {
-    color: #531429;
-    padding-top: 75px;
-    padding-left: 40%;
-    font-size: 2.5rem;
+  color: #531429;
+  padding-top: 75px;
+  padding-left: 40%;
+  font-size: 2.5rem;
 }
 
-
 #qui-sommes-nous {
-    background-color: #ead9e0;
-    color: black;
-    padding-left: 10%;
+  background-color: #ead9e0;
+  color: black;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .section-wrapper {
@@ -548,7 +534,6 @@ h2 {
   padding-left: 15px;
   width: 100%; /* Prend toute la largeur */
 }
-
 
 @media (min-width: 768px) {
   .container-fluid {
@@ -576,11 +561,11 @@ h2 {
 }
 
 .photo_client {
-    width: 100%; 
-    height: auto; /* Maintient le ratio */
-    max-width: 20%; /* Une largeur maximale pour que la photo ne devienne pas trop grande */
-    object-fit: cover; /* Coupe l'image pour remplir le conteneur sans la déformer */
-    border-radius: 10px; /* Optionnel pour arrondir les bords */
+  width: 100%;
+  height: auto; /* Maintient le ratio */
+  max-width: 20%; /* Une largeur maximale pour que la photo ne devienne pas trop grande */
+  object-fit: cover; /* Coupe l'image pour remplir le conteneur sans la déformer */
+  border-radius: 10px; /* Optionnel pour arrondir les bords */
 }
 
 @media (max-width: 768px) {
@@ -595,7 +580,8 @@ h2 {
   }
 }
 
-.photo_client, .texte-lorem {
+.photo_client,
+.texte-lorem {
   flex: 1; /* Les deux éléments grandiront et rétréciront de manière égale */
 }
 
@@ -620,15 +606,14 @@ h2 {
   }
 }
 
-
 .link-occasions {
-    display: block;
-    background-color: #008497;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 20px;
+  display: block;
+  background-color: #008497;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
 }
 
 .qui-sommes-nous-header {
