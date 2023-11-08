@@ -1,6 +1,6 @@
 :root {
-  --vp-quisommesnous: #aa4672;
-  --vp-votre-vehicule: rgb(108 30 65);
+  --vp-quisommesnous: #6c1e41;
+  --vp-votre-vehicule: #6c1e41;
 }
 
 body {
@@ -13,6 +13,7 @@ DIV.clChoixSelonVeh {
 DIV.clChoixSelonVeh .titre,
 DIV.clEngagements .titre {
   color: var(--vp-quisommesnous);
+  padding-bottom: 5%;
 }
 
 DIV.clChoixSelonVeh > div > .titre:not(:has(+ DIV > div)) {
@@ -199,9 +200,14 @@ h1.garage-text {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
 }
 
-/* Conteneur parent pr le logo du garage*/
 .navbar-brand.large-margin {
-  position: relative;
+    margin-bottom: 1rem; /* Ajustez cette valeur selon l'espacement souhaité */
+}
+
+.divCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Conteneur parent en position relative pr que l'eft bouge sans affecter le texte */
@@ -216,9 +222,6 @@ h1.garage-text {
   z-index: 2;
 }
 
-.divCenter {
-  margin: 0px auto 0px auto;
-}
 @media screen and (min-width: 0px) and (max-width: 800px) {
   .profile-icon-container {
     display: none;
@@ -250,15 +253,9 @@ h1.garage-text {
   padding-right: 20%;
 }
 
-/* Pour le logo du garage*/
-.navbar-brand {
-  padding-left: 5%;
-  padding-bottom: 5%;
-}
-
 /*Pour la bande grise : Trouvez votre prochain véhicule */
 .custom-select:focus {
-  box-shadow: none; /* Supprime l'ombre */
+  /* box-shadow: none;  */
 }
 
 /* Conteneur avec bande grise */
@@ -270,12 +267,8 @@ h1.garage-text {
   background-color: white;
 }
 
-#qui-sommes-nous .img_logo {
-  width: 100%;
-}
-
 .bg-custom {
-  background-color: #6d6d6d !important;
+  background-color: #999999 !important;
 }
 
 .height-custom {
@@ -309,132 +302,8 @@ p {
 .col-lg-3 {
   width: 25%;
 }
-.vignette-v2 .annonce .prix {
-  font-size: 3.1rem;
-}
 
-.vignette-v2 .annonce .prix_loyer_m {
-  display: block;
-}
-
-.vignette-v2 .a_version {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  display: block;
-  overflow: hidden;
-}
-
-.vignette-v2 .annonce .prix_loyer {
-  font-size: 1.8rem;
-}
-
-.vignette-v2 .annonce .prix_loyer strong {
-  font-size: 2.1rem;
-}
-
-.vignette-v2 .annonce .annonce_badges div {
-  display: inline-block;
-  margin: 0 0.3rem;
-}
-
-.vignette-v2 .annonce .badge_vo {
-  box-shadow: none;
-  font-size: 0.9rem;
-  margin: 0;
-  padding: 0.5rem 0.5rem;
-}
-
-.vignette-v2 .annonce {
-  padding-bottom: 0;
-}
-
-.vignette-v2 .annonce-icons {
-  border-bottom: 1px solid #dedede;
-  padding: 0.7rem 0;
-  text-align: center;
-}
-
-.vignette-v2 .annonce .annonce_contenu {
-  padding-top: 0.7rem;
-}
-
-.vignette-v2 .annonce-ico {
-  margin: 0 1rem;
-  font-size: 1.7rem;
-  white-space: nowrap;
-}
-
-.vignette-v2 .annonce .btn-voir,
-.vignette-v2 .annonce .visuel_conteneur {
-  margin: 0;
-}
-
-.vignette-v2 .annonce .visuel_conteneur {
-  margin-top: 25%;
-}
-
-.vignette-v2 .annonce .annonce_badges {
-  border-bottom: 1px solid #dedede;
-  padding: 0.7rem 0;
-  left: auto;
-  right: auto;
-  top: auto;
-  position: relative;
-}
-
-.vignette-v2 .annonce {
-  margin-bottom: 4rem;
-}
-
-.vignette-v2 .annonce_contenu p {
-  margin-bottom: 0;
-  padding-bottom: 0.75rem;
-}
-
-.vignette-v2 .annonce_contenu p:after {
-  clear: both;
-  content: " ";
-  display: block;
-}
-
-.vignette-v2 .annonce h2 a.alerte-annonce {
-  right: 0;
-}
-
-.vignette-v2 .container-page .annonce h2 span.h2-marque {
-  white-space: nowrap;
-}
-
-.vignette-v2 .annonce_badges_c_empty {
-  height: 4rem;
-}
-
-.vignette-v2 .badge_ce {
-  border-radius: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.vignette-v2 .annonce-ico {
-  margin: 0 0.4rem;
-  font-size: 1.4rem;
-}
-
-.vignette-v2 .annonce .prix_loyer {
-  font-size: 1.5rem;
-}
-
-.vignette-v2 .annonce .prix_loyer strong {
-  font-size: 1.8rem;
-}
-
-.container-page .vignette-v2 .annonce h2 .h2-marque {
-  font-size: 1.9rem;
-}
-
-.container-page .vignette-v2 .annonce h2 {
-  font-size: 1.4rem;
-}
-
+/*Container photos véhicules page accueille */
 .container-page {
   display: flex;
   flex-wrap: wrap;
@@ -449,13 +318,6 @@ p {
   padding-top: 0;
 }
 
-.well,
-.well-color {
-  border: 1px solid #e6e6e6;
-  padding: 2rem;
-  box-shadow: 0 0 15px rgb(200 200 200 / 50%);
-}
-
 .prix {
   color: #008497;
   font-size: 2.5rem;
@@ -463,10 +325,8 @@ p {
 }
 /*  Cards */
 .card {
-  /* Vos styles initiaux pour la card */
   background-color: #ffffff; /* Couleur de fond initiale */
   transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
-  /* Autres propriétés... */
 }
 
 .card:hover {
@@ -475,21 +335,24 @@ p {
 
 /* horaires footer */
 
+h3 {
+  color: #531429
+}
+
+.h2-marque {
+  color: #008497;
+}
+
+
 #horaires ul {
-  list-style: none; /* Supprime les puces de la liste */
-  padding: 0; /* Supprime le remplissage par défaut de la liste */
-  margin: 0; /* Supprime la marge par défaut de la liste */
+  list-style: none; 
 }
 
 #horaires ul li {
-  margin-bottom: 5px; /* Ajoute de l'espace entre chaque élément de la liste */
+  margin-bottom: 5px; 
   display: flex; /* Utilise la flexbox pour aligner les éléments horizontalement */
-  justify-content: space-between; /* Espace également les éléments à l'intérieur de chaque <li> */
-}
-
-#horaires {
-  text-align: left !important; /* Annule l'alignement centré de Bootstrap mais le garde pr mes cards services */
-  width: 100%;
+  justify-content: space-between;
+  background-color: #a7d7df; 
 }
 
 /* Limite la hauteur des images dans le caroussel ATTENTION A l'heritage se trouvant dans boostrap*/
@@ -517,7 +380,7 @@ h2 {
 }
 
 #qui-sommes-nous {
-  background-color: #ead9e0;
+  background-color: #f2ebee;
   color: black;
   padding-left: 10%;
   padding-right: 10%;
@@ -534,11 +397,18 @@ h2 {
   padding-left: 15px;
   width: 100%; /* Prend toute la largeur */
 }
+/*  media pour la shadow nos occasions à moin de 20 000€  !!! */
+@media (min-width: 1400px) {
+    .container,.container-lg,.container-md,.container-sm,.container-xl,.container-xxl {
+        max-width: 3500px; /*ça va pas */
+    }
+}
+
 
 @media (min-width: 768px) {
   .container-fluid {
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 245px;
+    padding-left: 266px;
   }
 }
 
@@ -616,21 +486,3 @@ h2 {
   margin-top: 20px;
 }
 
-.qui-sommes-nous-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* Ajoutez ici du padding ou du margin si nécessaire */
-}
-
-.qui-sommes-nous-header h1 {
-  /* Votre style pour le titre */
-  font-size: 24px; /* Exemple de taille de police */
-  color: #531429; /* Exemple de couleur */
-}
-
-.qui-sommes-nous-logo {
-  height: 100px; /* Hauteur du logo, à ajuster selon vos besoins */
-  width: auto; /* Garder les proportions du logo */
-  /* Ajoutez ici du margin si nécessaire */
-}

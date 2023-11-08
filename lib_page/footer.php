@@ -1,5 +1,5 @@
   <footer>
-  <div id="horaires">
+  <div id="horaires"><br>
     <h3>Horaires d'ouverture </h3><br/><br/>
     <ul>
         <li><strong>Lundi :</strong> 8h45 - 12h00, 14h00 - 18h00</li>
@@ -17,7 +17,7 @@
       <img src="image/icone_contact.png" alt="icone de contact client">
     </div>
     
-<p>Retrouvez nous<br></p>
+<p>Retrouvez nous</p>
 
   <img
   class="ms-5"

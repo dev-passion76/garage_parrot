@@ -101,26 +101,22 @@ else
         <a class="navbar-brand large-margin" href="index.html">
           <h1 class="garage-text">Garage V.Parrot</h1>
         </a>
+        <a href="qui_sommes_nous.php" >
+          <span class="garage-text">Qui sommes-nous ?</span>
+        </a>
       </div>
       <div class="divCenter">
-          <a href="qui_sommes_nous.php" >
-            <span class="garage-text">Qui sommes-nous ?</span>
-          </a>
           <div class="logo-garage">
-            <img src="web/assets/image-voiture-garage.png" alt="Logo du garage">
+            <img src="assets/image-voiture-garage.png" alt="Logo du garage">
           </div>
       </div>
     </div>
   </nav>
-  <div class="shadow-sm mb-6 bg-body bg-custom text-center">
+  <div class="shadow mb-6 bg-body bg-custom text-center">
           <div class="clSelectVehicule">
             <div class="titre">
-            <span>TROUVEZ</span> <span>VOTRE PROCHAIN VÉHICULE</span>  
-            </div>
-            <a href="index.html" class="logo">
-  <img src="./assets/image-voiture-garage.png" alt="Nom de l'entreprise">
-</a>
-
+              <span>TROUVEZ</span> <span>VOTRE PROCHAIN VÉHICULE</span>  
+            </div>           
     <!-- Conteneur flex pour les selects -->
     <div class="corps">
         <!-- Premier select -->
@@ -159,24 +155,23 @@ else
               <option value="entretien">Entretien</option> -->
           </select>
         </form>
-      </div>
-  
+      </div> 
     </div>
-          </div>
-
-<div class="container text-center">
-  <div class="clSelectVehicule">
-    <div class="titre">
-      <div class="clDecouvreVehicule">
-        <div class="titre"><br>
-          <span>DÉCOUVREZ</span> <span>VOTRE PROCHAIN VÉHICULE</span>
-        </div>
+  </div>
+          <div class="container text-center">
+            <div class="clSelectVehicule">
+              <div class="titre">
+                <div class="clDecouvreVehicule">
+                  <div class="titre"><br>
+                  <span>DÉCOUVREZ</span> <span>VOTRE PROCHAIN VÉHICULE</span>
+                </div>
+                <div class="shadow-sm mb-6 bg-body bg-custom text-center">
         <div class="clChoixSelonVeh">
           <div>
-              <div class="titre">
+              <div class="titre"><br>
               Nos occasions à moins de 20 000€
               </div>
-              <div class="container-page" >
+              <div class="container-page">
               <?php 
               $sql = "select * from vehicule where prix < 20000";
                 $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
@@ -187,9 +182,10 @@ else
               </div>
           </div>
           <div>
-              <div class="titre">
+              <div class="titre"><br>
               Nos occasions récentes à faible KM
               </div>
+          </div>
               <div class="container-page"> 
               <?php 
               $sql = "select * from vehicule where km < 20000";
@@ -275,9 +271,6 @@ else
 			</div>
 		</div>
 </div>
-
-
-
 <?php
 require_once '../lib_page/footer.php';
 ?>

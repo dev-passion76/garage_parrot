@@ -174,7 +174,7 @@ if ($clUser) {
 							<option value="Selection">Sélectionnez votre marque</option>
                                 <?php $sql = "select * from marque ".
                                               "where exists(select * from vehicule ".
-                                                      "where vehicule.code_marque = marque.code)";
+                                               "where vehicule.code_marque = marque.code)";
                                       $reqMarque = DbAccess::getRequeteSql($pdo,$sql);
                                       foreach($reqMarque as $raw){ 
                                 ?>

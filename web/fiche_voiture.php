@@ -74,7 +74,7 @@ require_once '../lib_page/header.php';
         <div class="col-sm-6 col-no-rel">
             <div class="annonce_img">
                 <a class="annonce_img_c" href="https://www.saintmerri.fr/wp-content/uploads/vo/5572/ab40fdb6742898a6fbc232cab9d365e0.jpg" data-index="0">
-                    <img src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="FIAT 1.0 70ch BSG S&amp;S Cult" title="FIAT 1.0 70ch BSG S&amp;S Cult"> <!-- Lorsque je sup BSG S&amp;S Cult ça ne produit rien -->
+                    <img src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="FIAT 1.0 70ch BSG S&amp;S Cult" title="FIAT 1.0 70ch"> <!-- Lorsque je sup BSG S&amp;S Cult ça ne produit rien -->
                 </a>
 
                 <div class="annonce_badges"><div></div></div>            </div>
