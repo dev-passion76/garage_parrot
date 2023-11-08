@@ -330,17 +330,34 @@ p {
 }
 
 .card:hover {
-  background-color: #aa4672; /* Nouvelle couleur de fond lors du survol */
+  background-color:  #862445; /* Nouvelle couleur de fond lors du survol */
+  color: #ddd;
 }
 
 /* horaires footer */
 
+.btn-custom {
+    background-color: #008497; 
+    border-color: #22010c; 
+}
+
+.btn-custom:hover {
+    background-color: #73c8d5; 
+    border-color: #22010c;
+}
+
 h3 {
-  color: #531429
+  color: #531429;
 }
 
 .h2-marque {
   color: #008497;
+}
+
+DIV.clChoixSelonVeh .titre,
+DIV.clEngagements .titre {
+  color:  #862445;
+  padding-bottom: 3%;
 }
 
 

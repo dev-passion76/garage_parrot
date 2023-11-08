@@ -57,50 +57,43 @@ require_once '../lib_page/header.php';
         />
         <br /><h1 class="garage-text" style="color: #531424"
         >Garage V.Parrot</h1>
-      </a>
-      <div class="d-flex justify-content-center" style="flex-grow: 1">
-        <ul class="navbar-nav flex-row centered-nav-items">
-          <li class="nav-item me-5">
-            <a class="nav-link nav-item-text ml-6" href="#">Qui sommes-nous ?</a>
-          </li>
-        </ul>
+      </a>     
       </div>
     </div>
   </nav>
-  
 
 <div class="container text-center">
   <div class="row">
         <div class="col-sm-6 col-no-rel">
             <div class="annonce_img">
-                <a class="annonce_img_c" href="https://www.saintmerri.fr/wp-content/uploads/vo/5572/ab40fdb6742898a6fbc232cab9d365e0.jpg" data-index="0">
+                <a class="annonce_img_c" href="#" data-index="0">
                     <img src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="FIAT 1.0 70ch BSG S&amp;S Cult" title="FIAT 1.0 70ch"> <!-- Lorsque je sup BSG S&amp;S Cult ça ne produit rien -->
                 </a>
-
-                <div class="annonce_badges"><div></div></div>            </div>
-            <div class="move-bottom">
-                <div class="annonce_services">
-                    <div class="annonce_service bb">
+                <div class="annonce_badges">          
+                  <div class="move-bottom">
+                    <div class="annonce_services">
+                      <div class="annonce_service bb">
                         <div class="container container_inside">
                             <div class="row">
                                 <div class="col-xs-6">
-                                    
-                                </div>
+                                </div>    
+                              </div>
                                 <div class="col-xs-6">
                                     </a>
                                 </div>
+                        </div>
+                                <!-- Informations générales -->
                                 <div class="clear"></div>
                                 <div class="col-xs-6">
-                                    <a href="https://www.saintmerri.fr/nos-partenaires/#waxoyl" class="annonce_un_service">
+                                    <a href="#" class="annonce_un_service">
                                         <span class="icon-waxoyl"></span>
                                     </a>
                                 </div>
                             </div>
                         </div> 
                     </div>
-
+                  </div>
                     <div class="separateur"></div>
-                </div>
 
                 <div class="annonce_services">
                     <div class="annonce_service">
@@ -145,40 +138,19 @@ require_once '../lib_page/header.php';
                 <div class="row">
                     <div class="col-sm-7">
                         <p class="prix"><?= afficheMontant($reqVehicule['prix'])?>&nbsp;€</p>
-                                            </div>
-                    <div class="col-sm-5 liens_annonce">
-
-                        <a href="reservation.php?annonce_id=15664" class="btn btn-danger btn-sm btn-reserver" rel="nofollow"><span class="icon-handshake-o"></span>&nbsp;
-                            Réserver maintenant
-
-                            <span class="popover">Réserver ce véhicule pour 500 €</span>
-                        </a>
-                    </div>
-                </div>
-
-                
-
-                <div class="row fiche-annonce-contact">
-                    <div class="col-sm-7">
                         <p>
-                            <span class="adresse_coordonnees_adresse"><strong>Toulouse</strong><br>6 rue Alexi-Larrey><br>
-31000 TOULOUSE</span>
+                            <span class="adresse_coordonnees_adresse"><strong>Toulouse</strong><br>6 rue Alexi-Larrey><br>31000 TOULOUSE</span><br>
+                            <span class="icon-mobile"></span> 09 00 00 00 00 </a>
                         </p>
-                    </div>
-                    <div class="col-sm-5">
-                        <a href="tel:06 79 16 99 25 " class="btn btn-default btn-sm annonce_telephone" data-nom="vo FIAT Amiens"><span class="icon-mobile"></span> 09 00 00 00 00 </a>
-
-                        <a href="_commun/ajax/concession.php?site_marque=groupe&amp;concession=Amiens&amp;site_marque=mini" class="btn btn-default btn-sm my_fancybox"><span class="icon-location"></span> Horaires &amp; plan d'accès</a>
+                      </div>
                     </div>
                 </div>
+                    </div>
+                
             </div>
-
-            <p>&nbsp;</p>   
-
             <div class="fiche_droite">
                 <div class="">
                     <h2>Informations générales&nbsp;<span class="badge">Réf. : 5572</span></h2>
-
                     <div class="row">
                         <div class="col-xs-6">
                             <table class="table">
@@ -204,9 +176,7 @@ require_once '../lib_page/header.php';
 
                                 <tr>
                                     <td>Crit'Air</td>
-                                    <td>1 <img src="../_commun/web/images/critair1.svg" class="vignette_critair"></td>
-                                </tr>
-
+                                    <td>1 
                             </tbody></table>
                         </div>
                     </div>
@@ -220,22 +190,16 @@ require_once '../lib_page/header.php';
     </div>
 
   <div>
-  
   <div class="container-page">
 <?php 
 
 ?>
-  </div>
-			
-  <div style="font-size: 2em; position: relative;">NOS <span style="color: #430d25">ENGAGEMENTS</span></div>
-
+  </div>	
   <div
   class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
   style="font-size: 2em; position: relative;">
- 
           <div class="card-front">
             <p><strong>Reprise<br></strong>de votre véhicule</p>
-            <div class="card-back">
               <a href="#" class="btn">Proposition de reprise de votre ancien véhicule<br>Nous prenons en charges les démarches administratives</a>
             </div>
           </div>

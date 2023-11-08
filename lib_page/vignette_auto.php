@@ -51,8 +51,8 @@ require_once '../lib/bib_composant_affiche.php';
   <span class="prix"><?= afficheMontant($raw['prix'])?>&nbsp;€</span> 
 </div>
 
-<a href="fiche_voiture.php?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-primary btn-sm btn-block btn-voir">Voir le véhicule</a>
-<a href="contact?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-primary btn-sm btn-block btn-voir">Nous contacter</a>
+<a href="fiche_voiture.php?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-custom btn-sm btn-block btn-voir">Voir le véhicule</a>
+<a href="contact?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-custom btn-sm btn-block btn-voir">Nous contacter</a>
 </div>
 </div>
 <!--Fin de vignette 1ère vignette-->
