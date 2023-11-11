@@ -63,78 +63,12 @@ require_once '../lib_page/header.php';
   </nav>
 
 <div class="container text-center">
-  <div class="row">
-        <div class="col-sm-6 col-no-rel">
-            <div class="annonce_img">
-                <a class="annonce_img_c" href="#" data-index="0">
-                    <img src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="FIAT 1.0 70ch BSG S&amp;S Cult" title="FIAT 1.0 70ch"> <!-- Lorsque je sup BSG S&amp;S Cult ça ne produit rien -->
-                </a>
-                <div class="annonce_badges">          
-                  <div class="move-bottom">
-                    <div class="annonce_services">
-                      <div class="annonce_service bb">
-                        <div class="container container_inside">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                </div>    
-                              </div>
-                                <div class="col-xs-6">
-                                    </a>
-                                </div>
-                        </div>
-                                <!-- Informations générales -->
-                                <div class="clear"></div>
-                                <div class="col-xs-6">
-                                    <a href="#" class="annonce_un_service">
-                                        <span class="icon-waxoyl"></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                  </div>
-                    <div class="separateur"></div>
-
-                <div class="annonce_services">
-                    <div class="annonce_service">
-                        <h4>Points de contrôles</h4>
-                        <div class="container container_inside">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>
-                                        <strong class="primary very-big">103</strong>
-                                    </p>
-
-                                    <p><strong>
-                                    points de contrôles ont été réalisés sur cette voiture</strong></p>
-                                </div>
-
-                                <div class="col-xs-8">
-                                    <p>Les éventuelles pièces endommagées ont été remplacées, l’intérieur est nettoyé de fond en comble, et la carrosserie rajeunie.</p>
-
-                                    <p>Le certificat d’état et d’origine de cette occasion, vous sera remis lors de la livraison.</p>
-
-                                    <p>N’hésitez pas à nous contacter afin de connaitre l’origine de ce véhicule, les points de contrôle réalisés ainsi que les pièces remplacées sur ce véhicule.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                                    </div>
-            </div>
-
-        </div>
-        <div class="col-sm-6">
-            <div class="intro">
+  <div class="intro">
+  <div class="col-sm-6">
                 <h1><?= $reqVehicule['description']?></h1>
                 <p class="modele_subtitle">1.0 70ch BSG S&amp;S Cult</p>
                 
             </div>
-
-            
-            <div class="well">
                 <div class="row">
                     <div class="col-sm-7">
                         <p class="prix"><?= afficheMontant($reqVehicule['prix'])?>&nbsp;€</p>
@@ -145,13 +79,14 @@ require_once '../lib_page/header.php';
                       </div>
                     </div>
                 </div>
-                    </div>
-                
-            </div>
-            <div class="fiche_droite">
-                <div class="">
-                    <h2>Informations générales&nbsp;<span class="badge">Réf. : 5572</span></h2>
-                    <div class="row">
+  <a class="annonce_img_c" href="#" data-index="0">
+      <img src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="FIAT 1.0 70ch BSG S&amp;S Cult" title="FIAT 1.0 70ch"> <!-- Lorsque je sup BSG S&amp;S Cult ça ne produit rien -->
+  </a>
+  <div class="row">
+    <div class="annonce_img">
+      <div class="info">
+        <h2>Informations générales&nbsp;<span class="badge">Réf. : 5572</span></h2>
+        <div class="row">
                         <div class="col-xs-6">
                             <table class="table">
                                 <tbody><tr>
@@ -181,24 +116,63 @@ require_once '../lib_page/header.php';
                         </div>
                     </div>
                 </div>
+                <div class="annonce_badges">          
+                  <div class="move-bottom">
+                    <div class="annonce_services">
+                      <div class="annonce_service bb">
+                        <div class="container container_inside">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                </div>    
+                              </div>
+                                <div class="col-xs-6">
+                                    </a>
+                                </div>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                
+                <div class="annonce_services">
+                    <div class="annonce_service">
+                        <h4>Points de contrôles</h4>
+                        <div class="container container_inside">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <p>
+                                        <strong class="primary very-big">103</strong>
+                                    </p>
+
+                                    <p><strong>
+                                    points de contrôles ont été réalisés sur cette voiture</strong></p>
+                                </div>
+
+                                <div class="col-xs-8">
+                                    <p>Les éventuelles pièces endommagées ont été remplacées, l’intérieur est nettoyé de fond en comble, et la carrosserie rajeunie.</p>
+
+                                    <p>Le certificat d’état et d’origine de cette occasion, vous sera remis lors de la livraison.</p>
+
+                                    <p>N’hésitez pas à nous contacter afin de connaitre l’origine de ce véhicule, les points de contrôle réalisés ainsi que les pièces remplacées sur ce véhicule.</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          </div>
+                
             </div>
-
-            <p>&nbsp;</p>
-
-
         </div>
     </div>
 
   <div>
   <div class="container-page">
-<?php 
-
-?>
   </div>	
   <div
   class="shadow-sm mb-6 bg-body bg-custom height-custom text-center"
   style="font-size: 2em; position: relative;">
-          <div class="card-front">
             <p><strong>Reprise<br></strong>de votre véhicule</p>
               <a href="#" class="btn">Proposition de reprise de votre ancien véhicule<br>Nous prenons en charges les démarches administratives</a>
             </div>
@@ -208,7 +182,6 @@ require_once '../lib_page/header.php';
     </div>
   </div>
 </div>
-
 </div>
 <?php
 require_once '../lib_page/footer.php';
