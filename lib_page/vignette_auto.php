@@ -25,7 +25,7 @@ require_once '../lib/bib_composant_affiche.php';
 
     <span class="annonce-ico"><?= $raw['annee_circulation']?></span>
     <?php 
-        // Recherche du type de motorisation
+        // Recherche du type de boite
         $chaineRetour = getLibelleProprieteVehicule($pdo,$raw['idx_vehicule'],'BO');
         if ($chaineRetour!=null){
     ?>

@@ -167,6 +167,10 @@ else
                 </div>
                 <div class="shadow-sm mb-6 bg-body bg-custom text-center">
         <div class="clChoixSelonVeh">
+          
+        
+
+          <!--BEGIN affichage -->
           <div>
               <div class="titre"><br>
               Nos occasions à moins de 20 000€
@@ -181,11 +185,12 @@ else
               ?>
               </div>
           </div>
+          <!-- END affichage -->
+          
           <div>
               <div class="titre"><br>
               Nos occasions récentes à faible KM
               </div>
-          </div>
               <div class="container-page"> 
               <?php 
               $sql = "select * from vehicule where km < 20000";
@@ -195,6 +200,12 @@ else
               }
               ?>
               </div>
+          </div>
+
+
+
+
+
           </div>
         </div>
       </div>

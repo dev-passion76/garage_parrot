@@ -5,11 +5,9 @@ require_once '../lib/bib_sql.php';
 
 require_once '../lib_page/header.php';
 
-require_once '../class/classUtilisateur.php';
-
 require_once '../lib/bib_general.php';
 
-require_once '../class/classClientDemande.php';
+require_once '../class/classTemoignage.php';
 
 require_once '../lib/bib_mail.php';
 
@@ -19,35 +17,21 @@ require_once '../lib/bib_mail.php';
  * objectif affichage de la page BODY en bas
  */ 
 $nom     = POST::get('nom');
-$prenom  = POST::get('prenom');
-$email   = POST::get('email'); 
-$phone   = POST::get('phone');
-$adresse = POST::get('adresse');
-$message = POST::get('message');
+$commentaire  = POST::get('commentaire');
+$note   = POST::get('note'); 
 $valid_cgu = POST::get('valid_cgu');
-
 /**
  * Initilisation de variable de traitements 
  * exemple zone de focus / libelle de message d'erreur
  */
 $mesErr = '';
 $zoneFocus = "";
-/**
- * Processus normalement lié à la validation suite à l'action de cliquer sur le bouton se connecter
- */
-$idxVehicule = null;
-
-// acquisition en mode GET via les fiches véhicules pour la prise de contact via le <a href
-if ($_SERVER['REQUEST_METHOD'] == 'GET'){
-  $idxVehicule = GET::get('code_vehicule');
-}
 
 // acquisition du formulaire
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   /**
    * Traitement des zones nom prenom email password adresse
    */
-    $idxVehicule = POST::get('code_vehicule');
 
     // les controles a faire à minima sur les zones
     if ($nom == ''){
@@ -55,39 +39,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $zoneFocus = 'nom';
     }
     else
-    if ($prenom == ''){
-        $mesErr = "La saisie du prenom est obligatoire";
-        $zoneFocus = 'prenom';
+    if ($commentaire == ''){
+        $mesErr = "La saisie du commentaire est obligatoire";
+        $zoneFocus = 'commentaire';
     }
     else
-    if ($email == ''){
-        $mesErr = "La saisie de l'adresse mail est obligatoire";
-        $zoneFocus = 'email';
+    if ($note == ''){
+        $mesErr = "La saisie de la note est obligatoire";
+        $zoneFocus = 'note';
     }
-    else
-    if ($phone == ''){
-        $mesErr = "La saisie du numéro de téléphone est obligatoire";
-        $zoneFocus = 'phone';
-    }
-    else
-    if ($adresse == ''){
-        $mesErr = "La saisie de l'adresse est obligatoire";
-        $zoneFocus = 'adresse';
-    }
-    else
-    if ($message == ''){
-        $mesErr = "La saisie du message est obligatoire";
-        $zoneFocus = 'message';
-    }    
     else
     if ($valid_cgu == null || $valid_cgu != 'on'){
       $mesErr = "Veuillez accepter les CGU";
       $zoneFocus = 'valid_cgu';
-    }
-    else
-    if (! verifMail($email)){
-        $mesErr = "La saisie du domaine de l'adresse mail est incorrecte";
-        $zoneFocus = 'email';
     }
     else
     {
@@ -96,37 +60,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
          * envoi de mail par exemple
          */
 
-        if (ClientDemande::ajoute($pdo,$nom,$prenom,$email,$phone,$adresse,$message,$idxVehicule)){
+        if (Temoignage::ajoute($pdo,$nom,$commentaire,$note)){
 
-          $sql = "select * from vehicule where idx_vehicule = ".$idxVehicule;
-          $reponseVeh = DbAccess::canFind($pdo,$sql);
-
-          $mail = Mail::getMail();
+            $mail = Mail::getMail();
 
           $from = "sandrineECF@laposte.net";
+
+          $email = "archi.sandrineblandamour@gmail.com";
 
           $mail->setFrom($from, $from);
           $mail->addAddress($email, $email);
           $mail->addReplyTo($from, $from);
 
-          $mail->isHTML(false);                                  // Set email format to HTML
-          $mail->Subject = 'Confirmation de votre domaine de contact';
-          $mail->Body    = "A propos du véhicule {$reponseVeh['description']} <b>in bold!</b>";
-          $mail->AltBody = "A propos du véhicule {$reponseVeh['description']}";
+          $mail->isHTML(true);                                  // Set email format to HTML
+          $mail->Subject = "Commentaire de : ". $nom;
+          $mail->Body    = "$commentaire <b> Note $note</b>";
+          $mail->AltBody = "Commentaire de : $commentaire\nNote $note";
 
           if ($mail->send()) {
             $mesErr = "Votre demande d'information a bien été prise en compte";
           } else {
             $mesErr = "Erreur lors la prise en compte de votre message";
           }
-          $nom     = "";
-          $prenom  = "";
-          $email   = "";
-          $phone   = "";
-          $adresse = "";
-          $message = "";
-
-
         }
         else{
           $mesErr = "Anomalie lors de la prise en compte de votre message";
@@ -160,31 +115,18 @@ method="POST" pour ne pas avoir les données affichés dans l'url lors du submit
 enctype="multipart/form-data", extremement important pour notamment l'envoi des champs de type INPUT type="file" sinon ces champs ne seront jamais soumis via le formulaire direction le serveur
 -->
 <form class="row col-6 m-5 " method="POST" enctype="multipart/form-data" name="frmSaisie">
-  <input type="hidden" name="code_vehicule" class="" value="<?=$idxVehicule?>"/>
-  <h3>Formulaire de contact</h3>
+  <h3>Formulaire de témoignage</h3>
   <div class="col-md-6">
-    <input type="text" name="nom" class="form-control" id="FirstName" placeholder="Nom" value="<?=$nom?>"/>
+    <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom" value="<?=$nom?>"/>
   </div>
 
   <div class="col-md-6">
-    <input type="text" name="prenom" class="form-control" id="LastName" placeholder="Prénom" value="<?=$prenom?>"/>
+    <textarea type="text" name="commentaire" class="form-control" id="idMessage" 
+        placeholder="Votre commentaire"><?=$commentaire?></textarea>
   </div>
 
   <div class="col-md-12">
-    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="email" value="<?=$email?>"/>
-  </div>
-
-  <div class="col-md-12">
-    <input type="phone" name="phone" class="form-control" id="inputPhone" placeholder="Téléphone (0601020304)" value="<?=$phone?>"/>
-  </div>
-
-  <div class="col-12">
-    <input type="text" name="adresse" class="form-control" id="inputAddress" placeholder="Votre adresse postale complète" value="<?=$adresse?>"/>
-  </div>
-
-  <div class="col-md-6">
-    <textarea type="text" name="message" class="form-control" id="idMessage" 
-        placeholder="Votre message"><?=$message?></textarea>
+    <input type="note" name="note" class="form-control" id="node" placeholder="note" value="<?=$note?>"/>
   </div>
 
   <div class="col-12 my-2">
