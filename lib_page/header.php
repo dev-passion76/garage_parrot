@@ -11,14 +11,6 @@
   <!-- Vos feuilles de style personnalisées -->
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="css/style2.css"/>
-</head>
-<body>
-
   <!-- Scripts JavaScript à la fin du <body> pour un meilleur chargement -->
   <script src="js/plugins/jquery.min.js"></script>
-  <!-- Autres scripts JS ici -->
-  <script src="monsite/app.js"></script> <!-- Problème chemin avec web pour monsite-->
-
-
-</body>
-</html>
+</head>

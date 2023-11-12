@@ -22,5 +22,27 @@
             return $stmt->execute($data);
         }
 
+        public static function switchPublic($pdo,$idxTemoignage){
+            $sql = "update temoignage set is_publie = 1 - is_publie where idx_temoignage = ".$idxTemoignage;
+            
+            $stmt= $pdo->prepare($sql);
+            $stmt->execute();
+
+            return Temoignage::getRaw($pdo,$idxTemoignage);
+        }
+
+        public static function switchInterdit($pdo,$idxTemoignage){
+            $sql = "update temoignage set is_interdit = 1 - is_interdit where idx_temoignage = ".$idxTemoignage;
+            
+            $stmt= $pdo->prepare($sql);
+            $stmt->execute();
+
+            return Temoignage::getRaw($pdo,$idxTemoignage);
+        }
+
+        public static function getRaw($pdo,$idxTemoignage){
+            $sql = "select * from temoignage where idx_temoignage = ".$idxTemoignage;
+            return DbAccess::canFind($pdo,$sql);
+        }
     }
 ?>

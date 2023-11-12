@@ -30,6 +30,10 @@ DIV.clEngagements {
 
 DIV.clEngagements + DIV > .row {
   flex-wrap: inherit;
+  width: calc(100% - 40px);
+  position: relative;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 DIV.clEngagements + DIV {
@@ -54,6 +58,12 @@ DIV.clEngagements + DIV .card:hover .front {
 
 DIV.clEngagements + DIV .card:hover .back {
   display: block;
+}
+
+SPAN.front p,
+SPAN.back p {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 /* class du DIV avec le SPAN fils directement associé et l'adjacent*/
@@ -201,13 +211,13 @@ h1.garage-text {
 }
 
 .navbar-brand.large-margin {
-    margin-bottom: 1rem; /* Ajustez cette valeur selon l'espacement souhaité */
+  margin-bottom: 1rem; /* Ajustez cette valeur selon l'espacement souhaité */
 }
 
 .divCenter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Conteneur parent en position relative pr que l'eft bouge sans affecter le texte */
@@ -330,20 +340,20 @@ p {
 }
 
 .card:hover {
-  background-color:  #862445; /* Nouvelle couleur de fond lors du survol */
+  background-color: #862445; /* Nouvelle couleur de fond lors du survol */
   color: #ddd;
 }
 
 /* horaires footer */
 
 .btn-custom {
-    background-color: #008497; 
-    border-color: #22010c; 
+  background-color: #008497;
+  border-color: #22010c;
 }
 
 .btn-custom:hover {
-    background-color: #73c8d5; 
-    border-color: #22010c;
+  background-color: #73c8d5;
+  border-color: #22010c;
 }
 
 h3 {
@@ -356,20 +366,24 @@ h3 {
 
 DIV.clChoixSelonVeh .titre,
 DIV.clEngagements .titre {
-  color:  #862445;
+  color: #862445;
   padding-bottom: 3%;
 }
 
-
 #horaires ul {
-  list-style: none; 
+  list-style: none;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
 }
 
 #horaires ul li {
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   display: flex; /* Utilise la flexbox pour aligner les éléments horizontalement */
   justify-content: space-between;
-  background-color: #a7d7df; 
+  background-color: #a7d7df;
 }
 
 /* Limite la hauteur des images dans le caroussel ATTENTION A l'heritage se trouvant dans boostrap*/
@@ -383,16 +397,22 @@ DIV.clEngagements .titre {
   }
 }
 
+div.visuel_conteneur + h2 {
+  margin-top: 10%;
+}
+
 h1 {
   color: #531429;
-  padding-top: 75px;
-  padding-left: 8%;
+  /*padding-top: 75px;
+  padding-left: 8%;*/
 }
 
 h2 {
   color: #531429;
+  /*
   padding-top: 75px;
   padding-left: 40%;
+  */
   font-size: 2.5rem;
 }
 
@@ -416,11 +436,15 @@ h2 {
 }
 /*  media pour la shadow nos occasions à moin de 20 000€  !!! */
 @media (min-width: 1400px) {
-    .container,.container-lg,.container-md,.container-sm,.container-xl,.container-xxl {
-        max-width: 3500px; /*ça va pas */
-    }
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 3500px; /*ça va pas */
+  }
 }
-
 
 @media (min-width: 768px) {
   .container-fluid {
@@ -503,3 +527,7 @@ h2 {
   margin-top: 20px;
 }
 
+.vignette-v2 {
+  width: 22%;
+  min-width: 415px;
+}

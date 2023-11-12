@@ -57,6 +57,9 @@ else
     		<div>
           <a href="gestionDemandeClient.php">Gestion des demandes d'information</a>
         </div>		
+    		<div>
+          <a href="gestionTemoignage.php">Gestion des témoignages</a>
+        </div>		
     	</div>
     	<div>	
     		<a href="?exit=1">Deconnexion</a>
@@ -144,7 +147,7 @@ else
           </select>
 
           <!-- Deuxième select -->
-          <select name="from_home_modele" id="reparations" class="form-control custom-select">
+          <select name="from_home_reparation" id="reparations" class="form-control custom-select">
               <option value="">Réparations</option>
               <?php $reqPrestation = getPrestation($pdo,"RP");
                     foreach($reqPrestation as $raw){ ?>
@@ -186,7 +189,7 @@ else
               </div>
           </div>
           <!-- END affichage -->
-          
+
           <div>
               <div class="titre"><br>
               Nos occasions récentes à faible KM

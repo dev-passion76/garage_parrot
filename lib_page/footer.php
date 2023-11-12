@@ -15,15 +15,14 @@
     <div class="paper_plane">
       <a href="contact.php">Nous contacter</a>
       <img src="image/icone_contact.png" alt="icone de contact client">
+      <span>Retrouvez nous</span>
+
+        <img
+        src="assets/facebook-logo-108.png"
+        alt="Logo facebook"
+        />
     </div>
     
-<p>Retrouvez nous</p>
-
-  <img
-  class="ms-5"
-  src="assets/facebook-logo-108.png"
-  alt="Logo facebook"
-  />
   
   <div class="col-md-4 d-flex align-items-center">
     <a

@@ -1,14 +1,16 @@
 <?php
 require_once '../lib/bib_composant_affiche.php';
+require_once '../bibappli/lib_metier.php';
+
 // Attention cet include permet l'affichage d'un vehicule sur la base de la variable array $raw
 ?>
 <!--Ligne de vignette -->
 
 <div class="vignette-v2">
-<div >
+
   <div class="visuel_conteneur">
         <a href="fiche_voiture.php?code_vehicule=<?= $raw['idx_vehicule']?>" class="visuel">
-        <img width="400" height="300" class="lazymage loaded" src="assets/photos_vehicules/<?= $raw['url_img']?>" alt="<?= $raw['description']?>" title="<?= $raw['description']?>">
+        <img style="width:400px; height:300px;" class="lazymage loaded" src="assets/photos_vehicules/<?= $raw['url_img']?>" alt="<?= $raw['description']?>" title="<?= $raw['description']?>">
         </a>
   </div>
   <h2>
@@ -53,7 +55,7 @@ require_once '../lib/bib_composant_affiche.php';
 
 <a href="fiche_voiture.php?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-custom btn-sm btn-block btn-voir">Voir le véhicule</a>
 <a href="contact?code_vehicule=<?= $raw['idx_vehicule']?>" class="btn btn-custom btn-sm btn-block btn-voir">Nous contacter</a>
-</div>
+
 </div>
 <!--Fin de vignette 1ère vignette-->
 

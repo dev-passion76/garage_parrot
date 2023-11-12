@@ -11,7 +11,6 @@ if (isset($_POST['from_home_modele']))
 else
     $codeMarque = null;
 
-
     //echo $codeMarque;
 
     $sql = "select * from marque where code = '$codeMarque'";
@@ -76,7 +75,7 @@ require_once '../lib_page/header.php';
 
   <div>
   
-  <div class="container-page">
+  <div class="container-page ">
 <?php 
     $sql = "select * from vehicule where code_marque = '$codeMarque'";
     $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);

@@ -49,4 +49,12 @@ function verifMail ($mail){
         return false;
     }
 } 
+
+function convDateJJMMAA($dateSql){
+  // Création du timestamp à partir du date donnée
+  $timestamp = strtotime($dateSql);
+   
+  // Créer le nouveau format à partir du timestamp
+  return date("d/m/Y H:m", $timestamp);
+}
 ?>
