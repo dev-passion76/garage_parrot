@@ -16,10 +16,10 @@ if (isset($_SESSION['clUser']))
 else
     $clUser = null;
 
-// permet de tester que la page a bien été validé par POST de formulaire via la balise action du form
+// permet de tester que la page a bien été validé par POST  formulaire via la balise action du form
 
 /**
- * Cette variable va devoir 4 possibilité de statut
+ * Cette variable a 4 possibilité de statuts
  * A ajouter
  * M modifier
  * S supprimer

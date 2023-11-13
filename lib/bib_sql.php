@@ -2,8 +2,8 @@
 /**
  * Renvoi un tableau de donnée de resultat d'element dans une query
  * $pdo : instance de connexion MYSQL
- * $sql : la requete sql envoyée à la base de donnéee demo
- * re essai1
+ * $sql : la requete sql envoyée à la base de donnée demo
+ * 
  */
 // fabrication d'une class pour acceder au données de la base 
 class DbAccess{ 
@@ -12,7 +12,7 @@ class DbAccess{
         
         // https://phpdelusions.net/pdo_examples/select
         
-        // comme le méthode n'est pas static alors on utilise la syntase <variable de l'objet instancié>-><Nom de la méthode>
+        // comme la méthode n'est pas static alors on utilise la syntase <variable de l'objet instancié>-><Nom de la méthode>
         return $pdo->query($sql)->fetchAll();
         // and somewhere later:;
     } catch (\PDOException $e) {
@@ -23,7 +23,7 @@ class DbAccess{
   /**
    * $pdo->query
    * $sql = "SELECT
-   * Renvoi de manière unitaire un et un seul element d'une ligne de tb*ableau
+   * Renvoi de manière unitaire un et un seul element d'une ligne de tb*tableau
    */
   public static function canFind($pdo,$sql){ // !!!! Fonction STATIC unique
     try {
