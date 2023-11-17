@@ -92,11 +92,8 @@ DIV.clSelectVehicule > DIV.corps select {
   margin-bottom: 20px;
   margin: 10px;
 }
-h1.titreApropos {
-  text-align: left;
-  padding-top: 0px;
-  padding-left: 0px;
-}
+
+
 
 @media screen and (min-width: 767px) and (max-width: 810px) {
   .carousel-inner .carousel-item img {
@@ -296,10 +293,6 @@ span#custom-color {
   font-size: 20px; /*bizarre aucun effet comme les deux autres propriétés de la même classe, puis d'un coup ça marche ! */
 }
 
-p {
-  padding-left: 15%;
-}
-
 .image-container {
   display: inline-block; /* Pour afficher les divs en ligne */
   margin-right: 10px; /*Espace entre les images*/
@@ -401,27 +394,51 @@ div.visuel_conteneur + h2 {
   margin-top: 10%;
 }
 
+.text-qui {
+  font-size: 1.5rem;
+}
+
+.col-6 {
+    display: flex;
+    justify-content: flex-end; /* Aligne le contenu à la fin de la colonne (à droite) */
+}
+
+.img_logo {
+    /* Ajoutez ici tout style supplémentaire pour votre logo si nécessaire */
+}
+
+
 h1 {
   color: #531429;
-  /*padding-top: 75px;
-  padding-left: 8%;*/
+
 }
 
 h2 {
   color: #531429;
-  /*
-  padding-top: 75px;
-  padding-left: 40%;
-  */
   font-size: 2.5rem;
 }
 
-#qui-sommes-nous {
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #f2ebee;
   color: black;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 2% 10%;
 }
+
+.titre-section {
+  text-align: center;
+  margin: 80px; /* Retire le margin par défaut pour un centrage précis */
+  font-size: 4em;
+}
+
+@media screen and (max-width: 768px) {
+  .row .col-6 {
+    flex-basis: 100%; /* Chaque colonne prend toute la largeur sur les petits écrans */
+  }
+}
+
 
 .section-wrapper {
   width: 100%; /* Prend toute la largeur */
@@ -434,7 +451,7 @@ h2 {
   padding-left: 15px;
   width: 100%; /* Prend toute la largeur */
 }
-/*  media pour la shadow nos occasions à moin de 20 000€  !!! */
+/*  media pour la shadow nos occasions à moins de 20 000€  !!! */
 @media (min-width: 1400px) {
   .container,
   .container-lg,
@@ -531,3 +548,5 @@ h2 {
   width: 22%;
   min-width: 415px;
 }
+
+

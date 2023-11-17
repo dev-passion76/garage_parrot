@@ -135,15 +135,6 @@ else
             ?>
           <option value="<?=$raw["code"]?>" class="custom-option"><?=$raw["libelle"]?></option>  
           <?php } ?>
-          <!-- <option value="ABARTH">ABARTH</option>
-              <option value="AUDI">AUDI</option>
-              <option value="BMW">BMW</option>
-              <option value="FIAT">FIAT</option>
-              <option value="FORD">FORD</option>
-              <option value="MERCEDES">MERCEDES</option>
-              <option value="MINI">MINI</option>
-              <option value="PEUGEOT">PEUGEOT</option>
-              <option value="RENAULT">RENAULT</option> -->
           </select>
 
           <!-- Deuxième select -->

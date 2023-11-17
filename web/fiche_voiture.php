@@ -50,47 +50,62 @@ require_once '../lib_page/header.php';
     <nav class="navbar navbar-custom">
       <div class="container-fluid d-flex nav-container">
         <a class="navbar-brand large-margin" href="index.html">
-          <img
-          src="assets/image-voiture garage removebg-preview.png"
-          alt="Logo du garage"
-          width="530"
-          class="d-inline-block align-text-top"
-          />
+          <img src="assets/image-voiture-garage.png" alt="Logo du garage" width="530" class="d-inline-block align-text-top"/>
           <br /><h1 class="garage-text" style="color: #531424"
           >Garage V.Parrot</h1>
         </a>     
       </div>
     </nav>
   </div>
-    <div class="visuel_conteneur">
-        <a href="fiche_voiture.php?code_vehicule=<?= $reqVehicule['idx_vehicule']?>" class="visuel">
-        <img width="400" height="300" class="lazymage loaded" src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="<?= $reqVehicule['description']?>" title="<?= $reqVehicule['description']?>">
-        </a>
-  </div>
 
-<div class="container text-center">
-  <div class="intro">
-    <div class="col-sm-6">
+<!-- Début de la section avec l'image et les informations -->
+
+    <div class="container">
+        <div class="content-row">
+
+            <!-- Section Image -->
+
+            <div class="image-section">
+              <div class="visuel_conteneur">
+                <a href="fiche_voiture.php?code_vehicule=<?= $reqVehicule['idx_vehicule']?>" class="visuel">
+                  <img width="400" height="300" class="lazymage loaded" src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="<?= $reqVehicule['description']?>" title="<?= $reqVehicule['description']?>">
+                </a>
+              </div>
+            </div>
+
+<!-- Section Informations (avec PHP intégré) --> 
+
+<div class="info-section">
+    <div class="intro">
         <h1><?= $reqVehicule['description']?></h1>
-        <p class="modele_subtitle">1.0 70ch BSG S&amp;S Cult</p>
-                
+            <p class="modele_subtitle">1.0 70ch</p>
     </div>
-    <div class="row">
+      <div class="row">
         <div class="col-sm-7">
             <p class="prix"><?= afficheMontant($reqVehicule['prix'])?>&nbsp;€</p>
         </div>
-    </div>
-  </div>
+      </div>
+</div>
   <div class="row">
     <div class="annonce_img">
-      <div class="info">
-        <h2>Informations générales&nbsp;<span class="badge">Réf. : 5572</span></h2>
+        <h2>Informations générales&nbsp;</h2> 
         <div class="row">
           <div class="col-xs-6">
               <table class="table">
                   <tbody><tr>
                       <td>Année</td>
                       <td>2020</td>
+                      <td>Energie</td>
+                      <td>Essence</td>
+                      <td>Couleur</td>
+                      <td>Jaune métalisé</td>
+                      <td>Emission CO2</td>
+                      <td>148g/km</td>
+                      <td>Crit'Air</td>
+                      <td>1</td>
+                      <td>Puissance178ch/9CV</td>
+                      <td>Kilométrage</td>
+                      <td>Manuelle</td>
                   </tr>
 
                   <?php
@@ -106,9 +121,6 @@ require_once '../lib_page/header.php';
               </tbody></table>
           </div>
         </div>
-
-
-      </div>
     </div>
   </div>
 </div>

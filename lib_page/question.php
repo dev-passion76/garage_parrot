@@ -13,8 +13,4 @@
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
   <button type="submit" class="btn btn-primary">Envoyer</button>
-  <p>Une question ? Besoin d'aide ?</p>
-  <p>Contacter notre service client au :</p>
-  <p>09 00 00 00 00 (Appel non surtaxé)</p>
-  <p>Nous contacter par e-mail</p>
 </form>
