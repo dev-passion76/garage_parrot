@@ -31,7 +31,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($fct !=null && $fct="changeStatut"){
             $idxVehicule  = POST::get('idxVehicule');
             $statut = POST::get("statut");
-            echo $idxVehicule."\t".$statut;
+            
             Vehicule::modifierStatus($pdo,$idxVehicule,$statut);
             exit;
         }
