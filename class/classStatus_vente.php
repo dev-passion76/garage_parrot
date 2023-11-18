@@ -5,8 +5,8 @@
 */
 class Status_vente {
     public function vendreVehicule($pdo, $idxVehicule) {
-        $stmt = $pdo->prepare("UPDATE vehicule SET status_vente = 'vendu' WHERE idxVehicule = :idxVehicule");
-        $stmt = $stmt->execute([':idxVehicule' => $idxVehicule]);
+        $stmt = $pdo->prepare("UPDATE vehicule SET status_vente = 'vendu' WHERE idx_vehicule = :idx_vehicule");
+        $stmt = $stmt->execute([':idx_vehicule' => $idxVehicule]);
 
         /*vérification des erreurs pr déterminer si la mise à jour a réussi.*/
 
