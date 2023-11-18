@@ -69,28 +69,33 @@ class Vehicule{
 
     }
     
+    private static function getSqlVisibility(){
+        return "status IN('P','A') ";
+    }
+
     public static function requeteMarqueVehiculeVisible($pdo){
         $sql = "select * from marque ".
             "where exists(select * from vehicule ".
-            "where vehicule.code_marque = marque.code and status IN('P','A'))";
+                          "where vehicule.code_marque = marque.code and ".self::getSqlVisibility().
+                        ")";
         return DbAccess::getRequeteSql($pdo,$sql);
         
     }
 
     public static function requeteVehiculePrix($pdo){
-        $sql = "select * from vehicule where prix < 20000 and status IN('P','A') ";
+        $sql = "select * from vehicule where prix < 20000 and ".self::getSqlVisibility();
         return DbAccess::getRequeteSql($pdo,$sql);
         
     }
     
     public static function requeteVehiculeKm($pdo){
-        $sql = "select * from vehicule where km < 20000 and status IN('P','A') ";
+        $sql = "select * from vehicule where km < 20000 and ".self::getSqlVisibility();
         return DbAccess::getRequeteSql($pdo,$sql);
         
     }
 
     public static function requeteVehiculeMarque($pdo,$codeMarque){
-        $sql = "select * from vehicule where code_marque = ".$pdo->quote($codeMarque)." and status IN('P','A')";
+        $sql = "select * from vehicule where code_marque = ".$pdo->quote($codeMarque)." and ".self::getSqlVisibility();
         return DbAccess::getRequeteSql($pdo,$sql);
         
     }
