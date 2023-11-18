@@ -3,6 +3,7 @@
 require_once '../lib/bib_connect.php';
 require_once '../lib/bib_sql.php';
 
+require_once '../class/classVehicule.php';
 /**
  * Récuperations infos données
  */
@@ -77,10 +78,7 @@ require_once '../lib_page/header.php';
   
   <div class="container-page ">
 <?php 
-    $sql = "select * from vehicule where code_marque = '$codeMarque'";
-    $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
-
-   foreach ($reqVehicule as $raw){
+    foreach (Vehicule::requeteVehiculeMarque($pdo,$codeMarque) as $raw){
       require '../lib_page/vignette_auto.php'; 
 }
 ?>

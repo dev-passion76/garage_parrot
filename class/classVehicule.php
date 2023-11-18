@@ -6,6 +6,16 @@ class Vehicule{
     }
     
     
+    public static $statut = array(
+        ' ' => 'Arrivage',
+        'V' => 'Vendu',
+        'P' => 'Publié',
+        'R' => 'Réserver',
+    );
+    
+    public static function getListeStatut(){
+        return self::$statut;
+    }
     /**
      * Methode liste des vehicules
      */
@@ -41,6 +51,47 @@ class Vehicule{
         
         return true;
         
+        
+    }
+
+    /**
+     * Process pour faire la mise du statut du véhicule
+     *   
+     */
+    public static function modifierStatus($pdo, $idxVehicule, $status) {
+        $data = [
+                ':idx_vehicule' => $idxVehicule, 
+                ':status' => $status
+            ];
+        $sql = "UPDATE vehicule SET status = :status WHERE idx_vehicule = :idx_vehicule";
+        $stmt = $pdo->prepare($sql);
+        return $stmt->execute($data);
+
+    }
+    
+    public static function requeteMarqueVehiculeVisible($pdo){
+        $sql = "select * from marque ".
+            "where exists(select * from vehicule ".
+            "where vehicule.code_marque = marque.code and status IN('P','A'))";
+        return DbAccess::getRequeteSql($pdo,$sql);
+        
+    }
+
+    public static function requeteVehiculePrix($pdo){
+        $sql = "select * from vehicule where prix < 20000 and status IN('P','A') ";
+        return DbAccess::getRequeteSql($pdo,$sql);
+        
+    }
+    
+    public static function requeteVehiculeKm($pdo){
+        $sql = "select * from vehicule where km < 20000 and status IN('P','A') ";
+        return DbAccess::getRequeteSql($pdo,$sql);
+        
+    }
+
+    public static function requeteVehiculeMarque($pdo,$codeMarque){
+        $sql = "select * from vehicule where code_marque = ".$pdo->quote($codeMarque)." and status IN('P','A')";
+        return DbAccess::getRequeteSql($pdo,$sql);
         
     }
 }

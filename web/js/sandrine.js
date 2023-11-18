@@ -32,3 +32,17 @@ class ClassTemoignage {
     });
   }
 }
+
+class ClassWorkFlow{
+	static changeStatut(obj,idxVehicule){
+    $.ajax({
+      url: "vehicule.php",
+      data: "fct=changeStatut&idxVehicule="+idxVehicule+"&statut="+obj.value,
+      type: "post",
+      success: function (myObj) {
+        var objInput = obj.getElementsByTagName("INPUT");
+        if (objInput) objInput[0].checked = myObj.is_publie ? true : false;
+      },
+    });		
+	}
+}

@@ -23,6 +23,18 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     // pour des raisons de sécurité, une page peut être appelé soit par le site, soit nativement par un pirate
     // sauf si l'on recontrole sur le serveur qu'il est bien authentifié et ADMIn alors OK sinon dommage pour le hackeur
     if ($clUser) {
+        /**
+         * Section d'analyse sur la partie retour ajax du changement de statut du véhicule
+         * @var unknown $codeMarque
+         */
+        $fct = POST::get("fct");
+        if ($fct !=null && $fct="changeStatut"){
+            $idxVehicule  = POST::get('idxVehicule');
+            $statut = POST::get("statut");
+            echo $idxVehicule."\t".$statut;
+            Vehicule::modifierStatus($pdo,$idxVehicule,$statut);
+            exit;
+        }
         $codeMarque  = POST::get('code_marque');
         $description = POST::get('description');
         $prix        = POST::get('prix');
@@ -64,6 +76,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
          */
         if ($files == null || ! is_array($files)) 
             $message = "L'ajout de la photo est obligatoire";
+        else
         if ($files['error']!=0)
             $message = "Fichier de trop grande taille ou incorrect";
         else
@@ -131,6 +144,7 @@ if ($allVehicule) {
 					<td>Km</td>
 					<td>Fcihier Image</td>
 					<td>Action</td>
+					<td>Statut</td>
 				</tr>
             <?php
             foreach ($allVehicule as $raw) {
@@ -145,6 +159,17 @@ if ($allVehicule) {
 					<td>
 						<a href="?action=M&index=<?= urlencode($raw['idx_vehicule'])?>">Modif</a>
 						<a href="?action=S&index=<?= urlencode($raw['idx_vehicule'])?>">Supp.</a>
+					</td>
+					<td>
+						<select name="statut" onchange="ClassWorkFlow.changeStatut(this,<?=$raw['idx_vehicule']?>)">
+						<?php
+						  foreach (Vehicule::getListeStatut() as $key => $value) {
+						      echo "<option value='$key'".($raw['status']==$key ? " selected" : "").">".htmlentities($value);
+						      echo "</option>";
+						  }
+						  $raw['status']
+						 ?>
+						</select>
 					</td>
 				</tr>
             <?php
@@ -213,7 +238,6 @@ if ($clUser) {
 			</div>
 		</form>
 <?php
-        // TEST1
     }
 }
 ?>
@@ -224,8 +248,8 @@ if ($clUser) {
     <?php
     require_once '../lib_page/footer.php';
     ?>
-<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/plugins/bootstrap.bundle.min.js"></script>
+    <script src="js/sandrine.js"></script>
 </body>
 </html>

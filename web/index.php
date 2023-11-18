@@ -23,6 +23,8 @@ require_once '../lib_page/header.php';
 
 require_once '../class/classUtilisateur.php';
 
+require_once '../class/classVehicule.php';
+
 if (isset($_GET['exit'])){
     session_destroy();
     header("Location:index.php");
@@ -127,12 +129,7 @@ else
             <select name="from_home_modele" id="marque" class="form-control custom-select" onchange="this.form.submit()">
 
             <option value="Selection">Sélectionnez votre marque</option>
-            <?php $sql = "select * from marque ".
-                          "where exists(select * from vehicule ".
-                                  "where vehicule.code_marque = marque.code)";
-                  $reqMarque = DbAccess::getRequeteSql($pdo,$sql);
-                  foreach($reqMarque as $raw){ 
-            ?>
+            <?php foreach(Vehicule::requeteMarqueVehiculeVisible($pdo) as $raw){ ?>
           <option value="<?=$raw["code"]?>" class="custom-option"><?=$raw["libelle"]?></option>  
           <?php } ?>
           </select>
@@ -170,10 +167,7 @@ else
               Nos occasions à moins de 20 000€
               </div>
               <div class="container-page">
-              <?php 
-              $sql = "select * from vehicule where prix < 20000";
-                $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
-                foreach ($reqVehicule as $raw){
+              <?php  foreach (Vehicule::requeteVehiculePrix($pdo) as $raw){
                   require '../lib_page/vignette_auto.php'; 
                 }
               ?>
@@ -186,10 +180,7 @@ else
               Nos occasions récentes à faible KM
               </div>
               <div class="container-page"> 
-              <?php 
-              $sql = "select * from vehicule where km < 20000";
-                $reqVehicule = DbAccess::getRequeteSql($pdo,$sql);
-                foreach ($reqVehicule as $raw){
+              <?php foreach (Vehicule::requeteVehiculeKm($pdo) as $raw){
                   require '../lib_page/vignette_auto.php'; 
               }
               ?>
