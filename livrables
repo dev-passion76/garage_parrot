@@ -92,7 +92,7 @@ Serveur Web et PHP : Instructions pour installer et configurer WAMP, selon mes c
 MySQL avec Workbench : Guide pour installer MySQL et MySQL Workbench, création de la base de données. selon mes cours et d'autres sources d'informations sur le net.
 
 Configuration du projet :
-Dépôt Git des fichiers du projet par l'extension git dans VSCode avec un premier commit.
+Dépôt Git des fichiers du projet par l'extension git dans VSCode avec un premier commit.  
 
 Configuration de l'environnement (ex : fichiers .env pour PHP):
 
@@ -117,7 +117,7 @@ de mails.
 - **web** : Le dossier principal pour les ressources web. Il a des sous-dossiers pour les assets, CSS, images et JavaScript. Le fichier 'authentification.php' permettant une fonction
 d'authentification.
 
-**Description des modules : Explicant brièvement chaque module, sa fonction et son interaction avec les autres et celui en dehors du web (à faire)**
+**Description des modules : Expliquant brièvement chaque module, sa fonction et son interaction avec les autres et celui en dehors du web (à faire)**
 
 **Configuration Locale avec WAMP64**
 
