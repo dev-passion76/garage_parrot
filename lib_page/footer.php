@@ -22,22 +22,9 @@
         alt="Logo facebook"
         />
     </div>
-    
   
   <div class="col-md-4 d-flex align-items-center">
-    <a
-    href="/"
-    class="my-6 mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
-    >
-    <svg class="bi" width="30" height="24">
-      <use xlink:href="#bootstrap"></use>
-    </svg>
-  </a>
   <span class="my-4 mb-3 mb-md-0 text-body-secondary" >© 2023 Company, Inc</span>
   </div>
-
-</div>
-
 <script src="web/app.js"></script>
-
 </footer>

@@ -94,5 +94,12 @@ class Vehicule{
         return DbAccess::getRequeteSql($pdo,$sql);
         
     }
+
+    public function modifierStatus($pdo, $idxVehicule, $status) {
+        $stmt = $pdo->prepare("UPDATE vehicule SET status = ':status' WHERE idx_vehicule = :idx_vehicule");
+        return $stmt->execute([':idx_vehicule' => $idxVehicule, ':status' => $status]);
+
+    }
+
 }
 ?>

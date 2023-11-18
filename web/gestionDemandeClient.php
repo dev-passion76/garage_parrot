@@ -16,17 +16,16 @@ if (isset($_SESSION['clUser']))
 else
     $clUser = null;
 
-// permet de tester que la page a bien été validé par POST  formulaire via la balise action du form
+// permet de tester que la page a bien été validée par POST  formulaire via la balise action du form
 
 /**
- * Cette variable a 4 possibilité de statuts
+ * Cette variable a 4 possibilités de statuts
  * A ajouter
  * M modifier
  * S supprimer
  * C consulter
  * 
  * @var string 
- Global
  */
 $actionGlobal = '';
 
@@ -61,7 +60,7 @@ if ($clUser == null )
 <?php } ?>
 
 <?php
-// Affichage de la liste des demandes clients donc on fait une instance de la class ClientDemande
+// Affichage de la liste des demandes clients donc je fais une instance de la class ClientDemande
 $clientDemande = new ClientDemande();
 
 $allDemande = $clientDemande->getListe($pdo);
