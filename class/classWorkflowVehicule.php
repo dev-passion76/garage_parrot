@@ -3,20 +3,29 @@
 /** Ici je définie ma fonction vendreVehicule en reprenant le tableau vehicule et l'idxVehicule pr le marquer comme vendu dans la DB
  * cela suppose que j'ai créer une autre colonne en DB : 'status_vente'. La méthode prend l'indice du véhicule (idxVehicule) comme paramètre et met à jour son statut de vente.
 */
-class Status_vente {
-    public function vendreVehicule($pdo, $idxVehicule) {
-        $stmt = $pdo->prepare("UPDATE vehicule SET status_vente = 'vendu' WHERE idx_vehicule = :idx_vehicule");
-        $stmt = $stmt->execute([':idx_vehicule' => $idxVehicule]);
+require_once '../class/classVehicule.php';
 
-        /*vérification des erreurs pr déterminer si la mise à jour a réussi.*/
+class WorkflowVehicule {
+    /**
+     * Process pour faire la mise du statut du véhicule
+     *   
+     */
+    public function annule($pdo,$idxVehicule){
+        return Vehicule::modifierStatus($pdo,$idxVehicule,'A');
+    } 
 
-        if($stmt->rowCount() > 0){
-            return true;
-        }
-        else{
-            return false; /**La mise à jour a échoué si le véhicule n'a pas été trouvé */
-        }
-}
+    public function vente($pdo,$idxVehicule){
+        return Vehicule::modifierStatus($pdo,$idxVehicule,'V');
+    } 
+
+    public function reserve($pdo,$idxVehicule){
+        return Vehicule::modifierStatus($pdo,$idxVehicule,'R');
+    } 
+
+    public function publie($pdo,$idxVehicule){
+        return Vehicule::modifierStatus($pdo,$idxVehicule,'P');
+    } 
+
 }
 
 /**
