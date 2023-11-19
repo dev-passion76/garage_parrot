@@ -11,9 +11,11 @@ require_once '../class/classUtilisateur.php';
 
 if (isset($_SESSION['clUser']))
     $clUser = unserialize($_SESSION['clUser']);
-else
+else{
     $clUser = null;
-
+    header("Location:index.php");
+    exit;
+}
 // permet de tester que la page a bien été validé par POST de formulaire via la balise action du form
 
 /**

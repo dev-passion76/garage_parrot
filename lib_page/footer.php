@@ -2,13 +2,28 @@
   <div id="horaires"><br>
     <h3>Horaires d'ouverture </h3><br/><br/>
     <ul>
-        <li><strong>Lundi :</strong> 8h45 - 12h00, 14h00 - 18h00</li>
-        <li><strong>Mardi :</strong> 8h45 - 12h00, 14h00 - 18h00</li>
-        <li><strong>Mercredi :</strong> 8h45 - 12h00, 14h00 - 18h00</li>
-        <li><strong>Jeudi :</strong> 8h45 - 12h00, 14h00 - 18h00</li>
-        <li><strong>Vendredi :</strong> 8h45 - 12h00, 14h00 - 18h00</li>
-        <li><strong>Samedi :</strong> 8h45 - 12h00</li>
-        <li><strong>Dimanche :</strong> Fermé</li>
+       <?php
+       require_once '../class/classHoraire.php';
+        /**
+         * Pour information le & sert à pointer l'information et non copié l'information recu 
+         * gain mémoire et gain de vitesse
+         * 
+         */
+        foreach (Horaire::getListe($pdo) as & $raw){
+        ?>        
+          <li><strong><?= GestionDate::$jourSemaine[$raw['jour_semaine'] - 1] ?> : </strong> 
+          <?php if (GestionDate::dateHM($raw['is_ouvert'])=='1') { ?>
+            <?= GestionDate::dateHM($raw['am_debut']) ?> - <?= GestionDate::dateHM($raw['am_fin']) ?>
+            <?php if (GestionDate::dateHM($raw['pm_debut'])!='') { ?>
+            , <?= GestionDate::dateHM($raw['pm_debut']) ?> - <?= GestionDate::dateHM($raw['pm_fin']) ?>
+            <?php } ?>
+          <?php } else {?>
+            Fermé
+          <?php } ?>
+        </li>
+        <?php
+        }
+       ?>        
     </ul>
 </div>
 

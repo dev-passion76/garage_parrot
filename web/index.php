@@ -52,6 +52,7 @@ else
     		</div>
     		<?php if($clUser->isAdmin()) { ?>
     			<div><a href="utilisateur.php">Gestion des utilisateurs</a></div>
+    			<div><a href="horaire.php">Gestion des horaires</a></div>
     		<?php } ?>
     		<div>
           <a href="vehicule.php">Gestion des vehicules</a>
@@ -103,7 +104,7 @@ else
   <nav class="navbar navbar-custom">
     <div class="container-fluid d-flex nav-container">
       <div class="divCenter">
-        <a class="navbar-brand large-margin" href="index.html">
+        <a class="navbar-brand large-margin" href="index.php">
           <h1 class="garage-text">Garage V.Parrot</h1>
         </a>
         <a href="qui_sommes_nous.php" >

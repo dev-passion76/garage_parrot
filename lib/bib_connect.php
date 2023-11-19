@@ -4,9 +4,21 @@ session_start();
 
 $host = '127.0.0.1';
 $db   = 'garage';
+
+/**
+ * Données à modificer pour initialiser le dialogue avec la base de donnée MYSQL
+ */
+
+ // user 
 $user = 'sandrine';
+// mot de passe
 $pass = 'Sandrine73&sql';
+// port de communication avec la BDD
 $port = "3306";
+
+
+
+
 $charset = 'utf8mb4';
 //Pour se connecter à une base de donnée MySql
 $options = [

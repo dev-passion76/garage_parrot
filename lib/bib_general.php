@@ -57,4 +57,14 @@ function convDateJJMMAA($dateSql){
   // Créer le nouveau format à partir du timestamp
   return date("d/m/Y H:m", $timestamp);
 }
+
+class GestionDate{
+    public static $jourSemaine = array("Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche");
+    
+    public static function dateHM($string){
+    return substr($string,0,5);
+    }
+}
+
+
 ?>
