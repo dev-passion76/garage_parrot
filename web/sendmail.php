@@ -20,6 +20,6 @@ $mail->XMailer = null;
 if (!$mail->send()) {
     $msg = 'Désolé, quelque chose a mal tourné. Veuillez réessayer plus tard.';
 } else {
-    $msg = 'Message envoyé ! Merci de nous avoir contactés.';
+    $msg = 'Message envoyé ! Merci de nous avoir contacté.';
 }
 ?>

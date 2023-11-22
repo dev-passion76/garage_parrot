@@ -116,9 +116,11 @@ class ClassTemoignage {
 }
 
 class ClassHoraire {
+  static phpCall = "horaire.php";
+
   static ouvertFerme(obj, jourSemaaine) {
     $.ajax({
-      url: "horaire.php",
+      url: this.phpCall,
       data: "fct=ouverture&jourSemaaine=" + jourSemaaine,
       type: "post",
       success: function (myObj) {
@@ -130,7 +132,7 @@ class ClassHoraire {
 
   static modifieHoraire(objHtml, jourSemaaine) {
     $.ajax({
-      url: "horaire.php",
+      url: this.phpCall,
       data:
         "fct=modifieHoraire&jourSemaaine=" +
         jourSemaaine +
