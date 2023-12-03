@@ -87,7 +87,7 @@ if ($allDemande) {
 				</tr>
             <?php 
                 $listeStatut = ClientDemande::getListeStatut();            
-                foreach ($allDemande as & $raw) { ?>
+                foreach ($allDemande as $raw) { ?>
                 <tr>
 					<td><?=$raw['nom']?></td>
 					<td><?=$raw['prenom']?></td>
@@ -103,18 +103,16 @@ if ($allDemande) {
                         
                         $indexStatutOrigine =  array_search($statutOrigine, array_keys($listeStatut));                     
 
-						  foreach ($listeStatut as $key => & $value) {
+						  foreach ($listeStatut as $key => $value) {
                              $indexStatutNouveau =  array_search($key, array_keys($listeStatut)); 
                              if ($indexStatutNouveau >= $indexStatutOrigine){
 						      echo "<option value='$key'".($raw['status']==$key ? " selected" : "").">".htmlentities($value);
 						      echo "</option>";
                              }
 						  }
-						  $raw['status']
 						 ?>
 						</select>
 					</td>
-
 				</tr>
             <?php
     }

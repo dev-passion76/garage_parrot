@@ -32,7 +32,7 @@
          * @return unknown
          */
         public static function getListe($pdo){
-            $sql = "select * from client_demande left outer join vehicule on vehicule.idx_vehicule = client_demande.idx_vehicule";
+            $sql = "select client_demande.*,vehicule.description from client_demande left outer join vehicule on vehicule.idx_vehicule = client_demande.idx_vehicule";
             return DbAccess::getRequeteSql($pdo, $sql);
         }
 
@@ -107,15 +107,31 @@
                     $indexStatutOrigine =  array_search($statutOrigine, array_keys(ClientDemande::getListeStatut())); 
                     $indexStatutNouveau =  array_search($nouveauStatutDemande, array_keys(ClientDemande::getListeStatut())); 
 
+                    /**
+                     * Controle de la regle de gestion interdisant la mise à jour de statut de manière inversé
+                     */
                     if ($indexStatutNouveau > $indexStatutOrigine){
-                        $sql = "update client_demande set status = '$nouveauStatutDemande' where idx_contact_client =  $idxContactClient";
+                        if (DbAccess::transactionDebut($pdo)){
+                            $sql = "update client_demande set status = '$nouveauStatutDemande' where idx_contact_client =  $idxContactClient";
 
-                        $stmt= $pdo->prepare($sql);
-                        if ($stmt->execute()){
-                            if ($nouveauStatutVehicule != null)
-                                return Vehicule::modifierStatus($pdo,$raw['idx_vehicule'],$nouveauStatutVehicule);
-                            else
-                                return true;
+                            $stmt= $pdo->prepare($sql);
+                            if ($stmt->execute()){
+                                if ($nouveauStatutVehicule != null)
+                                    if (Vehicule::modifierStatus($pdo,$raw['idx_vehicule'],$nouveauStatutVehicule))
+                                        return DbAccess::transactionValide($pdo);
+                                    else{
+                                        DbAccess::transactionDefait($pdo);
+                                        return false;
+                                    }
+                                else{
+                                    DbAccess::transactionValide($pdo);
+                                    return true;
+                                }                                
+                            }
+                            else{
+                                DbAccess::transactionDefait($pdo);
+                                return false;
+                            }                                                        
                         }
                         else
                             return false;

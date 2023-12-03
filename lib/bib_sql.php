@@ -6,7 +6,25 @@
  * 
  */
 // fabrication d'une class pour acceder au données de la base 
-class DbAccess{ 
+class DbAccess{
+  public static function transactionDebut($pdo){
+    $sql = "START TRANSACTION";
+    $stmt= $pdo->prepare($sql);
+    return $stmt->execute();
+  }
+  
+  public static function transactionValide($pdo){
+    $sql = "COMMIT";
+    $stmt= $pdo->prepare($sql);
+    return $stmt->execute();
+  }
+
+  public static function transactionDefait($pdo){
+    $sql = "ROLLBACK";
+    $stmt= $pdo->prepare($sql);
+    return $stmt->execute();
+  }
+
   public static function getRequeteSql($pdo,$sql){ // !!!! Fonction STATIC unique
     try {
         
