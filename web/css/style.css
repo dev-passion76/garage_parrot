@@ -520,7 +520,6 @@ h2 {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   box-shadow: 0 4px 8px #008497;
-  max-width: 20%;
 }
 
 @media (max-width: 768px) {

@@ -9,7 +9,12 @@
             $sql = "select * from temoignage";
             return DbAccess::getRequeteSql($pdo, $sql);
         }
-        
+
+        public static function getListePublie($pdo){
+            $sql = "select * from temoignage where is_publie = 1 and is_interdit = 0";
+            return DbAccess::getRequeteSql($pdo, $sql);
+        }
+
         public static function ajoute($pdo,$nom, $commentaire, $note){
             $data = [
                 'nom' => $nom,
