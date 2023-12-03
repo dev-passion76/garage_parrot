@@ -4,7 +4,13 @@
         // On enregistre les information de connexion du driver pdo
         private $demande;
 
-
+        /**
+         * TB CLTDEM 01
+         * 
+         * ATTENTION : l'array est volontairement mis dans un ordre d'action,
+         * le processus de mise à jour de statut controle l'ordre de lequel les étapes de changement peuvent se réaliser 
+         * par chronolohie ascendante de l'index de l'array (0,1,2,3,....) et non l'inverse
+         */
         public static $statut = array(
                 'INI' => 'Initial',
                 'REF' => 'Refus',   
@@ -104,6 +110,10 @@
                      */
                     $statutOrigine = $raw['status'];
 
+                    /**
+                     * On recherche la valeur de l'index de chaqune des clé d'index de l'array de statut
+                     * ainsi l'on peut comparer l'ordre de la demande de mise à jour
+                     */
                     $indexStatutOrigine =  array_search($statutOrigine, array_keys(ClientDemande::getListeStatut())); 
                     $indexStatutNouveau =  array_search($nouveauStatutDemande, array_keys(ClientDemande::getListeStatut())); 
 

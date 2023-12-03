@@ -21,7 +21,7 @@
          * fonction permettant de switcher le mode ouverture / fermeture d'un jour
          */
         public static function switchOuverture($pdo,$jourSemaine){
-            $sql = "update horaire set is_ouvert = 1 - is_ouvert where jour_semaine = ".$jourSemaine;
+            $sql = "update horaire setw is_ouvert = 1 - is_ouvert where jour_semaine = ".$jourSemaine;
             
             $stmt= $pdo->prepare($sql);
             $stmt->execute();
@@ -38,12 +38,34 @@
                 /**
                  * Controle de la saisie du time https://digitalfortress.tech/tips/top-15-commonly-used-regex/
                  */
-                if (preg_match('#^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$#', $value)){
-                    $sql = "update horaire set $zone = ".$pdo->quote($value)." where jour_semaine = ".$jourSemaine;
-                    
-                    $stmt= $pdo->prepare($sql);
-                    $stmt->execute();
-                    return Horaire::getRaw($pdo,$jourSemaine);
+                if ($value == '' || preg_match('#^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$#', $value)){
+
+                    $raw = Horaire::getRaw($pdo,$jourSemaine);
+                    switch ($zone){
+                        case 'am_debut':
+                            $ok = ($raw['am_fin']=='' || $raw['am_fin'] > $value || $value == '');
+                            break;
+                        case 'am_fin':
+                            $ok = ($raw['am_debut']=='' || $raw['am_debut'] < $value || $value == '');
+                            break;
+                        case 'pm_debut':
+                            $ok = ($raw['pm_fin']=='' || $raw['pm_fin'] > $value || $value == '');
+                            break;
+                        case 'pm_fin':
+                            $ok = ($raw['pm_debut']=='' || $raw['pm_debut'] < $value || $value == '');
+                            break;
+                        default:
+                            $ok = false;
+                            break;
+                    }
+
+                    if ($ok){
+                        $sql = "update horaire set $zone = ".($value == '' ? "NULL" : $pdo->quote($value))." where jour_semaine = ".$jourSemaine;
+                        
+                        $stmt= $pdo->prepare($sql);
+                        $stmt->execute();
+                        return Horaire::getRaw($pdo,$jourSemaine);
+                    }
                 }
             }
             return null;

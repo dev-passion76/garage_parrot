@@ -5,7 +5,9 @@ class Vehicule{
         
     }
     
-    
+    /**
+     *  TB VEHIC 01
+     */    
     public static $statut = array(
         ' ' => 'Arrivage',
         'V' => 'Vendu',
@@ -45,6 +47,7 @@ class Vehicule{
             'urlimage' => $nomFichierImage
         ];
         $sql = "INSERT INTO vehicule (code_marque,description,prix,annee_circulation,km,url_img) VALUES (:tcodeMarque, :tdescription, :tprix, :tannee, :tkm , :urlimage)";
+        
         
         $stmt= $pdo->prepare($sql);
         $stmt->execute($data);
