@@ -39,7 +39,14 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     // pour des raisons de sécurité, une page peut être appelé soit par le site, soit nativement par un pirate
     // sauf si l'on recontrole sur le serveur qu'il est bien authentifié et ADMIn alors OK sinon dommage pour le hackeur
     if ($clUser) {
-
+        $fct = POST::get("fct");
+        if ($fct !=null && $fct="changeStatut"){
+            $idxContactClient  = POST::get('idxContactClient');
+            $statut = POST::get("statut");
+            
+            ClientDemande::modifierStatus($pdo,$idxContactClient,$statut);
+            exit;
+        }
     }
     else
         $message = "Accès à la page non autorisé";
@@ -75,15 +82,39 @@ if ($allDemande) {
 				<tr>
 					<td>Nom</td>
 					<td>Prenom</td>
+                    <td>Vehicule</td>
+                    <td>Statut</td>
 				</tr>
-            <?php foreach ($allDemande as $raw) { ?>
+            <?php 
+                $listeStatut = ClientDemande::getListeStatut();            
+                foreach ($allDemande as & $raw) { ?>
                 <tr>
 					<td><?=$raw['nom']?></td>
 					<td><?=$raw['prenom']?></td>
+                    <td>
+                        <a href="fiche_voiture.php?code_vehicule=<?=$raw['idx_vehicule']?>">
+                            <?=$raw['description']?>
+                        </a>
+                    </td>
 					<td>
-						<a href="?action=M&index=<?= urlencode($raw['idx_contact_client'])?>">Modif</a>
-						<a href="?action=S&index=<?= urlencode($raw['idx_contact_client'])?>">Supp.</a>
+						<select name="statut" onchange="ClassWorkFlow.changeStatutDemande(this,<?=$raw['idx_contact_client']?>)">
+						<?php
+                        $statutOrigine = $raw['status'];
+                        
+                        $indexStatutOrigine =  array_search($statutOrigine, array_keys($listeStatut));                     
+
+						  foreach ($listeStatut as $key => & $value) {
+                             $indexStatutNouveau =  array_search($key, array_keys($listeStatut)); 
+                             if ($indexStatutNouveau >= $indexStatutOrigine){
+						      echo "<option value='$key'".($raw['status']==$key ? " selected" : "").">".htmlentities($value);
+						      echo "</option>";
+                             }
+						  }
+						  $raw['status']
+						 ?>
+						</select>
 					</td>
+
 				</tr>
             <?php
     }
@@ -125,5 +156,6 @@ if ($clUser) {
 <script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/plugins/bootstrap.bundle.min.js"></script>
+    <script src="js/sandrine.js"></script>
 </body>
 </html>

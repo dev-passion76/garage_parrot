@@ -163,4 +163,17 @@ class ClassWorkFlow {
       success: function (myObj) {},
     });
   }
+
+  static changeStatutDemande(obj, idxContactClient) {
+    $.ajax({
+      url: "gestionDemandeClient.php",
+      data:
+        "fct=changeStatut&idxContactClient=" +
+        idxContactClient +
+        "&statut=" +
+        obj.value,
+      type: "post",
+      success: function (myObj) {},
+    });
+  }
 }
