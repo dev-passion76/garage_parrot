@@ -71,7 +71,7 @@ require_once '../lib_page/header.php';
   
 
 <div class="container text-center">
- 
+
   
 
   <div>

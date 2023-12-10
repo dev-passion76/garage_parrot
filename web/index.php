@@ -187,11 +187,6 @@ else
               ?>
               </div>
           </div>
-
-
-
-
-
           </div>
         </div>
       </div>

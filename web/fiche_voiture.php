@@ -68,7 +68,7 @@ require_once '../lib_page/header.php';
             <div class="image-section">
               <div class="visuel_conteneur">
                 <a href="fiche_voiture.php?code_vehicule=<?= $reqVehicule['idx_vehicule']?>" class="visuel">
-                  <img width="400" height="300" class="lazymage loaded" src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="<?= $reqVehicule['description']?>" title="<?= $reqVehicule['description']?>">
+                  <img width="400" style="height: auto; object-fit: cover;"class="lazymage loaded" src="assets/photos_vehicules/<?= $reqVehicule['url_img']?>" alt="<?= $reqVehicule['description']?>" title="<?= $reqVehicule['description']?>">
                 </a>
               </div>
             </div>

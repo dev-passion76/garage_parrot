@@ -27,6 +27,14 @@
     </ul>
 </div>
 
+
+<?php 
+if (!isset($isContactPage) || !$isContactPage) {
+
+    echo '<div>Nous contacter</div>';
+}
+?>
+
     <div class="paper_plane">
       <a href="contact.php">Nous contacter</a>
       <img src="image/icone_contact.png" alt="icone de contact client">
