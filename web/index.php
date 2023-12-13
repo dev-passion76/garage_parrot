@@ -127,7 +127,7 @@ else
     <div class="corps">
         <!-- Premier select -->
         <form action="voitures-occasions.php" method="POST">
-            <select name="from_home_modele" id="marque" class="form-control custom-select" onchange="this.form.submit()">
+            <select name="from_home_model" id="marque" class="form-control custom-select" onchange="this.form.submit()">
 
             <option value="Selection">Sélectionnez votre marque</option>
             <?php foreach(Vehicule::requeteMarqueVehiculeVisible($pdo) as $raw){ ?>
@@ -208,11 +208,10 @@ else
 				<div>
 						<span class="front">
 							<span class="icon-buyback2"></span>
-
 							<strong>Reprise</strong><br>de votre véhicule
 						</span>
 						<span class="back">
-							<p>Proposition de reprise à sans obligation d'achat.</p>
+							<p>Proposition de reprise sans obligation d'achat.</p>
 
 							<p>Nous prenons en charge les formalités administratives.</p>
 						</span>

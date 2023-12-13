@@ -68,7 +68,7 @@ require_once '../class/classTemoignage.php';
 <a href="index.php" class="link-occasions">Voir nos véhicules d'occasion</a>
 
 <?php include '../lib_page/footer.php'; 
-        include '../lib_page/carousel.php'; /* ? pourquoi n'apparaît pas */ 
+        include '../lib_page/carousel.php'; /* ? pourquoi n'apparaît pas LOGO ?*/ 
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/plugins/bootstrap.bundle.min.js"></script>

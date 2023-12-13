@@ -86,6 +86,7 @@ DIV.clSelectVehicule > DIV.corps form {
   width: 100%;
   padding-bottom: 30px;
 }
+
 DIV.clSelectVehicule > DIV.corps select {
   max-width: 200px;
   display: inline-flex;
@@ -93,11 +94,15 @@ DIV.clSelectVehicule > DIV.corps select {
   margin: 10px;
 }
 
+/* .container text-center {
+  max-width: none;
+} */
+
 /* Style de base pour flexbox */
 .container-fluid {
     display: flex;
     justify-content: space-between; /* Espacement entre les éléments */
-    align-items: center; /* Centrer les éléments verticalement */
+    align-items: center; /* Centre les éléments verticalement */
 }
 
 /* Adapter la taille du logo pour les petits écrans */
@@ -168,16 +173,16 @@ h1.garage-text {
 }
 
 .class p {
-  font-family: "Arial", sans-serif; /* Utilisez une police élégante */
-  font-size: 18px; /* Ajustez la taille du texte */
-  line-height: 1.6; /* Espacement entre les lignes */
-  color: #555; /* Couleur du texte */
-  margin: 20px 0; /* Espacement autour du paragraphe */
-  padding: 20px; /* Espacement à l'intérieur du paragraphe */
-  background-color: #fff; /* Couleur d'arrière-plan du paragraphe */
-  border: 1px solid #ddd; /* Bordure autour du paragraphe */
-  border-radius: 5px; /* Coins arrondis */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  font-family: "Arial", sans-serif; 
+  font-size: 18px; 
+  line-height: 1.6; 
+  color: #555; 
+  margin: 20px 0; 
+  padding: 20px; 
+  background-color: #fff; 
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 .navbar-brand.large-margin {
@@ -300,8 +305,18 @@ span#custom-color {
   padding-bottom: 0;
 }
 /*  Cards */
+
+.card .front, .card .back {
+    font-size: 0.6em; 
+}
+
+
+/* .card .front strong, .card .back p {
+    font-size: 0.6em; 
+} */
+
 .card {
-  background-color: #ffffff; /* Couleur de fond initiale */
+  background-color: #008497; /* Couleur de fond initiale */
   transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
 }
 

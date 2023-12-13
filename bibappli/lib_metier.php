@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ernvoi la liste des prestations
+ * Renvoi la liste des prestations
  */
     function getPrestation($pdo,$typePrestation){
         /**

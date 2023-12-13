@@ -27,7 +27,6 @@
     </ul>
 </div>
 
-
 <?php 
 if (!isset($isContactPage) || !$isContactPage) {
 

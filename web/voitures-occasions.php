@@ -50,7 +50,7 @@ require_once '../lib_page/header.php';
     <div class="container-fluid d-flex nav-container">
       <a class="navbar-brand large-margin" href="index.html">
         <img
-        src="assets/image-voiture garage removebg-preview.png"
+        src="assets/image-voiture-garage.png"
         alt="Logo du garage"
         width="530"
         class="d-inline-block align-text-top"
