@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             exit;
         }
         else
-           $mes = "Anomalie lors de la création du site";
+        $mes = "Anomalie lors de la création du site";
     }
 }
 else{

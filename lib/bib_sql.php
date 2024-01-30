@@ -25,7 +25,7 @@ class DbAccess{
     return $stmt->execute();
   }
 
-  public static function getRequeteSql($pdo,$sql){ // !!!! Fonction STATIC unique
+  public static function getRequeteSql($pdo,$sql){ // Fonction STATIC unique
     try {
         
         // https://phpdelusions.net/pdo_examples/select
@@ -43,7 +43,7 @@ class DbAccess{
    * $sql = "SELECT
    * Renvoi de manière unitaire un et un seul element d'une ligne de tb*tableau
    */
-  public static function canFind($pdo,$sql){ // !!!! Fonction STATIC unique
+  public static function canFind($pdo,$sql){ //Fonction STATIC unique
     try {
         
         // https://phpdelusions.net/pdo_examples/select
@@ -61,5 +61,4 @@ class DbAccess{
   }
   
 }
-
 ?>

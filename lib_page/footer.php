@@ -2,8 +2,8 @@
   <div id="horaires"><br>
     <h3>Horaires d'ouverture </h3><br/><br/>
     <ul>
-       <?php
-       require_once '../class/classHoraire.php';
+      <?php
+      require_once '../class/classHoraire.php';
         /**
          * Pour information le & sert à pointer l'information et non copié l'information recu 
          * gain mémoire et gain de vitesse
@@ -23,20 +23,17 @@
         </li>
         <?php
         }
-       ?>        
+      ?>        
     </ul>
 </div>
 
-<?php 
-if (!isset($isContactPage) || !$isContactPage) {
 
-    echo '<div>Nous contacter</div>';
-}
-?>
 
     <div class="paper_plane">
-      <a href="contact.php">Nous contacter</a>
-      <img src="image/icone_contact.png" alt="icone de contact client">
+      <?php if (!isset($isContactPage)) { ?>
+            <a href="contact.php">Nous contacter</a>
+            <img src="image/icone_contact.png" alt="icone de contact client">
+      <?php } ?>
       <span>Retrouvez nous</span>
 
         <img

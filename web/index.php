@@ -9,8 +9,8 @@ require_once '../lib/bib_connect.php';
 
 /**
  * Cette bibliotheque est prevu pour avoir les fonctions de base pour les interrog et mise a jour
- * en base de donnée
- * A savoir interrogation Multi Record et Mone Record
+ * en base de données
+ * interrogation Multi Record et One Record
  * Creation / modification / suppression de record
  * Gestion des transactions au sens du Begin transaction et du commit transaction
  *
@@ -39,12 +39,11 @@ if (isset($_SESSION['clUser'])){
 else
     $clUser = null;
     ?>
+
 <body>
-   <div id="idConnect">
+  <div id="idConnect">
     <?php if ($clUser==null) {?>
-   		
-    
-    
+
     <?php } else {?>
     	<div>
     		<div>
@@ -86,7 +85,7 @@ else
   <div class="carousel-item">
       <img src="assets/réparationn slider.jpg" class="d-block w-100" alt="photo slide five">
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-s-iconlide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
@@ -127,17 +126,18 @@ else
     <div class="corps">
         <!-- Premier select -->
         <form action="voitures-occasions.php" method="POST">
-            <select name="from_home_model" id="marque" class="form-control custom-select" onchange="this.form.submit()">
+            <select name="from_home_modele" id="marque" class="form-control custom-select" onchange="this.form.submit()">
 
             <option value="Selection">Sélectionnez votre marque</option>
             <?php foreach(Vehicule::requeteMarqueVehiculeVisible($pdo) as $raw){ ?>
           <option value="<?=$raw["code"]?>" class="custom-option"><?=$raw["libelle"]?></option>  
           <?php } ?>
           </select>
-
+        </form>
+        <form action="reparation-rdv.php" method="POST">
           <!-- Deuxième select -->
-          <select name="from_home_reparation" id="reparations" class="form-control custom-select">
-              <option value="">Réparations</option>
+          <select name="from_home_reparation" id="reparations" class="form-control custom-select" onchange="this.form.submit()">
+              <option value="">Sélectionnez votre type réparation</option>
               <?php $reqPrestation = getPrestation($pdo,"RP");
                     foreach($reqPrestation as $raw){ ?>
           <option value="<?=$raw["code"]?>"><?=$raw["libelle"]?></option>  
@@ -162,7 +162,7 @@ else
           
         
 
-          <!--BEGIN affichage -->
+          <!--START affichage -->
           <div>
               <div class="titre"><br>
               Nos occasions à moins de 20 000€
@@ -194,17 +194,15 @@ else
 </div>	
 </div>
 
-
 <div class="container text-center">
   <div class="clEngagements">
     <div class="titre">
       <span>NOS</span> <span>ENGAGEMENTS</span>
-      
     </div>
   </div>
   <div>    
 		<div class="row">
-			<div class="card col-sm-3 col-xs-6">
+			<div class="card custom-col-lg col-12 col-sm-6 col-lg-3 mx-1">
 				<div>
 						<span class="front">
 							<span class="icon-buyback2"></span>
@@ -212,49 +210,42 @@ else
 						</span>
 						<span class="back">
 							<p>Proposition de reprise sans obligation d'achat.</p>
-
 							<p>Nous prenons en charge les formalités administratives.</p>
 						</span>
 				</div>
 			</div>
-			<div class="card col-sm-3 col-xs-6">
+			<div class="card custom-col-lg col-12 col-sm-6 col-lg-3 mx-1">
 				<div>
 						<span class="front">
 							<span class="icon-roole"></span>
-
 							<strong>Protégez votre véhicule</strong><br>et votre budget
 						</span>
-
 						<span class="back">
 							<p>Rejoindre le club Roole, c’est rejoindre une communauté d’automobilistes visant à rendre la voiture plus simple et plus économique.</p>
 						</span>
 				</div>
 			</div>
 
-			<div class="card col-sm-3 col-xs-6">
+			<div class="card custom-col-lg col-12 col-sm-6 col-lg-3 mx-1">
 				<div>
 						<span class="front">
 							<span class="icon-warranty-term-svgrepo-com"></span>
-
 							Véhicules<br><strong>contrôlés et garantis</strong>
 						</span>
 
 						<span class="back">
 							<p>103 points de contrôles</p>
-
 							<p>Le certificat d’état et d’origine de cette occasion, vous sera remis lors de la livraison.</p>
 						</span>
 				</div>
 			</div>
 
-			<div class="card col-sm-3 col-xs-6">
+			<div class="card custom-col-lg col-12 col-sm-6 col-lg-3 mx-1">
 				<div>
 						<span class="front">
 							<span class="icon-waxoyl"></span>
-
 							<strong>Soignez</strong><br>votre carrosserie
 						</span>
-
 						<span class="back">
 							<p>Découvrez nos solutions de protection de votre carrosserie et de peinture haute brillance pour que votre nouvelle voiture garde l’aspect du neuf plus longtemps.</p>
 						</span>

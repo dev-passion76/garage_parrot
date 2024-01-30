@@ -1,16 +1,10 @@
 <?php
 require_once '../lib/bib_connect.php';
-
 require_once '../lib/bib_sql.php';
-
 require_once '../lib/bib_general.php';
-
 require_once '../bibappli/lib_metier.php';
-
 require_once '../lib_page/header.php';
-
 require_once '../class/classUtilisateur.php';
-
 require_once '../class/classVehicule.php';
 
 if (isset($_SESSION['clUser']))

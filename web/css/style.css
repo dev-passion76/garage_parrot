@@ -3,13 +3,6 @@
   --vp-votre-vehicule: #6c1e41;
 }
 
-body {
-  min-width: 600px;
-}
-
-DIV.clChoixSelonVeh {
-}
-
 DIV.clChoixSelonVeh .titre,
 DIV.clEngagements .titre {
   color: var(--vp-quisommesnous);
@@ -29,9 +22,7 @@ DIV.clEngagements {
 }
 
 DIV.clEngagements + DIV > .row {
-  flex-wrap: inherit;
-  width: calc(100% - 40px);
-  position: relative;
+  flex-wrap: wrap;
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -39,11 +30,8 @@ DIV.clEngagements + DIV > .row {
 DIV.clEngagements + DIV {
   font-size: 2em;
 }
-DIV.clEngagements + DIV .card {
-  margin: 0px 5px 0px 5px;
-}
 
-/* Fabrication d'un système de flip / flop sur hover */
+/* Système de flip / flop sur hover */
 DIV.clEngagements + DIV .card .front {
   display: block;
 }
@@ -60,11 +48,33 @@ DIV.clEngagements + DIV .card:hover .back {
   display: block;
 }
 
-SPAN.front p,
-SPAN.back p {
-  padding-left: 5%;
-  padding-right: 5%;
+.custom-col-lg {
+  flex: 0 0 calc(25% - 10px); /* 10px selon pr compenser la marge */
+  max-width: calc(25% - 10px); 
 }
+
+.card .front,
+.card .back {
+  font-size: 0.6em;
+}
+
+.card {
+  background-color: #008497; /* Couleur de fond initiale */
+  transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
+}
+
+.card:hover {
+  background-color: #862445; /* Nouvelle couleur de fond lors du survol */
+  color: #ddd;
+}
+
+@media (min-width: 992px) {
+  .custom-col-lg {
+    flex: 0 0 calc(25% - 10px);
+    max-width: calc(25% - 10px);
+  }
+}
+
 
 /* class du DIV avec le SPAN fils directement associé et l'adjacent*/
 DIV.clDecouvreVehicule > DIV.titre > SPAN + SPAN {
@@ -94,41 +104,26 @@ DIV.clSelectVehicule > DIV.corps select {
   margin: 10px;
 }
 
-/* .container text-center {
-  max-width: none;
-} */
-
 /* Style de base pour flexbox */
 .container-fluid {
-    display: flex;
-    justify-content: space-between; /* Espacement entre les éléments */
-    align-items: center; /* Centre les éléments verticalement */
+  display: flex;
+  justify-content: space-between; /* Espacement entre les éléments */
+  align-items: center; /* Centre les éléments verticalement */
 }
 
 /* Adapter la taille du logo pour les petits écrans */
 .logo-garage img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Media query pour les écrans de taille moyenne */
-@media (max-width: 768px) {
-    .container-fluid {
-        flex-direction: column; /* Empile les éléments verticalement sur les petits écrans */
-        align-items: center; /* Centre les éléments */
-    }
-    .divCenter {
-        margin-bottom: 10px; /* Espacement entre les éléments */
-    }
-}
+  .divCenter {
+    margin-bottom: 10px; /* Espacement entre les éléments */
+  }
 
-/* Media query pour les petits écrans */
-@media (max-width: 480px) {
-    .garage-text {
-        font-size: smaller; /* Réduire la taille du texte */
-    }
-}
-
+  .vignette-v2 {
+    min-width: 0; /* Supprime la largeur minimale pour éviter le débordement  */
+  }
 
 .centered-nav-items {
   text-align: center;
@@ -173,16 +168,16 @@ h1.garage-text {
 }
 
 .class p {
-  font-family: "Arial", sans-serif; 
-  font-size: 18px; 
-  line-height: 1.6; 
-  color: #555; 
-  margin: 20px 0; 
-  padding: 20px; 
-  background-color: #fff; 
-  border: 1px solid #ddd; 
-  border-radius: 5px; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  font-family: "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand.large-margin {
@@ -207,34 +202,8 @@ h1.garage-text {
   z-index: 2;
 }
 
-/* @media screen and (min-width: 0px) and (max-width: 800px) {
-  .profile-icon-container {
-    display: none;
-  }
-  .carousel-inner .carousel-item img {
-    height: 100px !important;
-  }
-  h1.garage-text {
-    font-size: 150%;
-  }
-  span.garage-text {
-    font-size: 100%;
-  }
-  .nav-item-text {
-    font-size: 1rem;
-    margin-right: 140px;
-  }
-  DIV.clSelectVehicule {
-    font-size: 1em;
-  }
-
-  DIV.clChoixSelonVeh .container-page {
-    display: block;
-  }
-} */
-
 .profile-icon-right {
-  margin-left: 10%; /* En CSS personnalisé non plus */
+  margin-left: 10%;
   padding-right: 20%;
 }
 
@@ -284,13 +253,9 @@ span#custom-color {
   width: 25%;
 }
 
-/*Container photos véhicules page accueille */
-.container-page {
+.col-6 {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* Aligne le contenu à la fin de la colonne (à droite) */
 }
 
 .col-sm-6 h1 {
@@ -299,30 +264,18 @@ span#custom-color {
   padding-top: 0;
 }
 
+/*Container photos véhicules découvrez votre prochain vehicule */
+.container-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
 .prix {
   color: #008497;
   font-size: 2.5rem;
   padding-bottom: 0;
-}
-/*  Cards */
-
-.card .front, .card .back {
-    font-size: 0.6em; 
-}
-
-
-/* .card .front strong, .card .back p {
-    font-size: 0.6em; 
-} */
-
-.card {
-  background-color: #008497; /* Couleur de fond initiale */
-  transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
-}
-
-.card:hover {
-  background-color: #862445; /* Nouvelle couleur de fond lors du survol */
-  color: #ddd;
 }
 
 /* horaires footer */
@@ -373,14 +326,6 @@ DIV.clEngagements .titre {
   object-fit: cover; /* Assure que l'image couvre la zone disponible sans se déformer */
 }
 
-}
-
-@media screen and (max-width: 999px) {
-  .container-page {
-    display: block;
-  }
-}
-
 div.visuel_conteneur + h2 {
   margin-top: 10%;
 }
@@ -389,19 +334,12 @@ div.visuel_conteneur + h2 {
   font-size: 1.5rem;
 }
 
-.col-6 {
-    display: flex;
-    justify-content: flex-end; /* Aligne le contenu à la fin de la colonne (à droite) */
-}
-
 .img_logo {
-    /* Ajoutez ici tout style supplémentaire pour votre logo si nécessaire */
+  /* Ajoutez ici tout style supplémentaire pour votre logo si nécessaire */
 }
-
 
 h1 {
   color: #531429;
-
 }
 
 h2 {
@@ -424,13 +362,6 @@ h2 {
   font-size: 4em;
 }
 
-/* @media screen and (max-width: 768px) {
-  .row .col-6 {
-    flex-basis: 100%; 
-  }
-} */
-
-
 .section-wrapper {
   width: 100%; /* Prend toute la largeur */
 }
@@ -442,24 +373,6 @@ h2 {
   padding-left: 15px;
   width: 100%; /* Prend toute la largeur */
 }
-/*  media pour la shadow nos occasions à moins de 20 000€  !!! */
-/* @media (min-width: 1400px) {
-  .container,
-  .container-lg,
-  .container-md,
-  .container-sm,
-  .container-xl,
-  .container-xxl {
-   
-  }
-}
-
-@media (min-width: 768px) {
-  .container-fluid {
-    padding-right: 245px;
-    padding-left: 266px;
-  }
-} */
 
 #temoignages {
   background-color: #6d6d6d;
@@ -487,15 +400,8 @@ h2 {
   border-radius: 10px; /* Optionnel pour arrondir les bords */
 }
 
-/* @media (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column;
-    align-items: stretch; 
-  } */
-
-  .photo_client {
-    max-width: 100%;
-  }
+.photo_client {
+  max-width: 100%;
 }
 
 .photo_client,
@@ -511,16 +417,10 @@ h2 {
   border-radius: 10px;
   box-shadow: 0 4px 8px #008497;
 }
-/* 
-@media (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column;
-  } */
 
-  .photo_client,
-  .texte-lorem {
-    flex-basis: auto;
-  }
+.photo_client,
+.texte-lorem {
+  flex-basis: auto;
 }
 
 .link-occasions {
@@ -538,4 +438,34 @@ h2 {
   min-width: 415px;
 }
 
+#idCalend {
+}
+#idCalend TABLE {
+  border-spacing: 2px 10px;
+  border-collapse: separate;
+}
 
+#idCalend TD.clOpen {
+  height: 10%;
+  width: calc(100% / 31);
+  background-color: green;
+  border: 0px;
+  position: relative;
+}
+
+#idCalend TD.clOpen > a {
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#idCalend TD.clFerme {
+  height: 10%;
+  width: calc(100% / 31);
+  background-color: red;
+  border: 0px;
+}

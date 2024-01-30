@@ -69,13 +69,8 @@ require_once '../lib_page/header.php';
     </div>
   </nav>
   
-
 <div class="container text-center">
-
-  
-
   <div>
-  
   <div class="container-page ">
 <?php 
     foreach (Vehicule::requeteVehiculeMarque($pdo,$codeMarque) as $raw){

@@ -4,7 +4,7 @@
      * permet les fonctions de création / modification / suppression en base
      * 
      * renvoi la liste des utilisateurs
-     * renvoi l'existe ou non d'un utilisateurs par son identifiant
+     * renvoi l'existence ou non d'un utilisateur par son identifiant
      * 
      * Enregistre dans la session le fait qu'un utilisateur se connecte
      * 
@@ -19,9 +19,9 @@
         private $user;
         
         /**
-         * le verbe __construct est relatif au constructeur de class
+         * __construct est relatif au constructeur de class
          * quand on 
-         * @param unknown $pdo
+         * @param unknown $pdo 
          */
         public function __construct() {
         }

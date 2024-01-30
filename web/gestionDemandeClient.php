@@ -2,21 +2,16 @@
 require_once '../lib/bib_connect.php';
 
 require_once '../lib/bib_sql.php';
-
 require_once '../bibappli/lib_metier.php';
-
 require_once '../lib_page/header.php';
-
 require_once '../class/classUtilisateur.php';
-
 require_once '../class/classClientDemande.php';
 
+//Récup info de SESSION : identification, contrôle d'accès, expérience utilisateur personnalisé, sesssion persistante évitant de se reconnecter
 if (isset($_SESSION['clUser']))
     $clUser = unserialize($_SESSION['clUser']);
 else
     $clUser = null;
-
-// permet de tester que la page a bien été validée par POST  formulaire via la balise action du form
 
 /**
  * Cette variable a 4 possibilités de statuts
@@ -103,14 +98,14 @@ if ($allDemande) {
                         
                         $indexStatutOrigine =  array_search($statutOrigine, array_keys($listeStatut));                     
 
-						  foreach ($listeStatut as $key => $value) {
-                             $indexStatutNouveau =  array_search($key, array_keys($listeStatut)); 
-                             if ($indexStatutNouveau >= $indexStatutOrigine){
-						      echo "<option value='$key'".($raw['status']==$key ? " selected" : "").">".htmlentities($value);
-						      echo "</option>";
-                             }
-						  }
-						 ?>
+						foreach ($listeStatut as $key => $value) {
+                            $indexStatutNouveau =  array_search($key, array_keys($listeStatut)); 
+                            if ($indexStatutNouveau >= $indexStatutOrigine){
+						    echo "<option value='$key'".($raw['status']==$key ? " selected" : "").">".htmlentities($value);
+						    echo "</option>";
+                            }
+						}
+						?>
 						</select>
 					</td>
 				</tr>

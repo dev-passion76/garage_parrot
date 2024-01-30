@@ -18,7 +18,7 @@ $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 $mail->XMailer = null;
 
 if (!$mail->send()) {
-    $msg = 'Désolé, quelque chose a mal tourné. Veuillez réessayer plus tard.';
+    $msg = 'Une erreur est survenue, veuillez réessayer plus tard.';
 } else {
     $msg = 'Message envoyé ! Merci de nous avoir contacté.';
 }

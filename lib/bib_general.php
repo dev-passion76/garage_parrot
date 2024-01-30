@@ -19,20 +19,22 @@ class GET{
 }
 
 function verifMail ($mail){
+    if ($mail == null || trim($mail)=='')
+        return false;
     /**
-     * On controle la saisie utilisateur de l'email qui de manière conventionnel s'écrit <user>@<domainee>
-     * on utilise alors un controle sur la base d'expression régulière : via la foncton php preg_match
+     * On controle la saisie utilisateur de l'email qui de manière conventionnelle s'écrit <user>@<domaine>
+     * on utilise alors un controle sur la base d'expression régulière : via la fonction php preg_match
      * 
-     * vite fait :
+     *
      * /^   signifie commence par 
      * [a-zA-Z0-9_]  tout caractère de 'a' à 'z' ou 'A' à 'Z' ou de 0 à 9 ou '_' 
      * + même regle que la précédemmant pour autant de caractère que saisie 
      * @ obligation d'avoir ce caractère
      * [a-zA-Z0-9\-]  tout caractère de 'a' à 'z' ou 'A' à 'Z' ou de 0 à 9 ou '-' 
-     * + même regle que la précédemmant pour autant de caractère que saisie 
+     * + même regle que précédemment pr autant de caractère que saisie 
      * \. il faut un point
      * [a-zA-Z0-9\-\.]  tout caractère de 'a' à 'z' ou 'A' à 'Z' ou de 0 à 9 ou '-' ou '.' 
-     * + même regle que la précédemmant pour autant de caractère que saisie 
+     * + même regle que la précédemment pour autant de caractère que saisie 
      * $ jusqu'à la fin
      * /i ignore case
      */
