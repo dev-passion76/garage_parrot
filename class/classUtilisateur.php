@@ -10,7 +10,7 @@
      * 
      * Permet le controle de la demande de connexion
      * 
-     * L'utilisation de l'algorithme SHA1 permet de sécuriser le mot de passe
+     * L'utilisation de l'algorithme BCRYPT permet de sécuriser le mot de passe
      * @author
      *
      */
@@ -149,20 +149,13 @@
         
         
         /**
-         * sécurisation du mot de passe SHA1 avec clé dynamique rajouté pour eviter le Brut force
+         * sécurisation du mot de passe BCRYPT
          */
         private static function pw_encode($password){
-            $seed = "";
-            for ($i = 1; $i <= 10; $i++)
-                $seed .= substr('0123456789abcdef', rand(0,15), 1);
-            return sha1($seed.$password.$seed).$seed;
+        return password_hash($password, PASSWORD_BCRYPT);
         }
 
-        private static function pw_check($password, $stored_value){
-            if (strlen($stored_value) != 50)
-                return FALSE;
-            $stored_seed = substr($stored_value,40,10);
-            return (sha1($stored_seed.$password.$stored_seed).$stored_seed == $stored_value);
-        }
-    }
+        private static function pw_check($password, $stored_hash){
+        return password_verify($password, $stored_hash);
+    }}
 ?>
