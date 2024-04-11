@@ -37,7 +37,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
         $url_img = POST::get('url_img');
 
         /**
-         * Cette instuction permet de savoir où la page encore est stocké sur le serveur
+         * Cette instuction permet de savoir où la page  est stocké sur le serveur
          * @var Ambiguous $docRoot
          */
         $docRoot = $_SERVER['CONTEXT_DOCUMENT_ROOT'];
@@ -157,12 +157,12 @@ if ($allVehicule) {
 					<td>
 						<select name="statut" onchange="ClassWorkFlow.changeStatut(this,<?=$raw['idx_vehicule']?>)">
 						<?php
-						  foreach (Vehicule::getListeStatut() as $key => $value) {
-						      echo "<option value='$key'".($raw['status']==$key ? " selected" : "").">".htmlentities($value);
-						      echo "</option>";
-						  }
-						  $raw['status']
-						 ?>
+						foreach (Vehicule::getListeStatut() as $key => $value) {
+						echo "<option value='$key'".($raw['status']==$key ? " selected" : "").">".htmlentities($value);
+						echo "</option>";
+						}
+						$raw['status']
+						?>
 						</select>
 					</td>
 				</tr>

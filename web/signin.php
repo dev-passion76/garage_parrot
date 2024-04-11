@@ -21,9 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $mes = "La saisie du mot de passe est obligatoire";
     }
     else {
+
         $identifiant = $_POST['username'];
         $mdp = $_POST['password'];
         $user = new Utilisateur();
+		
         if ($user->verifieConnection($pdo,$identifiant,$mdp)){
             $_SESSION['clUser'] = serialize($user);
             header("Location:index.php");

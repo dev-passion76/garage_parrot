@@ -68,7 +68,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
             $prenom = POST::get('prenom');
             $type_utilisateur = POST::get('type_utilisateur');
 
-            // L'on doit verifier que l'identifiant saisie n'existe pas déjà
+            // Verifier que l'identifiant saisie n'existe pas déjà
             if ($identifiant == null || $identifiant == '')
                 $message = "La saisie de l'identifiant est obligatoire";
             else if ($mot_de_passe == null || $mot_de_passe == '')

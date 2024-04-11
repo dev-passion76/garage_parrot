@@ -1,24 +1,8 @@
 <?php 
-    require_once '../class/classVehicule.php';
     class ClientDemande {
         // On enregistre les information de connexion du driver pdo
         private $demande;
-
-        /**
-         * TB CLTDEM 01
-         * 
-         * ATTENTION : l'array est volontairement mis dans un ordre d'action,
-         * le processus de mise à jour de statut controle l'ordre de lequel les étapes de changement peuvent se réaliser 
-         * par chronolohie ascendante de l'index de l'array (0,1,2,3,....) et non l'inverse
-         */
-        public static $statut = array(
-                'INI' => 'Initial',
-                'REF' => 'Refus',   
-                'ENC' => 'Encours', // impact statut vehicule = RESEVER
-                'VAL' => 'Validé',  // impact statut vehicule = VENDU
-                'REJ' => 'Rejeté',   // impact statut vehicule = PUBLIER
-            );
-
+        
         /**
          * le verbe __construct est relatif au constructeur de class
          * quand on 
@@ -26,11 +10,7 @@
          */
         public function __construct() {
         }
-
-        public static function getListeStatut(){
-            return self::$statut;
-        }
-
+        
         /**
          * Liste des utilisateurs
          *
@@ -38,15 +18,9 @@
          * @return unknown
          */
         public static function getListe($pdo){
-            $sql = "select client_demande.*,vehicule.description from client_demande left outer join vehicule on vehicule.idx_vehicule = client_demande.idx_vehicule";
+            $sql = "select * from client_demande ";
             return DbAccess::getRequeteSql($pdo, $sql);
         }
-
-        public static function getRaw($pdo,$idxContactClient){
-            $sql = "select * from client_demande where idx_contact_client = $idxContactClient ";
-            return DbAccess::canFind($pdo, $sql);
-        }
-        
         
         /**
          * Fonction pour l'ajout d'utilisateur
@@ -72,102 +46,56 @@
             return $stmt->execute($data);
         }
 
+        public static function modifie($pdo,$identifiant,$mot_de_passe,$nom,$prenom,$type_utilisateur){
+            $data = [
+                'tidentifiant' => $identifiant,
+                'tmdp' => $mot_de_passe,
+                'tnom' => $nom,
+                'tprenom' => $prenom,
+                'ttype_utilisateur' => $type_utilisateur,
+            ];
+            $sql = "UPDATE utilisateur SET mdp=:tmdp, nom=:tnom, prenom=:tprenom, type_utilisateur=:ttype_utilisateur WHERE identifiant=:tidentifiant";
+            
+            $stmt= $pdo->prepare($sql);
+            return $stmt->execute($data);
+        }
+        
+        public static function supprime($pdo,$identifiant) {
+            $data = [
+                'id' => $identifiant,
+            ];
+            $sql = "DELETE FROM utilisateur WHERE identifiant = :id";
+            $stmt= $pdo->prepare($sql);
+            return $stmt->execute($data);
+        }
+
         /**
-         * Permet de modifier le statut de la demande 
-         * qui peut déclencher la modification du statut du véhicule afférant à la demande
+         * Procesus de connex
+         *
+         * @param unknown $pdo
+         * @param unknown $identifiant
+         * @param unknown $motDePasse
+         * @return boolean
          */
-        public static function modifierStatus($pdo,$idxContactClient,$statut) {
-            if ($raw = ClientDemande::getRaw($pdo,$idxContactClient)){
-                switch ($statut){
-                    case 'INI':
-                        $nouveauStatutDemande  = null;
-                        $nouveauStatutVehicule = null;
-                        break;
-                    case 'REF':
-                        $nouveauStatutDemande = $statut;
-                        $nouveauStatutVehicule = null;
-                        break;
-                    case 'ENC':
-                        $nouveauStatutDemande = $statut;
-                        $nouveauStatutVehicule = 'R';
-                        break;
-                    case 'VAL':
-                        $nouveauStatutDemande = $statut;
-                        $nouveauStatutVehicule = 'V';
-                        break;
-                    case 'REJ':
-                        $nouveauStatutDemande = $statut;
-                        $nouveauStatutVehicule = 'P';
-                        break;
-                    default:
-                        $nouveauStatutDemande  = null;
-                        $nouveauStatutVehicule = null;
-                        break;
-                }
-                if ($nouveauStatutDemande != null){
-                    /**
-                     * Conrtoler que la demande de statut est bien possible
-                     */
-                    $statutOrigine = $raw['status'];
-
-                    /**
-                     * On recherche la valeur de l'index de chaqune des clé d'index de l'array de statut
-                     * ainsi l'on peut comparer l'ordre de la demande de mise à jour
-                     */
-                    $indexStatutOrigine =  array_search($statutOrigine, array_keys(ClientDemande::getListeStatut())); 
-                    $indexStatutNouveau =  array_search($nouveauStatutDemande, array_keys(ClientDemande::getListeStatut())); 
-
-                    /**
-                     * Controle de la regle de gestion interdisant la mise à jour de statut de manière inversé
-                     */
-                    if ($indexStatutNouveau > $indexStatutOrigine){
-                        if (DbAccess::transactionDebut($pdo)){
-                            $sql = "update client_demande set status = '$nouveauStatutDemande' where idx_contact_client =  $idxContactClient";
-
-                            $stmt= $pdo->prepare($sql);
-                            if ($stmt->execute()){
-                                if ($nouveauStatutVehicule != null)
-                                    if (Vehicule::modifierStatus($pdo,$raw['idx_vehicule'],$nouveauStatutVehicule))
-                                        return DbAccess::transactionValide($pdo);
-                                    else{
-                                        DbAccess::transactionDefait($pdo);
-                                        return false;
-                                    }
-                                else{
-                                    DbAccess::transactionValide($pdo);
-                                    return true;
-                                }                                
-                            }
-                            else{
-                                DbAccess::transactionDefait($pdo);
-                                return false;
-                            }                                                        
-                        }
-                        else
-                            return false;
-                    }
-                    else
-                        return false;
-                }
-                else
-                    return false;
+        public function verifieConnection($pdo,$identifiant,$motDePasse) {
+            $sql = 'select * from utilisateur '.
+                'where utilisateur.identifiant = '.$pdo->quote($identifiant).' '.
+                'and   utilisateur.mdp = '.$pdo->quote($motDePasse).' ';
+            if ($reqUser = DbAccess::canFind($pdo,$sql)){
+                $this->user = $reqUser;
+                return true;
             }
-            return false;
-
-            /**
-             *                 
-             * 'INI' => 'Arrivage',
-                'REF' => 'Refus',   
-                'ENC' => 'Encours', // impact statut vehicule = RESEVER
-                'VAL' => 'Publié',  // impact statut vehicule = VENDU
-                'REJ' => 'Rejet',   // impact statut vehicule = PUBLIER
-
-             */
-         }
-
-         /**
-          * TODO fonction à terminer dans le cas du suppression d'une demande
-          * public static function supprime() {}
-          */       
+            else{
+                return false;
+            }
+        }
+        
+        /**
+         * Renvoi tout les colonnes de la requetes de connexion utilisateur
+         * @return unknown
+         */
+        public function getUser() {
+            return $this->user;
+        }
     }
 ?>
