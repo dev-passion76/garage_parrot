@@ -1,0 +1,7 @@
+{
+    "name": "Garage Parrot",
+    "description": "Description de votre projet",
+    "require": {
+        // Dépendances de votre projet
+    }
+}
