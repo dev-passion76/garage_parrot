@@ -1,7 +1,4 @@
 {
     "name": "Garage Parrot",
-    "description": "Description de votre projet",
-    "require": {
-        // Dépendances de votre projet
-    }
+    "description": "Description de votre projet"
 }
